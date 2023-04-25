@@ -3,7 +3,7 @@ package controller;
 import view.SignupMenu;
 import java.util.regex.Matcher;
 
-public class SignupController extends  CheckController{
+public class SignupController extends CheckController{
     private static boolean stayLoggedIn=false;
     private Integer invalidLogin=0;
     public static void start(){

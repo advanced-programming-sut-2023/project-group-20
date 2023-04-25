@@ -1,5 +1,7 @@
 package model;
 
+import model.GameInfo.Troop;
+
 import java.util.ArrayList;
 
 public class DataBase {
@@ -20,6 +22,7 @@ public class DataBase {
         typesOfFloor.add("Grass");
         typesOfFloor.add("Meadow");
         typesOfFloor.add("FoolMeadow");
+        typesOfFloor.add("WaterArea");
     }
     private final static ArrayList<String> typesOftree=new ArrayList<>();
     static {
@@ -41,6 +44,14 @@ public class DataBase {
         typesOfWaterArea.add("Sea");
         typesOfWaterArea.add("Beach");
     }
+    private final static ArrayList typesOfTroops=new ArrayList<Troop>();
+    static {
+        typesOfTroops.add("Archer");
+        typesOfTroops.add("Knight");
+        typesOfTroops.add();
+        typesOfTroops.add();
+        typesOfTroops.add();
+    }
     public static void addUserToDataBase(User user){
         users.add(user);
     }
@@ -48,4 +59,8 @@ public class DataBase {
     public static Integer rank(User user){}
 
     public static String selectSecurityQuestion(Integer number){}
+
+    public static ArrayList getTypesOfTroops() {
+        return typesOfTroops;
+    }
 }

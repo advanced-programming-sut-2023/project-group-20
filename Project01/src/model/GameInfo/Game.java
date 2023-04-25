@@ -1,15 +1,21 @@
-package model.Game;
+package model.GameInfo;
 
 import model.User;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 
 public class Game {
     private ArrayList<Trade> trades=new ArrayList();
     private Integer turnNumber=0;
-    private  Map map=new Map();
+    private Integer currentTurn=0;
+    private  Map map;
     private ArrayList<Government> governments=new ArrayList<>();
+
+    public Game(Integer turnNumber, Map map) {
+        this.turnNumber = turnNumber;
+        this.map = map;
+    }
+
     public void addGovernment(Government government){
         this.governments.add(government);
     }
@@ -36,5 +42,8 @@ public class Game {
 
     public ArrayList<Trade> getTrades() {
         return trades;
+    }
+    public void increaseCurrentTurn(){
+        this.currentTurn++;
     }
 }

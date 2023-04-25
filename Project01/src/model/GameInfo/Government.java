@@ -1,4 +1,4 @@
-package model.Game;
+package model.GameInfo;
 
 import model.User;
 
