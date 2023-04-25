@@ -14,9 +14,10 @@ public class User {
         this.securityQuestion = securityQuestion;
     }
 
-    public User(String username, String password, String nickname, String email) {
+    public User(String username, String password, String nickname) {
         this.username = username;
         this.password = password;
+        this.nickname=nickname;
     }
 
     public void setUsername(String username) {
@@ -48,7 +49,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public String getNickname() {

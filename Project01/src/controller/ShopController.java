@@ -12,5 +12,7 @@ public class ShopController {
     public static String showPriceList(){}
     public static String buy(Matcher matcher){}
     public static String sell(Matcher matcher){}
-    public static void closeShop(){}
+    public static void closeShop(){
+        GameController.start();
+    }
 }

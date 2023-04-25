@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 
 public class MapController {
     public static void start(Matcher matcher){
-        showMap(matcher);
+        MapMenu.showMap(showMap(matcher));
         MapMenu mapMenu=new MapMenu();
         mapMenu.run();
     }

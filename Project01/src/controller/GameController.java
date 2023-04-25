@@ -1,14 +1,9 @@
 package controller;
 
 import model.Game.Game;
-import model.Game.Home;
 import model.User;
 import view.GameMenu;
-
-import java.util.Map;
-import java.util.Stack;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class GameController {
     private static User currentUser;
@@ -34,12 +29,11 @@ public class GameController {
     }
     public static String showPopularity(){}
     public static String showFoodList(){}
+    public static String showPopularityFactors(){}
     public static String showFoodRate(){}
-    public static void setTaxRate(Matcher matcher){}
+    public static String setTaxRate(Matcher matcher){}
     public static String showTaxRate(){}
     public static String setFoodRate(Matcher matcher){}
-    public static String dropBuilding(Matcher matcher){}
-
     public static String selectBuilding(Matcher matcher){}
     public static String createUnit(Matcher matcher){}
     public static String repair(){}
@@ -47,12 +41,13 @@ public class GameController {
     public static String patrolUnit(Matcher matcher){}
     public static String moveUnit(Matcher matcher){}
     public static String setTroopsState(Matcher matcher){}
-    public static void attackToEnemy(Matcher matcher){}
-    public static void pourOil(Matcher matcher){}
+    public static String attackToEnemy(Matcher matcher){}
+    public static String attack(Matcher matcher){}
+    public static String pourOil(Matcher matcher){}
     public static String digTunnel(Matcher matcher){}
     public static String buildBuilding(Matcher matcher){}
     public static String disbandUnit(){};
-    public static void setTexture(Matcher matcher){}
+    public static String setTexture(Matcher matcher){}
     public static String clear(Matcher matcher){}
     public static String droprock(Matcher matcher){}
     public static String prockRandomDirection(){}

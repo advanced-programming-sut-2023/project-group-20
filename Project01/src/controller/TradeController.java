@@ -1,6 +1,5 @@
 package controller;
 
-import view.GameMenu;
 import view.TradeMenu;
 
 import java.util.regex.Matcher;
@@ -13,7 +12,7 @@ public class TradeController {
     public static String showAllPlayers(){}
     public static String trade(Matcher matcher){}
     private static Integer setId(){}
-    public static String tradeList(Matcher matcher){}
+    public static String tradeList(){}
     public static String tradeAccept(Matcher matcher){}
     public static String tradeHistory(){}
     public static void back(){

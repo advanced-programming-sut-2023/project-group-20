@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static ArrayList<User> users=new ArrayList<>();
+    private static ArrayList<String> emails=new ArrayList<>();
     private final static ArrayList<String> securityQuestions=new ArrayList<>();
     static {
         securityQuestions.add("What is my father’s name?");
@@ -43,9 +44,18 @@ public class DataBase {
     }
     public static void addUserToDataBase(User user){
         users.add(user);
+        emails.add(user.getEmail());
     }
-    public static User getUserByName(String username){}
+    public static User getUserByName(String username){
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUsername().equals(username))
+                return users.get(i);
+        }return null;
+    }
     public static Integer rank(User user){}
 
+    public static ArrayList<String> getEmails() {
+        return emails;
+    }
     public static String selectSecurityQuestion(Integer number){}
 }
