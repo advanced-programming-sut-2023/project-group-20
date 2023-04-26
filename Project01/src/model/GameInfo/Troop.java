@@ -7,11 +7,12 @@ public class Troop extends People {
     private Integer power;
     private Integer hitpoint;
     private Integer speed;
+    private String TroopGroup;
     public void setState(String state) {
         this.state = state;
     }
 
-    public Troop(String type, User owner, Integer power, Integer hitpoint) {
+    public Troop(String type,String troopGroup, User owner, Integer power, Integer hitpoint) {
         super(type, owner);
         this.power = power;
         this.hitpoint = hitpoint;
