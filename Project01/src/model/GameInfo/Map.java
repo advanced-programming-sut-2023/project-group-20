@@ -1,5 +1,7 @@
 package model.GameInfo;
 
+import model.User;
+
 import java.util.ArrayList;
 
 public class Map {
@@ -7,6 +9,7 @@ public class Map {
     private Integer xSize;
     private Integer ySize;
     private ArrayList<Home> homes = new ArrayList<>();
+    private ArrayList<User>
 
     public Map(Integer xSize, Integer ySize) {
         this.xSize = xSize;

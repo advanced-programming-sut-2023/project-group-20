@@ -5,7 +5,8 @@ import model.User;
 import java.util.HashMap;
 
 public class Government {
-
+    private Integer xBorder;
+    private Integer yBorder;
     private Integer unemployed;
     private User owner;
     private Integer popularity=0;
@@ -13,6 +14,13 @@ public class Government {
     private Integer coin=0;
     private Integer taxRate=0;
     private Integer fearRate=0;
+
+    public Government(Integer xBorder, Integer yBorder, User owner) {
+        this.xBorder = xBorder;
+        this.yBorder = yBorder;
+        this.owner = owner;
+    }
+
     private Integer population=0;
 //    private HashMap<String,Integer> food=new HashMap();
 //    {

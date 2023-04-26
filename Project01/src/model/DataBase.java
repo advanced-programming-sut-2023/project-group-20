@@ -106,7 +106,7 @@ public class DataBase {
         typeOfWarBuilding.add("Catapult");
         typeOfWarBuilding.add("FixedCatapult");
         typeOfWarBuilding.add("FireCatapult");
-   
+
     }
 
     public static void addUserToDataBase(User user) {
