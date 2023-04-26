@@ -3,6 +3,7 @@ package controller;
 import model.User;
 
 public abstract class CheckController {
+<<<<<<< HEAD
     protected static boolean checkUsername(String username){return username.matches("[A-Z,a-z,_,0-9]+");}
     protected static User logedInuser;
     protected static String checkPassword(String password){
@@ -33,3 +34,9 @@ public abstract class CheckController {
         return "accepted";
     }
 }
+=======
+    private static String checkUsername(String username){}
+    private static String checkPassword(String password){}
+    private static String checkEmail(){}
+}
+>>>>>>> Game_controlling

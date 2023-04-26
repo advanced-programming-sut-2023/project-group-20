@@ -1,11 +1,11 @@
-package model.Game;
+package model.GameInfo;
 
-public class tree {
+public class Tree {
     private String name;
     private Integer price;
     private Integer fruitAmount;
 
-    public tree(String name, Integer price, Integer fruitAmount) {
+    public Tree(String name, Integer price, Integer fruitAmount) {
         this.name = name;
         this.price = price;
         this.fruitAmount = fruitAmount;

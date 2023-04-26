@@ -1,4 +1,4 @@
-package model.Game;
+package model.GameInfo;
 
 import model.User;
 
@@ -7,14 +7,16 @@ public class Building {
     private User owner;
     private String type;
     private final Integer maxHitpoint;
+    protected final Integer powerOfDestroying;
     private final Integer needWorkers;
     private Integer activeWorkers=0;
 
-    public Building(Integer hitpoint, User owner, String type, Integer maxHitpoint, Integer needWorkers) {
+    public Building(Integer hitpoint, User owner, String type, Integer maxHitpoint, Integer powerOfDestroying, Integer needWorkers) {
         this.hitpoint = hitpoint;
         this.owner = owner;
         this.type = type;
         this.maxHitpoint = maxHitpoint;
+        this.powerOfDestroying = powerOfDestroying;
         this.needWorkers = needWorkers;
     }
     public void setHitpoint(Integer hitpoint) {
@@ -33,4 +35,8 @@ public class Building {
         return activeWorkers;
     }
     public void runBuilding(){}
+
+    public String getType() {
+        return type;
+    }
 }

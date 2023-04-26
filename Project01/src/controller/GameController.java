@@ -1,13 +1,21 @@
 package controller;
 
-import model.Game.Game;
+import model.GameInfo.Game;
+import model.GameInfo.Map;
 import model.User;
 import view.GameMenu;
+
 import java.util.regex.Matcher;
 
 public class GameController {
     private static User currentUser;
     private static Game currentGame;
+
+
+    public GameController(Game game) {
+        setCurrentGame(game);
+    }
+
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
@@ -64,4 +72,5 @@ public class GameController {
     public static String checkFloorType(String type){}
     public static String checkWaterAreaType(String type){}
     public static String checkTreeType(String type){}
+
 }
