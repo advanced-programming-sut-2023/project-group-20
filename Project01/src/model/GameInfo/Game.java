@@ -5,23 +5,30 @@ import model.User;
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Trade> trades=new ArrayList();
-    private Integer turnNumber=0;
-    private Integer currentTurn=0;
-    private  Map map;
-    private ArrayList<Government> governments=new ArrayList<>();
+    private ArrayList trades = new ArrayList<Trade>();
+    private Integer turnNumber = 0;
+    private Integer currentTurn = 0;
+    private Map map;
+    private Home selectedHome;
+    private ArrayList governments;
+    private int playerNumber;
 
-    public Game(Integer turnNumber, Map map) {
+    public Game(Integer turnNumber, Map map, ArrayList<Government> governments,int playerNumber) {
         this.turnNumber = turnNumber;
         this.map = map;
+        this.governments = governments;
+        this.playerNumber=playerNumber;
     }
 
-    public void addGovernment(Government government){
+    public void addGovernment(Government government) {
         this.governments.add(government);
     }
-    public Government getGovernmentByUser(User user){}
 
-    public void setTurnNumber(Integer turnNumber) {
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    private void setTurnNumber(Integer turnNumber) {
         this.turnNumber = turnNumber;
     }
 
@@ -36,6 +43,7 @@ public class Game {
     public ArrayList<Government> getGovernments() {
         return governments;
     }
+
     public void addTrade(Trade trade) {
         this.trades.add(trade);
     }
@@ -43,7 +51,16 @@ public class Game {
     public ArrayList<Trade> getTrades() {
         return trades;
     }
-    public void increaseCurrentTurn(){
+
+    public void increaseCurrentTurn() {
         this.currentTurn++;
+    }
+
+    public Home getSelectedHome() {
+        return selectedHome;
+    }
+
+    public void setSelectedHome(Home selectedHome) {
+        this.selectedHome = selectedHome;
     }
 }

@@ -1,40 +1,49 @@
 package controller;
 
 import model.DataBase;
-import model.GameInfo.Home;
-import model.GameInfo.Mine;
-import model.GameInfo.Troop;
+import model.GameInfo.*;
 import view.MapMenu;
-import model.GameInfo.Map;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 
 public class MapController {
-    private int xMap;
-    private int yMap;
-    private Map map = GameController.getCurrentGame().getMap();
+    private int xMapPos;
+    private int yMapPos;
+    private Map map;
+    private Game currentGame;
+
+    public Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public void setCurrentGame(Game currentGame) {
+        this.currentGame = currentGame;
+    }
 
     public void start(Matcher matcher) {
-        this.xMap = Integer.parseInt(matcher.group("x"));
-        this.yMap = Integer.parseInt(matcher.group("y"));
-        showMap(0, 0);   //  WE SHOULD PRINT THE STRING OF THIS FUNC
+        this.xMapPos = Integer.parseInt(matcher.group("x"));
+        this.yMapPos = Integer.parseInt(matcher.group("y"));
         MapMenu mapMenu = new MapMenu();
+        mapMenu.setMapController(this);
         mapMenu.run();
     }
 
-    public String showMap(int movementY, int movementX) {
+    public MapController(Map map, Game currentGame) {
+        this.map = map;
+        setCurrentGame(currentGame);
+    }
 
-        Map map = GameController.getCurrentGame().getMap();
+    public String showMap(int movementY, int movementX) {
         String output = new String();
-        xMap += movementX;
-        yMap += movementY;
-        if (xMap <= 0 || yMap <= 0)
+        xMapPos += movementX;
+        yMapPos += movementY;
+        if (xMapPos <= 0 || yMapPos <= 0)
             return "Your position for x and y is not correct";
         for (int i = +1; i >= -1; i--) {
             for (int j = -1; j <= +1; j++) {
-                printHome(output, map.getHomeByPosition(j, i));
+                output += printHome(getHomeByPosition(j, i));
                 output += " ";
             }
             output += "\n";
@@ -42,39 +51,36 @@ public class MapController {
         return output;
     }
 
-    private void printHome(String output, Home home) {
+    private String printHome(Home home) {
         if (home.getX() < 0 || home.getX() > map.getxSize()) {
-            output += "*";
-            return;
+            return "*";
         } else if (home.getY() < 0 || home.getY() > map.getySize()) {
-            output += "*";
-            return;
+            return "*";
         } else if (home.getTroops().size() == 0) {
-            output += "S";
-            return;
+            return "S";
         } else if (home.getBuilding() != null) {
-            output += "B";
-            return;
+            return "B";
         } else if (home.getTree() != null) {
-            output += "T";
-            return;
+            return "T";
         } else {
-            output += home.getTypeOfFloor();
-            return;
+            return home.getTypeOfFloor();
         }
     }
 
     public String moveMap(Matcher matcher) {
-        int movementY = 0;    //  MUST BE DEFINDE BY MATCHER
-        int movementX = 0;    //  MUST BE DEFINDE BY MATCHER
-        showMap(movementY, movementX);
+        //TODO
+        //  MUST BE DEFINDE BY MATCHER
+        //  MUST BE DEFINDE BY MATCHER
+        int movementY = 0;
+        int movementX = 0;
+        return showMap(movementY, movementX);
     }
 
     public String showHomeDetails(Matcher matcher) {
         String output = new String();
         Integer x = Integer.parseInt(matcher.group("x"));
         Integer y = Integer.parseInt(matcher.group("y"));
-        Home home = this.map.getHomeByPosition(x, y);
+        Home home = this.getHomeByPosition(x, y);
         output = "Home Details:\n";
         output += "Floor Type: " + home.getTypeOfFloor() + "\n";
         if (home.getBuilding() != null && home.getBuilding() instanceof Mine) {
@@ -85,7 +91,7 @@ public class MapController {
             output += amountOfAllSameTroops(home);
         }
         if (home.getBuilding() != null) {
-            output+="Building: "+home.getBuilding().getType()+"\n";
+            output += "Building: " + home.getBuilding().getType() + "\n";
         }
         return output;
     }
@@ -95,6 +101,7 @@ public class MapController {
         String output = "";
         ArrayList troops = home.getTroops();
         ArrayList typeOfTroops = DataBase.getTypesOfTroops();
+
 
         for (int i = 0; i < typeOfTroops.size(); i++) {
             hashMap.put(typeOfTroops.get(i), 0);
@@ -115,31 +122,32 @@ public class MapController {
         return output;
     }
 
-    public static String homeDetails(Matcher matcher) {
+    public Home getHomeByPosition(Integer x, Integer y) {
+        for (int i = 0; i < map.getHomes().size(); i++) {
+            if (((Home) map.getHomes().get(i)).getX().equals(x) && ((Home) map.getHomes().get(i)).getY().equals(y)) {
+                return ((Home) map.getHomes().get(i));
+            }
+        }
+        return null;
     }
 
     public static void exit() {
         GameController.start();
     }
 
-    public static void resetAllHomes() {
-        Map map = GameController.getCurrentGame().getMap();
+    //TODO
+    // Reset All Homes After Turn Changing
+    public void resetAllHomes() {
         for (int i = 1; i < map.getxSize(); i++) {
             for (int j = 1; j < map.getySize(); j++) {
-                resetHome(map.getHomeByPosition(i, j));
+                resetHome(this.getHomeByPosition(i, j));
             }
         }
     }
 
-    private static void resetHome(Home home) {
+    private void resetHome(Home home) {
         home.setTroopsSelected(false);
+        home.setBuildingSelected(false);
     }
 
-
-    private static boolean checkTheBorder(int x, int neighbour) {
-        Map map = GameController.getCurrentGame().getMap();
-        if (0 < x + neighbour && x + neighbour <= map.getySize())
-            return true;
-        return false;
-    }
 }

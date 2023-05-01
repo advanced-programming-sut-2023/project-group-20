@@ -4,17 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="" />
+    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/BuildingTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/FloorTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/MineTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/TreeTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/TroopTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/WarBuildingType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/enums/WaterAreaTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Armoury.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/FoodFarm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/TownBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Granery.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Granery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/StockPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/StockPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Troop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Troop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/WarBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/WarBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/view/MapMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="Game_controlling" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <hideBySeverity>
+      <option value="300" />
+    </hideBySeverity>
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OwwgiHEy5KO49hRfcwTTzjQOHD" />
   <component name="ProjectViewState">
@@ -25,23 +68,40 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/erfan-b/Desktop/ProjectDocs"
+    "last_opened_file_path": "/home/erfan-b/Desktop/P1/Test1",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjectPhas1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="enums.Test" />
       <module name="ProjectPhas1" />
-      <option name="filePath" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="enums.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -65,7 +125,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Menu" />
+                        <option value="Menu" />
                       </list>
                     </value>
                   </entry>
@@ -76,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

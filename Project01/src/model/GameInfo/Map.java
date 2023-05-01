@@ -1,5 +1,6 @@
 package model.GameInfo;
 
+import controller.MapController;
 import model.User;
 
 import java.util.ArrayList;
@@ -9,12 +10,14 @@ public class Map {
     private Integer xSize;
     private Integer ySize;
     private ArrayList<Home> homes = new ArrayList<>();
-    private ArrayList<User>
 
-    public Map(Integer xSize, Integer ySize) {
+//    private ArrayList<User>
+
+    public Map(Integer xSize, Integer ySize, Integer playerNumber) {
         this.xSize = xSize;
         this.ySize = ySize;
         createHomes();
+
     }
 
 //    public void addHomeToMap(Home home) {
@@ -25,8 +28,9 @@ public class Map {
         return homes;
     }
 
-    public Home getHomeByPosition(Integer x, Integer y) {
-    }
+//    public Home getHomeByPosition(Integer x, Integer y) {
+//        mapController.
+//    }
 
     public void setSelectedBuilding(Building selectedBuilding) {
         this.selectedBuilding = selectedBuilding;

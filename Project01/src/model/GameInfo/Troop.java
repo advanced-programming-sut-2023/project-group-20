@@ -1,5 +1,6 @@
 package model.GameInfo;
 
+import enums.TroopTypes;
 import model.User;
 
 public class Troop extends People {
@@ -7,21 +8,16 @@ public class Troop extends People {
     private Integer power;
     private Integer hitpoint;
     private Integer speed;
-    private String TroopGroup;
+    private String troopGroup;
     public void setState(String state) {
         this.state = state;
     }
 
-    public Troop(String type,String troopGroup, User owner, Integer power, Integer hitpoint) {
+    public Troop(String type,String troopGroup, Government owner, Integer power, Integer hitpoint) {
         super(type, owner);
         this.power = power;
         this.hitpoint = hitpoint;
-        if(type.equals("Archer")){
-            setSpeed(3);
-        }else if(){
-
-        }
-
+        this.troopGroup=troopGroup;
     }
 
     private void setSpeed(Integer speed) {

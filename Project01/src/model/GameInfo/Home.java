@@ -3,7 +3,7 @@ package model.GameInfo;
 import java.util.ArrayList;
 
 public class Home {
-
+    private Government owner;
     private Integer x;
     private Integer y;
     private boolean isOilExist = false;
@@ -13,6 +13,12 @@ public class Home {
     private Tree tree;
     private ArrayList troops = new ArrayList<Troop>();
     private boolean isTroopsSelected = false;
+
+    public boolean isBuildingSelected() {
+        return isBuildingSelected;
+    }
+
+    private boolean isBuildingSelected = false;
 
     public Home(Integer x, Integer y, String typeOfFloor) {
         this.x = x;
@@ -53,10 +59,10 @@ public class Home {
         return tree;
     }
 
-    public String selectTroop() {
-        this.isTroopsSelected = true;
-        return "All troops witch stayed in this home are selected";
-    }
+//    public String selectTroop() {
+//        this.isTroopsSelected = true;
+//        return "All troops witch stayed in this home are selected";
+//    }
 
     public boolean isTroopsSelected() {
         return isTroopsSelected;
@@ -64,5 +70,17 @@ public class Home {
 
     public void setTroopsSelected(boolean troopsSelected) {
         isTroopsSelected = troopsSelected;
+    }
+
+    public void setBuildingSelected(boolean buildingSelected) {
+        isBuildingSelected = buildingSelected;
+    }
+
+    public Government getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Government owner) {
+        this.owner = owner;
     }
 }

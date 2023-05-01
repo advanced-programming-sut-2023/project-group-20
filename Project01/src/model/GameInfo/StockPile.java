@@ -5,10 +5,10 @@ import model.User;
 import java.util.HashMap;
 
 public class StockPile {
-    private User owner;
+    private Government owner;
     HashMap elements = new HashMap<String, Integer>();
 
-    public StockPile(User owner) {
+    public StockPile(Government owner) {
         this.owner = owner;
         setElements("stone",0);
         setElements("wood",0);
@@ -19,5 +19,9 @@ public class StockPile {
     }
     public void setElements(String elementsKey,Integer amount){
         elements.put(((Integer) elements.get(elementsKey)),amount);
+    }
+
+    public HashMap getElements() {
+        return elements;
     }
 }

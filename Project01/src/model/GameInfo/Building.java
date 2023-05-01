@@ -1,5 +1,6 @@
 package model.GameInfo;
 
+import enums.WarBuildingType;
 import model.User;
 
 public class Building {
@@ -36,7 +37,11 @@ public class Building {
     }
     public void runBuilding(){}
 
-    public String getType() {
+    public Object getType() {
         return type;
+    }
+
+    public Integer getMaxHitpoint() {
+        return maxHitpoint;
     }
 }
