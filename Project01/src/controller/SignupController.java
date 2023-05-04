@@ -4,10 +4,6 @@ import model.DataBase;
 import model.User;
 import view.Menu;
 import view.SignupMenu;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.regex.Matcher;
 
@@ -17,7 +13,11 @@ public class SignupController extends CheckController{
     private static String invalidUsername="";
     public static void start(){
         SignupMenu signupMenu=new SignupMenu();
-        signupMenu.run();
+        try {
+            signupMenu.run();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public static String createUser(Matcher matcher){
         String username=matcher.group("username");
@@ -101,23 +101,30 @@ public class SignupController extends CheckController{
     }
     public static String makeRandomSlogan(){
         Random random=new Random();
-        int randomInt=random.nextInt(8);
-
+        int randomInt=random.nextInt(4);
+        String slogan=DataBase.getSlogans().get(randomInt);
+        SignupMenu.showSlogan(slogan);
+        return slogan;
     }
-    public static void forgetPassword(Matcher matcher){
+    public static String forgetPassword(Matcher matcher){
         if (matcher.group("username")==null)
-            return;
+            return "Please enter a available username";
         User user=DataBase.getUserByName(matcher.group("username"));
         while(true){
-            if (SignupMenu.enterAnswerForgot(user.getSecurityQuestion()).equals(user.getSecurityQuestionAnswer()))
+            if (SignupMenu.enterAnswerForSet(user.getSecurityQuestion()).equals(user.getSecurityQuestionAnswer()))
                 break;
         }
         String passwordError="";
+        String password="";
         do {
-            passwordError = checkPassword(SignupMenu.enterNewPassword(passwordError));
+            password=SignupMenu.enterNewPassword(passwordError);
+            if (password.equals("random"))
+                password=makeRandomPassword();
+            passwordError = checkPassword(password);
         } while (!passwordError.equals("accepted"));
+        logedInuser.setPassword(password);
+        return "Forgot password:password changed";
     }
-    private static Integer makeRandomQuestion(){}
     public static String makeRandomPassword(){
         Random random=new Random();
         double randomNum=random.nextInt(100)*1.01;
@@ -126,20 +133,10 @@ public class SignupController extends CheckController{
         return randomPass;
     }
     private static void skipTime(){
-        int delay = 3000;
-        ActionListener taskPerformer = new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            }
-        };
-        new Timer(delay, taskPerformer).start();
-
-
-
-
-//        long startTime = System.currentTimeMillis();
-//        long elapsedTime = 0;
-//        while (elapsedTime < invalidLogin*1000) {
-//            elapsedTime = (new Date()).getTime() - startTime;
-//        }
+        try {
+            Thread.sleep(invalidLogin*1000);
+        } catch (InterruptedException e) {
+            System.out.println("time not skipped");
+        }
     }
 }

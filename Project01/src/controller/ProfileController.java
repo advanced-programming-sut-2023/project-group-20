@@ -70,10 +70,27 @@ public class ProfileController extends CheckController{
     }
     public static String removeSlogan(){
         logedInuser.setSlogan(null);
+        return "Slogan removed";
     }
-    public static String showHighScore(){}
-    public static String showRank(){}
-    public static String showSlogan(){}
-    public static String showAll(){}
+    public static String showHighScore(){
+        return logedInuser.getHighScore().toString();
+    }
+    public static String showRank(){
+        return DataBase.rank(logedInuser).toString();
+    }
+    public static String showSlogan(){
+        return logedInuser.getSlogan();
+    }
+    public static String showAll(){
+        return "Your username:"+logedInuser.getUsername()+
+                "\nyour password:"+logedInuser.getPassword()+
+                "\nyour nickname:" +logedInuser.getNickname()+
+                "\nyour slogan:"+ logedInuser.getSlogan()+
+                "\nyour email:"+ logedInuser.getEmail()+
+                "\nyour securityQuestion:"+logedInuser.getSecurityQuestion()+
+                " and your answer:"+logedInuser.getSecurityQuestionAnswer()+
+                "\nyour highscore"+logedInuser.getHighScore();
+
+    }
 
 }

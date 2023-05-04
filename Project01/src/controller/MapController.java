@@ -16,7 +16,7 @@ public class MapController {
     private int yMap;
     private Map map = GameController.getCurrentGame().getMap();
 
-    public void start(Matcher matcher) {
+    public void  start(Matcher matcher) {
         this.xMap = Integer.parseInt(matcher.group("x"));
         this.yMap = Integer.parseInt(matcher.group("y"));
         showMap(0, 0);   //  WE SHOULD PRINT THE STRING OF THIS FUNC

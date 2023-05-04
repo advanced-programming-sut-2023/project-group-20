@@ -8,11 +8,18 @@ import java.util.ArrayList;
 public class DataBase {
     private static ArrayList<User> users=new ArrayList<>();
     private static ArrayList<String> emails=new ArrayList<>();
+    private static ArrayList<String> slogans=new ArrayList<>();
     private final static ArrayList<String> securityQuestions=new ArrayList<>();
     static {
         securityQuestions.add("What is my father’s name?");
         securityQuestions.add("What was my first pet’s name?");
         securityQuestions.add("What is my mother’s last name");
+    }
+    static {
+        slogans.add("I shall have my revenge, in this life or the next.");
+        slogans.add("o MAHDI adrekni.");
+        slogans.add("We will walk to Jerusalem with the Muslims together.");
+        slogans.add("If IRAN does not ,it is better for me to die.");
     }
 
     private final static ArrayList<String> typesOfFloor = new ArrayList<>();
@@ -119,10 +126,21 @@ public class DataBase {
                 return users.get(i);
         }return null;
     }
-    public static Integer rank(User user){}
+    public static Integer rank(User user){
+        Integer rank=1;
+        for (User value : users) {
+            if (user.getHighScore() < value.getHighScore())
+                rank++;
+        }
+        return rank;
+    }
 
     public static ArrayList<String> getEmails() {
         return emails;
     }
     public static String selectSecurityQuestion(Integer number){}
+
+    public static ArrayList<String> getSlogans() {
+        return slogans;
+    }
 }

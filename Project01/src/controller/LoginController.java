@@ -2,7 +2,6 @@ package controller;
 
 import view.LoginMenu;
 import view.Menu;
-
 import java.util.regex.Matcher;
 
 public class LoginController extends CheckController {

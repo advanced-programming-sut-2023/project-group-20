@@ -5,7 +5,7 @@ import controller.SignupController;
 import java.util.regex.Matcher;
 
 public class SignupMenu extends Menu{
-    public void run(){
+    public void run() throws InterruptedException {
         String command=getScanner().nextLine();
         Matcher matcher;
         while (true) {
@@ -18,11 +18,11 @@ public class SignupMenu extends Menu{
             else if ((matcher = isMatched(command, "^user login(((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?<staylogedin> --stay-logged-in)){0,1}){0,3}$")) != null){
                 String message=SignupController.login(matcher);
                 System.out.println(message);
-                if (matcher.equals("user logged in successfully!"))
+                if (message.equals("user logged in successfully!"))
                     break;
             }
             else if ((matcher = isMatched(command, "^forgot my password((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
-                SignupController.forgetPassword(matcher);
+                System.out.println(SignupController.forgetPassword(matcher));
             } else if (isMatched(command,"exit")!=null) {
                 System.out.println("Program Has Been Ended");
                 System.exit(0);
@@ -49,23 +49,26 @@ public class SignupMenu extends Menu{
             }
         return null;
     }
-    public static String enterAnswerForSet(){}
-    public static String enterAnswerForgot(String question){
+    public static String enterAnswerForSet(String question){
         System.out.println(question);
         System.out.println("Please enter your answer");
         return getScanner().nextLine();
+    }
+    public static void showSlogan(String slogan){
+        System.out.println("Your slogan is\""+slogan+"\"");
+    }
+    public static String enterAnswerForgot(){
+
     }
     public static String enterNewPassword(String message){
         System.out.println(message+"Enter new password");
         return getScanner().nextLine();
     }
-    public static String reEnterPassword(String randomPassword){
+    public static void reEnterPassword(String randomPassword){
         String command="";
         while (command.equals(randomPassword)){
         System.out.println("Your random password is: "+randomPassword+"\nPlease re-enter your password here:");
         command = getScanner().nextLine();
         }
-        return null;
-        //TODO : return can be void
     }
 }

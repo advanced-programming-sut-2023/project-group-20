@@ -3,10 +3,13 @@ package controller;
 import model.User;
 
 public abstract class CheckController {
-<<<<<<< HEAD
-    protected static boolean checkUsername(String username){return username.matches("[A-Z,a-z,_,0-9]+");}
+    protected static boolean checkUsername(String username) {
+        return username.matches("[A-Z,a-z,_,0-9]+");
+    }
+
     protected static User logedInuser;
-    protected static String checkPassword(String password){
+
+    protected static String checkPassword(String password) {
         if (password.length() < 6)
             return "Length should be greater than 5\n";
         if (!password.matches(".*[A-Z].*"))
@@ -19,24 +22,19 @@ public abstract class CheckController {
             return "Password should have character other than (A-Z,a-z,0-9)\n";
         return "accepted";
     }
-    protected static String checkEmail(String email){
+
+    protected static String checkEmail(String email) {
         if (!email.contains("@"))
             return "Email hasn't @";
-        String [] emailSplitByAt=email.split("@");
-        if (emailSplitByAt.length>2)
+        String[] emailSplitByAt = email.split("@");
+        if (emailSplitByAt.length > 2)
             return "Email can't have more than one @";
         if (!emailSplitByAt[1].contains("."))
             return "Email hasn't . after At";
-        for (String part:emailSplitByAt) {
+        for (String part : emailSplitByAt) {
             if (!part.matches("[A-Z,a-z,_,0-9,.]+"))
                 return "Email format should be like this:<something>@<something>.<something>";
         }
         return "accepted";
     }
 }
-=======
-    private static String checkUsername(String username){}
-    private static String checkPassword(String password){}
-    private static String checkEmail(){}
-}
->>>>>>> Game_controlling
