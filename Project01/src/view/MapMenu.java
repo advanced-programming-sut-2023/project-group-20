@@ -26,12 +26,14 @@ public class MapMenu extends Menu{
                 System.out.println(mapController.showHomeDetails(matcher));
             else if (isMatched(command,"exit")!=null) {
                 System.out.println("Exited from map .Entered Game");
-                break;
+//                break;
+                return;
             } else
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
-        MapController.exit();
+//        MapController.exit();
+
     }
     public static void showMap(String map){System.out.println(map);}
 }

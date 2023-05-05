@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/BuildingTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/FloorTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/MineTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/TreeTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/TroopTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/WarBuildingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/enums/WaterAreaTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Armoury.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/FoodFarm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/TownBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project01/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Government.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Granery.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Granery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/People.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/StockPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/StockPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/Troop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/Troop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/model/GameInfo/WarBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/model/GameInfo/WarBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/view/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project01/src/view/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/view/MapMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,17 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/erfan-b/Desktop/P1/Test1",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/erfan-b/Desktop/P1/Test1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

@@ -1,7 +1,5 @@
 package model.GameInfo;
 
-import model.User;
-
 import java.util.ArrayList;
 
 public class Game {
@@ -9,15 +7,17 @@ public class Game {
     private Integer turnNumber = 0;
     private Integer currentTurn = 0;
     private Map map;
-    private Home selectedHome;
+    private Home selectedBuildingHome;
+    private ArrayList<Troop> selectedTroops;
+    private Home selectedTroopsHome;
     private ArrayList governments;
     private int playerNumber;
 
-    public Game(Integer turnNumber, Map map, ArrayList<Government> governments,int playerNumber) {
+    public Game(Integer turnNumber, Map map, ArrayList<Government> governments, int playerNumber) {
         this.turnNumber = turnNumber;
         this.map = map;
         this.governments = governments;
-        this.playerNumber=playerNumber;
+        this.playerNumber = playerNumber;
     }
 
     public void addGovernment(Government government) {
@@ -56,11 +56,27 @@ public class Game {
         this.currentTurn++;
     }
 
-    public Home getSelectedHome() {
-        return selectedHome;
+    public Home getSelectedBuildingHome() {
+        return selectedBuildingHome;
     }
 
-    public void setSelectedHome(Home selectedHome) {
-        this.selectedHome = selectedHome;
+    public void setSelectedBuildingHome(Home selectedBuildingHome) {
+        this.selectedBuildingHome = selectedBuildingHome;
+    }
+
+    public ArrayList<Troop> getSelectedTroops() {
+        return selectedTroops;
+    }
+
+    public void setSelectedTroops(ArrayList<Troop> selectedTroops) {
+        this.selectedTroops = selectedTroops;
+    }
+
+    public Home getSelectedTroopsHome() {
+        return selectedTroopsHome;
+    }
+
+    public void setSelectedTroopsHome(Home selectedTroopsHome) {
+        this.selectedTroopsHome = selectedTroopsHome;
     }
 }

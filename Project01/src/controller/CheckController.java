@@ -2,11 +2,14 @@ package controller;
 
 import model.User;
 
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public abstract class CheckController {
-<<<<<<< HEAD
-    protected static boolean checkUsername(String username){return username.matches("[A-Z,a-z,_,0-9]+");}
-    protected static User logedInuser;
-    protected static String checkPassword(String password){
+    public static boolean checkUsername(String username){return username.matches("[A-Z,a-z,_,0-9]+");}
+    public static User logedInuser;
+    public static String checkPassword(String password){
         if (password.length() < 6)
             return "Length should be greater than 5\n";
         if (!password.matches(".*[A-Z].*"))
@@ -19,7 +22,7 @@ public abstract class CheckController {
             return "Password should have character other than (A-Z,a-z,0-9)\n";
         return "accepted";
     }
-    protected static String checkEmail(String email){
+    public static String checkEmail(String email){
         if (!email.contains("@"))
             return "Email hasn't @";
         String [] emailSplitByAt=email.split("@");
@@ -33,10 +36,10 @@ public abstract class CheckController {
         }
         return "accepted";
     }
+    public static boolean checkTheNumberInputTruth(String mustBeChecked){
+        Pattern pattern=Pattern.compile("-{0,1}//d+");
+        Matcher matcher=pattern.matcher(mustBeChecked);
+        return matcher.find();
+    }
 }
-=======
-    private static String checkUsername(String username){}
-    private static String checkPassword(String password){}
-    private static String checkEmail(){}
-}
->>>>>>> Game_controlling
+

@@ -41,14 +41,14 @@ public class DataBase {
         typesOfFloor.add("Beach");
     }
 
-    private final static ArrayList<String> typesOftree = new ArrayList<>();
+    private final static ArrayList<String> typesOfTree = new ArrayList<>();
 
     static {
-        typesOftree.add("Palm");
-        typesOftree.add("DesertTree");
-        typesOftree.add("Olive");
-        typesOftree.add("Cherry");
-        typesOftree.add("Coconut");
+        typesOfTree.add("Palm");
+        typesOfTree.add("DesertTree");
+        typesOfTree.add("Olive");
+        typesOfTree.add("Cherry");
+        typesOfTree.add("Coconut");
 
     }
 
@@ -179,39 +179,28 @@ public class DataBase {
         return typesOfTroops;
     }
 
-    public static boolean isItBarrackTroop(String type) {
-        //TODO
-        if (type.equals("") || type.equals("") || type.equals("") || type.equals("") ||)
-            return true;
-        return false;
+    public static ArrayList<String> getTypeOfFoodFarm() {
+        return typeOfFoodFarm;
     }
 
-    public static boolean isItMercenaryPostTroop(String type) {
-        if (type.equals("") || type.equals("") || type.equals("") || type.equals("") ||)
-            return true;
-        return false;
+    public static ArrayList<String> getTypeOfMines() {
+        return typeOfMines;
     }
 
-    public static boolean isItEngineerGuildTroop(String type) {
-        if (type.equals("") || type.equals("") || type.equals("") || type.equals("") ||)
-            return true;
-        return false;
+    public static ArrayList<String> getTypeOfTownBuilding() {
+        return typeOfTownBuilding;
     }
-    public static int getThePowerByType(String type){
-        if(type.equals("")){
-            return ;
-        } else if (type.equals("")) {
 
-        }
-        return -1;
+    public static ArrayList<String> getTypeOfWarBuilding() {
+        return typeOfWarBuilding;
     }
-    public static int getTheHitpointByType(String type){
-        if(type.equals("")){
-            return ;
-        } else if (type.equals("")) {
 
-        }
-        return -1;
+    public static ArrayList<String> getTypesOfFloor() {
+        return typesOfFloor;
+    }
+
+    public static ArrayList<String> getTypesOfTree() {
+        return typesOfTree;
     }
 
 }

@@ -35,7 +35,7 @@ public class GameMenu extends Menu {
                 System.out.println(gameController.showTaxRate());
             else if ((matcher = isMatched(command, "^dropbuilding(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
                 System.out.println(gameController.dropBuilding(matcher));
-            else if ((matcher = isMatched(command, "^select building(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
+            else if ((matcher = isMatched(command, "^select building(((?: -x (?<x>\\s+))|(?: -y (?<y>\\s+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.selectBuilding());
             else if ((matcher = isMatched(command, "^createunit(((?: -t (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -c (?<count>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.createUnit(matcher));
@@ -44,7 +44,7 @@ public class GameMenu extends Menu {
             else if ((matcher = isMatched(command, "^select unit(((?: -x(?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.selectUnit(matcher));
             else if ((matcher = isMatched(command, "^move unit(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
-                System.out.println(gameController.moveUnit(matcher));
+                System.out.println(gameController.moveUnit(matcher,"x","y"));
             else if ((matcher = isMatched(command, "^patrol unit(((?: -x1 (?<x1>\\d+))|(?: -y1 (?<y1>\\d+))|(?: -x2 (?<x2>\\d+))|(?: -y2 (?<y2>\\d+))){0,1}){0,4}$")) != null)
                 System.out.println(gameController.patrolUnit(matcher));
             else if ((matcher = isMatched(command, "^set(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -s (?<state>((?:standing)|(?:defensive)|(?:offensive)))){0,1}){0,3}$")) != null)

@@ -10,6 +10,7 @@ public class Government {
     private Integer yBorder;
     private Integer unemployed;
     private User owner;
+    private String name = owner.getUsername();
     private Integer popularity = 100;
     private Integer foodRate = -2;
     private double coin = 0;
@@ -65,6 +66,10 @@ public class Government {
 
     public void setCoin(double coin) {
         this.coin = coin;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Integer getTaxRate() {

@@ -8,6 +8,7 @@ public class People {
     protected Government owner;
     protected String type;
     protected TroopTypes troopType;
+
     public People(String type, Government owner) {
         this.type = type;
         this.owner = owner;
@@ -15,5 +16,9 @@ public class People {
 
     public String getType() {
         return type;
+    }
+
+    public Government getOwner() {
+        return owner;
     }
 }
