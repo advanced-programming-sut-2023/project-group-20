@@ -12,6 +12,9 @@ public class LoginMenu extends Menu{
         String command=getScanner().nextLine();
         Matcher matcher;
         while (true){
+            //TODO
+            // Start Game Command Should Be Created
+            // Make a GameController and start it
             if ((matcher = isMatched(command, "^profile change((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null)
                 System.out.println(ProfileController.changeUsername(matcher));
             else if ((matcher = isMatched(command, "^profile change((?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null)
@@ -32,7 +35,8 @@ public class LoginMenu extends Menu{
                 System.out.println(ProfileController.showAll());
             else if ((matcher = isMatched(command, "^profile display highscore$")) != null)
                 System.out.println(ProfileController.showHighScore());
-            else if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+)){0,1}){0,2}$")) != null)
+            //Map controller Chera to LoginController Ejra Mishe??
+            else if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+)){0,1}){0,2}$")) != null)//??????
                 MapController.start(matcher);
             else if (isMatched(command,"user logout")!=null) {
                 System.out.println(LoginController.logout());
@@ -41,7 +45,8 @@ public class LoginMenu extends Menu{
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
-        SignupController.start();
+//        SignupController.start();
+        //LoginController Tavsot SignupController EjraShode Age TamoomShe Khod Kar mire Dobare To SignupController
     }
     public static String changePassword(){
         System.out.println("Please enter your new password again AND if you regretted please enter regret");

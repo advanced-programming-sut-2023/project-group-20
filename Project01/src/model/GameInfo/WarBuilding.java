@@ -1,16 +1,26 @@
 package model.GameInfo;
 
-import enums.WarBuildingType;
-import model.User;
+public class WarBuilding extends Building {
+    protected final Integer powerOfDestroying;
+    private final Integer fireRange;
+    private final Integer defendRange;
 
-public class WarBuilding extends Building{
-    private int neededStone;
-    public WarBuilding(Integer hitpoint, User owner, String type, Integer maxHitpoint, Integer powerOfDestroying, Integer needWorkers,int neededStone) {
-        super(hitpoint, owner, type, maxHitpoint, powerOfDestroying, needWorkers);
-        this.neededStone=neededStone;
+    public WarBuilding(Government owner, String type, Integer maxHitpoint, Integer powerOfDestroying, Integer needWorkers, Integer price, Integer neededStone, Integer neededWood, Integer fireRange, Integer defendRange) {
+        super(owner, type, maxHitpoint, needWorkers, price, neededStone, neededWood);
+        this.powerOfDestroying = powerOfDestroying;
+        this.fireRange = fireRange;
+        this.defendRange = defendRange;
     }
 
-    public int getNeededStone() {
-        return neededStone;
+    public Integer getPowerOfDestroying() {
+        return powerOfDestroying;
+    }
+
+    public Integer getFireRange() {
+        return fireRange;
+    }
+
+    public Integer getDefendRange() {
+        return defendRange;
     }
 }

@@ -3,14 +3,14 @@ package model.GameInfo;
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList trades = new ArrayList<Trade>();
+    private ArrayList<Trade> trades = new ArrayList<>();
     private Integer turnNumber = 0;
     private Integer currentTurn = 0;
     private Map map;
     private Home selectedBuildingHome;
     private ArrayList<Troop> selectedTroops;
     private Home selectedTroopsHome;
-    private ArrayList governments;
+    private ArrayList<Government> governments;
     private int playerNumber;
 
     public Game(Integer turnNumber, Map map, ArrayList<Government> governments, int playerNumber) {

@@ -64,7 +64,7 @@ public class GameMenu extends Menu {
             else if ((matcher = isMatched(command, "^settexture(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
                 System.out.println(gameController.setTexture(matcher));
             else if ((matcher = isMatched(command, "^settexture(((?: -x1 (?<x1>\\d+))|(?: -y1 (?<y1>\\d+))|(?: -x2 (?<x2>\\d+))|(?: -y2 (?<y2>\\d+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,5}$")) != null)
-                System.out.println(gameController.setTexture(matcher));
+                System.out.println(gameController.setTextureRectangle(matcher));
             else if ((matcher = isMatched(command, "^clear(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.clear(matcher));
             else if ((matcher = isMatched(command, "^droprock(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
@@ -82,6 +82,9 @@ public class GameMenu extends Menu {
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
-        LoginController.start();
+//        LoginController.start();
+        //Bade Game Kodesh Mire Too LoginController
+        //TODO
+        // Bayad GameController To While LoginController Ejra She
     }
 }

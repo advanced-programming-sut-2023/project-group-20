@@ -77,7 +77,7 @@ public class MapController {
     }
 
     public String showHomeDetails(Matcher matcher) {
-        String output = new String();
+        String output;
         Integer x = Integer.parseInt(matcher.group("x"));
         Integer y = Integer.parseInt(matcher.group("y"));
         Home home = this.getHomeByPosition(x, y);
@@ -146,8 +146,7 @@ public class MapController {
     }
 
     private void resetHome(Home home) {
-        home.setTroopsSelected(false);
-        home.setBuildingSelected(false);
+        //TODO
     }
 
 }

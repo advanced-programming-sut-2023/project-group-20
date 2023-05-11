@@ -18,8 +18,10 @@ public class SignupMenu extends Menu{
             else if ((matcher = isMatched(command, "^user login(((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?<staylogedin> --stay-logged-in)){0,1}){0,3}$")) != null){
                 String message=SignupController.login(matcher);
                 System.out.println(message);
-                if (matcher.equals("user logged in successfully!"))
-                    break;
+                if (matcher.equals("user logged in successfully!")){
+                    LoginController.start();
+                }
+//                    break;
             }
             else if ((matcher = isMatched(command, "^forgot my password((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
                 SignupController.forgetPassword(matcher);
@@ -30,7 +32,6 @@ public class SignupMenu extends Menu{
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
-        LoginController.start();
     }
     public static Matcher pickSecurityQuestion(String message){
         Matcher matcher;

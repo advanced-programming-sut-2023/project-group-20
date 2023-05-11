@@ -3,9 +3,10 @@ package model.GameInfo;
 import model.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Government {
+    //TODO
+    // Clear it never used
     private Integer xBorder;
     private Integer yBorder;
     private Integer unemployed;
@@ -15,10 +16,10 @@ public class Government {
     private Integer foodRate = -2;
     private double coin = 0;
     private Integer taxRate = 0;
-    private ArrayList troops = new ArrayList<Troop>();
-    private ArrayList armouries = new ArrayList<Armoury>();
-    private ArrayList stockPiles = new ArrayList<StockPile>();
-    private ArrayList graneries = new ArrayList<Granery>();
+    private ArrayList<Troop> troops = new ArrayList<>();
+    private ArrayList<Armoury> armouries = new ArrayList<>();
+    private ArrayList<StockPile> stockPiles = new ArrayList<>();
+    private ArrayList<Granery> graneries = new ArrayList<>();
     private Integer fearRate = 0;
 
     public Government(Integer xBorder, Integer yBorder, User owner) {
@@ -29,20 +30,13 @@ public class Government {
 
     private Integer population = 0;
 
-    public ArrayList getGraneries() {
+    public ArrayList<Granery> getGraneries() {
         return graneries;
     }
 
     public void addGranery(Granery granery) {
         graneries.add(granery);
     }
-    //    private HashMap<String,Integer> food=new HashMap();
-//    {
-//        food.put("Apple",0);
-//        food.put("Meat",0);
-//        food.put("Cheese",0);
-//        food.put("Bread",0);
-//    }
 
     public Integer getPopularity() {
         return popularity;
@@ -97,6 +91,7 @@ public class Government {
     }
 
     public void setFoodRate(Integer rate) {
+        this.foodRate = rate;
     }
 
     public void setPopularity(Integer popularity) {
@@ -107,11 +102,19 @@ public class Government {
         this.troops.add(troop);
     }
 
-    public ArrayList getStockPiles() {
+    public ArrayList<StockPile> getStockPiles() {
         return stockPiles;
     }
 
     public void addStockPile(StockPile stockPile) {
         this.stockPiles.add(stockPile);
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
     }
 }

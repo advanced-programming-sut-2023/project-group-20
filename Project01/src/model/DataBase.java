@@ -1,11 +1,5 @@
 package model;
 
-import enums.WarBuildingType;
-import model.GameInfo.Building;
-import model.GameInfo.Mine;
-import model.GameInfo.Troop;
-import model.GameInfo.WarBuilding;
-
 import java.util.ArrayList;
 
 public class DataBase {
@@ -55,23 +49,56 @@ public class DataBase {
     private final static ArrayList<String> typesOfTroops = new ArrayList<>();
 
     static {
+        typesOfTroops.add("Archer");
         typesOfTroops.add("CrossbowMen");
         typesOfTroops.add("SpearMen");
         typesOfTroops.add("PikeMen");
         typesOfTroops.add("MaceMen");
         typesOfTroops.add("SwordsMen");
-        typesOfTroops.add("Knights");
-        typesOfTroops.add("Tunnelers");
+        typesOfTroops.add("Knight");
+        typesOfTroops.add("Tunneler");
         typesOfTroops.add("LadderMen");
-        typesOfTroops.add("Engineers");
-        typesOfTroops.add("BlackMonks");
-        typesOfTroops.add("ArabianBows");
+        typesOfTroops.add("Engineer");
+        typesOfTroops.add("BlackMonk");
+        typesOfTroops.add("ArabianBow");
         typesOfTroops.add("Slaves");
         typesOfTroops.add("Slingers");
         typesOfTroops.add("Assassins");
         typesOfTroops.add("HorseArchers");
         typesOfTroops.add("ArabianSwordsMen");
         typesOfTroops.add("FireThrowers");
+    }
+
+    private final static ArrayList<String> typesOfBarrack = new ArrayList<>();
+
+    static {
+        typesOfBarrack.add("Archer");
+        typesOfBarrack.add("CrossbowMen");
+        typesOfBarrack.add("SpearMen");
+        typesOfBarrack.add("PikeMen");
+        typesOfBarrack.add("MaceMen");
+        typesOfBarrack.add("SwordsMen");
+        typesOfBarrack.add("Knight");
+        typesOfBarrack.add("Tunneler");
+        typesOfBarrack.add("LadderMen");
+        typesOfBarrack.add("BlackMonk");
+    }
+
+    private final static ArrayList<String> typesOfEngineerGuild = new ArrayList<>();
+
+    static {
+        typesOfEngineerGuild.add("Engineer");
+    }
+    private final static ArrayList<String> typesOfMercenaryPost = new ArrayList<>();
+
+    static {
+        typesOfMercenaryPost.add("ArabianBow");
+        typesOfMercenaryPost.add("Slaves");
+        typesOfMercenaryPost.add("Slingers");
+        typesOfMercenaryPost.add("Assassins");
+        typesOfMercenaryPost.add("HorseArchers");
+        typesOfMercenaryPost.add("ArabianSwordsMen");
+        typesOfMercenaryPost.add("FireThrowers");
     }
 
     private final static ArrayList<String> typeOfMines = new ArrayList<>();
@@ -203,4 +230,15 @@ public class DataBase {
         return typesOfTree;
     }
 
+    public static ArrayList<String> getTypesOfBarrack() {
+        return typesOfBarrack;
+    }
+
+    public static ArrayList<String> getTypesOfEngineerGuild() {
+        return typesOfEngineerGuild;
+    }
+
+    public static ArrayList<String> getTypesOfMercenaryPost() {
+        return typesOfMercenaryPost;
+    }
 }

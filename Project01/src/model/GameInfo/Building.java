@@ -1,25 +1,29 @@
 package model.GameInfo;
 
-import enums.WarBuildingType;
-import model.User;
+//import model.Government;
 
 public class Building {
     private Integer hitpoint;
-    private User owner;
-    private String type;
+    private Government owner;
+    private final String type;
+    private final Integer price;
     private final Integer maxHitpoint;
-    protected final Integer powerOfDestroying;
     private final Integer needWorkers;
-    private Integer activeWorkers=0;
+    private Integer activeWorkers = 0;
+    private final Integer neededStone;
+    private final Integer neededWood;
 
-    public Building(Integer hitpoint, User owner, String type, Integer maxHitpoint, Integer powerOfDestroying, Integer needWorkers) {
-        this.hitpoint = hitpoint;
+    public Building(Government owner, String type, Integer maxHitpoint, Integer needWorkers, Integer price, Integer neededStone, Integer neededWood) {
+        this.hitpoint = maxHitpoint;
         this.owner = owner;
         this.type = type;
         this.maxHitpoint = maxHitpoint;
-        this.powerOfDestroying = powerOfDestroying;
         this.needWorkers = needWorkers;
+        this.price = price;
+        this.neededStone = neededStone;
+        this.neededWood = neededWood;
     }
+
     public void setHitpoint(Integer hitpoint) {
         this.hitpoint = hitpoint;
     }
@@ -35,7 +39,9 @@ public class Building {
     public Integer getActiveWorkers() {
         return activeWorkers;
     }
-    public void runBuilding(){}
+
+    public void runBuilding() {
+    }
 
     public Object getType() {
         return type;
@@ -43,5 +49,29 @@ public class Building {
 
     public Integer getMaxHitpoint() {
         return maxHitpoint;
+    }
+
+    public Government getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Government owner) {
+        this.owner = owner;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public Integer getNeedWorkers() {
+        return needWorkers;
+    }
+
+    public Integer getNeededStone() {
+        return neededStone;
+    }
+
+    public Integer getNeededWood() {
+        return neededWood;
     }
 }

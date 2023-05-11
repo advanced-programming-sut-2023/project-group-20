@@ -6,28 +6,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Granery {
-    private User owner;
-    private HashMap allFoods=new HashMap<String,Double>();
-    public static final ArrayList foodNames=new ArrayList<String>();
+    private Government owner;
+    private HashMap<String, Double> allFoods = new HashMap<>();
+    public static final ArrayList<String> foodNames = new ArrayList<>();
+
     static {
         foodNames.add("Apple");
         foodNames.add("Meat");
         foodNames.add("Cheese");
         foodNames.add("Bread");
     }
-    public Granery(User owner) {
+
+    public Granery(Government owner) {
         this.owner = owner;
-        setAllFoods(((String) foodNames.get(0)),0);
-        setAllFoods(((String) foodNames.get(1)),0);
-        setAllFoods(((String) foodNames.get(2)),0);
-        setAllFoods(((String) foodNames.get(3)),0);
-
-    }
-    public void setAllFoods(String elementsKey,Integer amount){
-        allFoods.put(((Integer) allFoods.get(elementsKey)),amount);
+        setAllFoods(foodNames.get(0), 0.0);
+        setAllFoods(foodNames.get(1), 0.0);
+        setAllFoods(foodNames.get(2), 0.0);
+        setAllFoods(foodNames.get(3), 0.0);
     }
 
-    public HashMap getAllFoods() {
+    public void setAllFoods(String elementsKey, Double amount) {
+        allFoods.put(elementsKey, amount);
+    }
+
+    public HashMap<String, Double> getAllFoods() {
         return allFoods;
     }
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Armoury {
     private Government owner;
-    HashMap elements = new HashMap<String, Integer>();
+    HashMap<String, Integer> elements = new HashMap<>();
 
     public Armoury(Government owner) {
         this.owner = owner;
@@ -18,10 +18,10 @@ public class Armoury {
         setElements("Pike",0);
     }
     public void setElements(String elementsKey,Integer amount){
-        elements.put(((Integer) elements.get(elementsKey)),amount);
+        elements.put(elementsKey,amount);
     }
 
     public int getElements(String weaponName) {
-        return ((Integer) elements.get(weaponName));
+        return elements.get(weaponName);
     }
 }

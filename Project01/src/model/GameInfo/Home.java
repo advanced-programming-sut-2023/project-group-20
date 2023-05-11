@@ -12,15 +12,16 @@ public class Home {
     private String typeOfFloor;
     private Building building;
     private Tree tree;
+    private String Rock;
     //TODO Handle enemy Troops in your home
     private ArrayList<Troop> troops = new ArrayList<>();
-    private boolean isTroopsSelected = false;
+//    private boolean isTroopsSelected = false;
 
-    public boolean isBuildingSelected() {
-        return isBuildingSelected;
-    }
+//    public boolean isBuildingSelected() {
+//        return isBuildingSelected;
+//    }
 
-    private boolean isBuildingSelected = false;
+//    private boolean isBuildingSelected = false;
 
     public Home(Integer x, Integer y, String typeOfFloor) {
         this.x = x;
@@ -49,16 +50,22 @@ public class Home {
         return building;
     }
 
-    public ArrayList getTroops() {
+    public ArrayList<Troop> getTroops() {
         return troops;
+    }
+
+    public void setTypeOfFloor(String typeOfFloor) {
+        this.typeOfFloor = typeOfFloor;
     }
 
     public void setTroops(ArrayList<Troop> troops) {
         this.troops = troops;
     }
+
     public void addTroops(ArrayList<Troop> troops) {
         this.troops.addAll(troops);
     }
+
     public void addTroop(Troop troop) {
         this.troops.add(troop);
     }
@@ -77,17 +84,17 @@ public class Home {
 //        return "All troops witch stayed in this home are selected";
 //    }
 
-    public boolean isTroopsSelected() {
-        return isTroopsSelected;
-    }
+//    public boolean isTroopsSelected() {
+//        return isTroopsSelected;
+//    }
 
-    public void setTroopsSelected(boolean troopsSelected) {
-        isTroopsSelected = troopsSelected;
-    }
+//    public void setTroopsSelected(boolean troopsSelected) {
+//        isTroopsSelected = troopsSelected;
+//    }
 
-    public void setBuildingSelected(boolean buildingSelected) {
-        isBuildingSelected = buildingSelected;
-    }
+//    public void setBuildingSelected(boolean buildingSelected) {
+//        isBuildingSelected = buildingSelected;
+//    }
 
     public Government getOwner() {
         return owner;
@@ -95,5 +102,29 @@ public class Home {
 
     public void setOwner(Government owner) {
         this.owner = owner;
+    }
+
+    public boolean isOilExist() {
+        return isOilExist;
+    }
+
+    public void setOilExist(boolean oilExist) {
+        isOilExist = oilExist;
+    }
+
+    public boolean isTunnelCreated() {
+        return isTunnelCreated;
+    }
+
+    public void setTunnelCreated(boolean tunnelCreated) {
+        isTunnelCreated = tunnelCreated;
+    }
+
+    public String getRock() {
+        return Rock;
+    }
+
+    public void setRock(String rock) {
+        Rock = rock;
     }
 }

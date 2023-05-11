@@ -1,14 +1,12 @@
 package controller;
 
-import model.GameInfo.Game;
-import model.GameInfo.Home;
-import model.GameInfo.Map;
-import model.GameInfo.Troop;
+import model.GameInfo.*;
 
 import java.util.ArrayList;
 
 public class UnitMotionController {
-    private ArrayList<ArrayList<Troop>> patrolTroops = new ArrayList<>();
+    //    private ArrayList<ArrayList<Troop>> patrolTroops = new ArrayList<>();
+    private ArrayList<PatrolTroops> patrolTroops = new ArrayList<>();
     private Map map;
     private MapController mapController;
 
@@ -38,18 +36,18 @@ public class UnitMotionController {
             end[0] = true;
             return raceHomes;
         }
-        if (currentX - 1 > 0 && currentX < map.getxSize() && isFreeTpMove(currentX, currentY))
+        if (currentX - 1 > 0 && currentX < map.getxSize() && isFreeToMove(currentX, currentY))
             findRace(speed, end, raceHomes, currentX - 1, currentY, targetX, targetY);
-        if (currentX + 1 > 0 && currentX < map.getxSize() && isFreeTpMove(currentX, currentY))
+        if (currentX + 1 > 0 && currentX < map.getxSize() && isFreeToMove(currentX, currentY))
             findRace(speed, end, raceHomes, currentX + 1, currentY, targetX, targetY);
-        if (currentY - 1 > 0 && currentY < map.getySize() && isFreeTpMove(currentX, currentY))
+        if (currentY - 1 > 0 && currentY < map.getySize() && isFreeToMove(currentX, currentY))
             findRace(speed, end, raceHomes, currentX, currentY - 1, targetX, targetY);
-        if (currentY - 1 > 0 && currentY < map.getySize() && isFreeTpMove(currentX, currentY))
+        if (currentY - 1 > 0 && currentY < map.getySize() && isFreeToMove(currentX, currentY))
             findRace(speed, end, raceHomes, currentX, currentY + 1, targetX, targetY);
         return raceHomes;
     }
 
-    private boolean isFreeTpMove(int homeX, int homeY) {
+    private boolean isFreeToMove(int homeX, int homeY) {
         Home home = mapController.getHomeByPosition(homeX, homeY);
         if (home.getBuilding() != null)
             return false;
@@ -69,11 +67,15 @@ public class UnitMotionController {
         return true;
     }
 
-    public ArrayList<ArrayList<Troop>> getPatrolTroops() {
+    public ArrayList<PatrolTroops> getPatrolTroops() {
         return patrolTroops;
     }
 
-    public void addPatrolTroops(ArrayList<Troop> patrolTroops) {
+    public void addPatrolTroops(PatrolTroops patrolTroops) {
         this.patrolTroops.add(patrolTroops);
+    }
+
+    public void removeThePatrolTroopsByIndex(int index) {
+        this.patrolTroops.remove(index);
     }
 }

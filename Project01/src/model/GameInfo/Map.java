@@ -1,8 +1,5 @@
 package model.GameInfo;
 
-import controller.MapController;
-import model.User;
-
 import java.util.ArrayList;
 
 public class Map {
