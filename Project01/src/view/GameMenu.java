@@ -3,7 +3,12 @@ package view;
 import controller.GameController;
 import controller.LoginController;
 import controller.SignupController;
+import model.GameInfo.Game;
+import model.GameInfo.Government;
+import model.GameInfo.Map;
+import model.User;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class GameMenu extends Menu {
@@ -35,8 +40,9 @@ public class GameMenu extends Menu {
                 System.out.println(gameController.showTaxRate());
             else if ((matcher = isMatched(command, "^dropbuilding(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
                 System.out.println(gameController.dropBuilding(matcher));
-            else if ((matcher = isMatched(command, "^select building(((?: -x (?<x>\\s+))|(?: -y (?<y>\\s+))){0,1}){0,2}$")) != null)
-                System.out.println(gameController.selectBuilding());
+            //<<\\S+ Not \\s+ >>
+            else if ((matcher = isMatched(command, "^select building(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null)
+                System.out.println(gameController.selectBuilding(matcher));
             else if ((matcher = isMatched(command, "^createunit(((?: -t (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -c (?<count>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.createUnit(matcher));
             else if ((matcher = isMatched(command, "^repair$")) != null)
@@ -47,16 +53,16 @@ public class GameMenu extends Menu {
                 System.out.println(gameController.moveUnit(matcher,"x","y"));
             else if ((matcher = isMatched(command, "^patrol unit(((?: -x1 (?<x1>\\d+))|(?: -y1 (?<y1>\\d+))|(?: -x2 (?<x2>\\d+))|(?: -y2 (?<y2>\\d+))){0,1}){0,4}$")) != null)
                 System.out.println(gameController.patrolUnit(matcher));
-            else if ((matcher = isMatched(command, "^set(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -s (?<state>((?:standing)|(?:defensive)|(?:offensive)))){0,1}){0,3}$")) != null)
-                System.out.println(gameController.setTroopsState(matcher));
+//            else if ((matcher = isMatched(command, "^set(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -s (?<state>((?:standing)|(?:defensive)|(?:offensive)))){0,1}){0,3}$")) != null)
+//                System.out.println(gameController.setTroopsState(matcher));
             else if ((matcher = isMatched(command, "^attack -e (?:(?<x>\\d+)) (?:(?<y>\\d+))$")) != null)
                 System.out.println(gameController.attackToEnemy(matcher));
             else if ((matcher = isMatched(command, "^attack(((?: -x (?<x>\\d+))|(?: -y (?<Y>\\d+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.attack(matcher));
             else if ((matcher = isMatched(command, "^pour oil(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\")))){1}$")) != null)
                 System.out.println(gameController.pourOil(matcher));
-            else if ((matcher = isMatched(command, "^dig tunnel((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
-                System.out.println(gameController.digTunnel(matcher));
+//            else if ((matcher = isMatched(command, "^dig tunnel((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
+//                System.out.println(gameController.digTunnel(matcher));
             else if ((matcher = isMatched(command, "^build((?: -q (?<equipmentname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null)
                 System.out.println(gameController.buildBuilding(matcher));
             else if ((matcher = isMatched(command, "^disband unit$")) != null)
@@ -86,5 +92,16 @@ public class GameMenu extends Menu {
         //Bade Game Kodesh Mire Too LoginController
         //TODO
         // Bayad GameController To While LoginController Ejra She
+    }
+
+    //Test
+    public static void main(String[] args) {
+        GameMenu gameMenu=new GameMenu();
+        ArrayList<Government> governments=new ArrayList<>();
+        governments.add(new Government(0,0,new User("Erfan","Erfan427166","Akbar")));
+        governments.add(new Government(0,0,new User("Sobhan","Sobhan427166","Asghar")));
+        gameMenu.setGameController(new GameController(new Game(2,new Map(200,200,3),governments,2),governments.get(0)));
+        System.out.println(gameMenu.gameController.getCurrentGame().getMap().getHomes().get(4).getTypeOfFloor());
+        gameMenu.run();
     }
 }

@@ -25,14 +25,14 @@ public class DataBase {
         typesOfFloor.add("Meadow");
         typesOfFloor.add("FoolMeadow");
         typesOfFloor.add("Floor");
+        typesOfFloor.add("Oil");
         typesOfFloor.add("Plain");
         typesOfFloor.add("DeapLessWater");
         typesOfFloor.add("River");
         typesOfFloor.add("SmallPond");
         typesOfFloor.add("BigPond");
-        typesOfFloor.add("Oil");
-        typesOfFloor.add("Sea");
         typesOfFloor.add("Beach");
+        typesOfFloor.add("Sea");
     }
 
     private final static ArrayList<String> typesOfTree = new ArrayList<>();
@@ -89,6 +89,7 @@ public class DataBase {
     static {
         typesOfEngineerGuild.add("Engineer");
     }
+
     private final static ArrayList<String> typesOfMercenaryPost = new ArrayList<>();
 
     static {
@@ -193,6 +194,8 @@ public class DataBase {
     }
 
     public static Integer rank(User user) {
+        //TODO
+        return null;
     }
 
     public static ArrayList<String> getEmails() {
@@ -200,6 +203,8 @@ public class DataBase {
     }
 
     public static String selectSecurityQuestion(Integer number) {
+        //TODO
+        return null;
     }
 
     public static ArrayList<String> getTypesOfTroops() {

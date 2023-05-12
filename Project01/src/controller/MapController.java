@@ -43,7 +43,7 @@ public class MapController {
             return "Your position for x and y is not correct";
         for (int i = +1; i >= -1; i--) {
             for (int j = -1; j <= +1; j++) {
-                output += printHome(getHomeByPosition(j, i));
+                output += printHome(getHomeByPosition(j + xMapPos, i + yMapPos));
                 output += " ";
             }
             output += "\n";
@@ -56,7 +56,7 @@ public class MapController {
             return "*";
         } else if (home.getY() < 0 || home.getY() > map.getySize()) {
             return "*";
-        } else if (home.getTroops().size() == 0) {
+        } else if (home.getTroops().size() != 0) {
             return "S";
         } else if (home.getBuilding() != null) {
             return "B";
@@ -131,9 +131,9 @@ public class MapController {
         return null;
     }
 
-    public static void exit() {
-        GameController.start();
-    }
+//    public static void exit() {
+//        GameController.start();
+//    }
 
     //TODO
     // Reset All Homes After Turn Changing

@@ -5,8 +5,11 @@ import model.User;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Granery {
+public class Granery extends Building {
     private Government owner;
+    //TODO
+    private static final Integer maxCapacity = 100;
+    private Integer capacity = maxCapacity;
     private HashMap<String, Double> allFoods = new HashMap<>();
     public static final ArrayList<String> foodNames = new ArrayList<>();
 
@@ -18,6 +21,7 @@ public class Granery {
     }
 
     public Granery(Government owner) {
+        super(owner, "Granery", 350, 0, 100, 0, 0);
         this.owner = owner;
         setAllFoods(foodNames.get(0), 0.0);
         setAllFoods(foodNames.get(1), 0.0);
@@ -32,4 +36,13 @@ public class Granery {
     public HashMap<String, Double> getAllFoods() {
         return allFoods;
     }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
 }

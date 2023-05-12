@@ -50,7 +50,10 @@ public class SignupMenu extends Menu{
             }
         return null;
     }
-    public static String enterAnswerForSet(){}
+    public static String enterAnswerForSet(){
+        //TODO
+        return "";
+    }
     public static String enterAnswerForgot(String question){
         System.out.println(question);
         System.out.println("Please enter your answer");

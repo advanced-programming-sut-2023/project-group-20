@@ -3,7 +3,7 @@ package model.GameInfo;
 import model.User;
 
 public class Troop extends People {
-    private String state;
+    private String state="standing";
     private Integer power;
     private Integer hitpoint;
     private Integer speed;
@@ -57,5 +57,9 @@ public class Troop extends People {
 
     public void setHitpoint(Integer hitpoint) {
         this.hitpoint = hitpoint;
+    }
+
+    public String getState() {
+        return state;
     }
 }

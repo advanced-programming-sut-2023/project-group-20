@@ -14,14 +14,13 @@ public class Map {
         this.xSize = xSize;
         this.ySize = ySize;
         createHomes();
-
     }
 
 //    public void addHomeToMap(Home home) {
 //        this.homes.add(home);
 //    }
 
-    public ArrayList getHomes() {
+    public ArrayList<Home> getHomes() {
         return homes;
     }
 

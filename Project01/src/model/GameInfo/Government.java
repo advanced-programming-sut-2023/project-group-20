@@ -11,10 +11,10 @@ public class Government {
     private Integer yBorder;
     private Integer unemployed;
     private User owner;
-    private String name = owner.getUsername();
+//    private String name = owner.getUsername();
     private Integer popularity = 100;
     private Integer foodRate = -2;
-    private double coin = 0;
+    private double coin = 500;
     private Integer taxRate = 0;
     private ArrayList<Troop> troops = new ArrayList<>();
     private ArrayList<Armoury> armouries = new ArrayList<>();
@@ -62,9 +62,9 @@ public class Government {
         this.coin = coin;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public Integer getTaxRate() {
         return taxRate;
@@ -100,6 +100,10 @@ public class Government {
 
     public void addTroop(Troop troop) {
         this.troops.add(troop);
+    }
+
+    public ArrayList<Troop> getTroops() {
+        return troops;
     }
 
     public ArrayList<StockPile> getStockPiles() {

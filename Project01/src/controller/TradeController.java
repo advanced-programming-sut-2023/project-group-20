@@ -9,14 +9,33 @@ public class TradeController {
         TradeMenu tradeMenu=new TradeMenu();
         tradeMenu.run();
     }
-    public static String showAllPlayers(){}
-    public static String trade(Matcher matcher){}
-    private static Integer setId(){}
-    public static String tradeList(){}
-    public static String tradeAccept(Matcher matcher){}
-    public static String tradeHistory(){}
+    public static String showAllPlayers(){
+        //TODO
+        return "";
+    }
+    public static String trade(Matcher matcher){
+        //TODO
+        return "";
+    }
+    private static Integer setId(){
+        //TODO
+        return null;
+    }
+    public static String tradeList(){
+        //TODO
+        return "";
+    }
+    public static String tradeAccept(Matcher matcher){
+        //TODO
+        return "";
+    }
+    public static String tradeHistory(){
+        //TODO
+        return "";
+    }
     public static void back(){
-        GameController.start();
+        //TODO
+//         GameController.start();
     }
 
 

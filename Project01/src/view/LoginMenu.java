@@ -36,8 +36,8 @@ public class LoginMenu extends Menu{
             else if ((matcher = isMatched(command, "^profile display highscore$")) != null)
                 System.out.println(ProfileController.showHighScore());
             //Map controller Chera to LoginController Ejra Mishe??
-            else if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+)){0,1}){0,2}$")) != null)//??????
-                MapController.start(matcher);
+//            else if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+)){0,1}){0,2}$")) != null)//??????
+//                MapController.start(matcher);
             else if (isMatched(command,"user logout")!=null) {
                 System.out.println(LoginController.logout());
                 break;

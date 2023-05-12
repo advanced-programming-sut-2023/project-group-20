@@ -19,6 +19,7 @@ public class UnitMotionController {
         ArrayList<Home> homes = new ArrayList<>();
         boolean[] end = new boolean[1];
         end[0] = false;
+        speed = reduceSpeedIfInWater(speed, mapController.getHomeByPosition(firstX, firstY));
         return findRace(speed, end, homes, firstX, firstY, targetX, targetY);
     }
 
@@ -51,7 +52,8 @@ public class UnitMotionController {
         Home home = mapController.getHomeByPosition(homeX, homeY);
         if (home.getBuilding() != null)
             return false;
-        else if (home.getTypeOfFloor().equals("") || home.getTypeOfFloor().equals("") || home.getTypeOfFloor().equals("") ||) {
+        //TODO
+        else if (home.getTypeOfFloor().equals("")){//|| home.getTypeOfFloor().equals("") || home.getTypeOfFloor().equals("") ||) {
             return false;
         }
         return true;
@@ -61,6 +63,7 @@ public class UnitMotionController {
     public boolean isAnyAvailableDestination(int speed, int firstX, int firstY, int targetX, int targetY) {
         ArrayList<Home> homes = new ArrayList<>();
         boolean[] end = new boolean[1];
+        speed = reduceSpeedIfInWater(speed, mapController.getHomeByPosition(firstX, firstY));
         end[0] = false;
         if (findRace(speed, end, homes, firstX, firstY, targetX, targetY).size() == 0)
             return false;
@@ -77,5 +80,11 @@ public class UnitMotionController {
 
     public void removeThePatrolTroopsByIndex(int index) {
         this.patrolTroops.remove(index);
+    }
+
+    private Integer reduceSpeedIfInWater(Integer firstSpeed, Home home) {
+        if (home.getTypeOfFloor().equals("DeapLessWater"))
+            return firstSpeed * 2 / 3;
+        return firstSpeed;
     }
 }

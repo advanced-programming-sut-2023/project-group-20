@@ -102,7 +102,8 @@ public class SignupController extends CheckController{
     public static String makeRandomSlogan(){
         Random random=new Random();
         int randomInt=random.nextInt(8);
-
+        //TODO
+        return "";
     }
     public static void forgetPassword(Matcher matcher){
         if (matcher.group("username")==null)
@@ -117,7 +118,10 @@ public class SignupController extends CheckController{
             passwordError = checkPassword(SignupMenu.enterNewPassword(passwordError));
         } while (!passwordError.equals("accepted"));
     }
-    private static Integer makeRandomQuestion(){}
+    private static Integer makeRandomQuestion(){
+        //TODO
+        return null;
+    }
     public static String makeRandomPassword(){
         Random random=new Random();
         double randomNum=random.nextInt(100)*1.01;

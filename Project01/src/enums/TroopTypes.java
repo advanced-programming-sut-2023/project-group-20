@@ -5,30 +5,32 @@ import java.util.ArrayList;
 public enum TroopTypes {
     //TODO
     // Add The Troops
-    Archer(),
-    CrossbowMen (),
-    SpearMen(),
-    PikeMen(),
-    MaceMen(),
-    SwordsMen(),
-    Knight (),
-    Tunneler(),
-    LadderMen(),
-    Engineer (),
-    BlackMonk (),
-    ArabianBow(),
-    Slaves (),
-    Slingers (),
-    Assassins(),
-    HorseArchers (),
-    ArabianSwordsMen(),
-    FireThrowers (),
+
+    //TODO
+    Archer("Archer",50,10,6,50,new ArrayList<>()),
+//    CrossbowMen (),
+//    SpearMen(),
+//    PikeMen(),
+//    MaceMen(),
+//    SwordsMen(),
+//    Knight (),
+//    Tunneler(),
+//    LadderMen(),
+//    Engineer (),
+//    BlackMonk (),
+//    ArabianBow(),
+//    Slaves (),
+//    Slingers (),
+//    Assassins(),
+//    HorseArchers (),
+//    ArabianSwordsMen(),
+//    FireThrowers (),
     ;
 
     static {
         //TODO
         // Set the weapons for troops
-        Archer.weapons.add("TEST");
+        Archer.weapons.add("Bow");
     }
 
     public String type;

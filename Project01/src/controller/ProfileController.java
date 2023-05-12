@@ -70,10 +70,25 @@ public class ProfileController extends CheckController{
     }
     public static String removeSlogan(){
         logedInuser.setSlogan(null);
+        //TODO
+        return "";
+
     }
-    public static String showHighScore(){}
-    public static String showRank(){}
-    public static String showSlogan(){}
-    public static String showAll(){}
+    public static String showHighScore(){
+        //TODO
+        return "";
+    }
+    public static String showRank(){
+        //TODO
+        return "";
+    }
+    public static String showSlogan(){
+        //TODO
+        return "";
+    }
+    public static String showAll(){
+        //TODO
+        return "";
+    }
 
 }

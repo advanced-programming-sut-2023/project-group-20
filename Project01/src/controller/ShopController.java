@@ -9,10 +9,20 @@ public class ShopController {
          ShopMenu shopMenu =new ShopMenu();
          shopMenu.run();
     }
-    public static String showPriceList(){}
-    public static String buy(Matcher matcher){}
-    public static String sell(Matcher matcher){}
+    public static String showPriceList(){
+        //TODO
+        return "";
+    }
+    public static String buy(Matcher matcher){
+        //TODO
+        return "";
+    }
+    public static String sell(Matcher matcher){
+        //TODO
+        return "";
+    }
     public static void closeShop(){
-        GameController.start();
+        //TODO
+//        GameController.start();
     }
 }

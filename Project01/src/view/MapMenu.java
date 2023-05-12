@@ -14,7 +14,7 @@ public class MapMenu extends Menu{
     public void run(){
         // TODO
         //  MAKE A MapController
-        mapController.showMap(0,0);
+        System.out.println(mapController.showMap(0,0));
         String command=getScanner().nextLine();
         Matcher matcher;
         while (true){
@@ -22,8 +22,8 @@ public class MapMenu extends Menu{
                 System.out.println(mapController.showMap(0,0));
             else if ((matcher = isMatched(command, "^map(((?: (?<direction>\\S+){1}( (?<x>\\d*)?)?){0,2}))$")) != null)
                 System.out.println(mapController.moveMap(matcher));
-            else if ((matcher = isMatched(command, "^show details(((?: -x (?<x>\\d+)))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
-                System.out.println(mapController.showHomeDetails(matcher));
+//            else if ((matcher = isMatched(command, "^show details(((?: -x (?<x>\\d+)))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
+//                System.out.println(mapController.showHomeDetails(matcher));
             else if (isMatched(command,"exit")!=null) {
                 System.out.println("Exited from map .Entered Game");
 //                break;

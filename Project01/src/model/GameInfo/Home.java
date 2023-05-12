@@ -15,6 +15,7 @@ public class Home {
     private String Rock;
     //TODO Handle enemy Troops in your home
     private ArrayList<Troop> troops = new ArrayList<>();
+    private EngineerBuilding engineerBuilding;
 //    private boolean isTroopsSelected = false;
 
 //    public boolean isBuildingSelected() {
@@ -126,5 +127,13 @@ public class Home {
 
     public void setRock(String rock) {
         Rock = rock;
+    }
+
+    public EngineerBuilding getEngineerBuilding() {
+        return engineerBuilding;
+    }
+
+    public void setEngineerBuilding(EngineerBuilding engineerBuilding) {
+        this.engineerBuilding = engineerBuilding;
     }
 }
