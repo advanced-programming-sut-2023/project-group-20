@@ -13,6 +13,7 @@ public class Home {
     private Tree tree;
     private String Rock;
     //TODO Handle enemy Troops in your home
+    public boolean mark;
     private ArrayList<Troop> troops = new ArrayList<>();
     private EngineerBuilding engineerBuilding;
 //    private boolean isTroopsSelected = false;

@@ -2,11 +2,12 @@ package org.example.model.GameInfo;
 
 import java.util.HashMap;
 
-public class Armoury {
+public class Armoury extends Stores{
     private Government owner;
     HashMap<String, Integer> elements = new HashMap<>();
 
     public Armoury(Government owner) {
+        super(owner,"Armoury",100,0,0,0,5);
         this.owner = owner;
         setElements("LeatherArmour",0);
         setElements("Mace",0);

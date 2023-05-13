@@ -1,8 +1,10 @@
 package org.example.view;
 
 import org.example.controller.GameController;
+import org.example.controller.UnitMotionController;
 import org.example.model.GameInfo.Game;
 import org.example.model.GameInfo.Government;
+import org.example.model.GameInfo.Home;
 import org.example.model.GameInfo.Map;
 import org.example.model.User;
 
@@ -36,9 +38,11 @@ public class GameMenu extends Menu {
                 System.out.println(gameController.setTaxRate(matcher));
             else if ((matcher = isMatched(command, "^tax rate show$")) != null)
                 System.out.println(gameController.showTaxRate());
+                //TODO
+                // Fear Rate set and show
             else if ((matcher = isMatched(command, "^dropbuilding(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
                 System.out.println(gameController.dropBuilding(matcher));
-            //<<\\S+ Not \\s+ >>
+                //<<\\S+ Not \\s+ >>
             else if ((matcher = isMatched(command, "^select building(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.selectBuilding(matcher));
             else if ((matcher = isMatched(command, "^createunit(((?: -t (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -c (?<count>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}$")) != null)
@@ -48,7 +52,7 @@ public class GameMenu extends Menu {
             else if ((matcher = isMatched(command, "^select unit(((?: -x(?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
                 System.out.println(gameController.selectUnit(matcher));
             else if ((matcher = isMatched(command, "^move unit(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
-                System.out.println(gameController.moveUnit(matcher,"x","y"));
+                System.out.println(gameController.moveUnit(matcher, "x", "y"));
             else if ((matcher = isMatched(command, "^patrol unit(((?: -x1 (?<x1>\\d+))|(?: -y1 (?<y1>\\d+))|(?: -x2 (?<x2>\\d+))|(?: -y2 (?<y2>\\d+))){0,1}){0,4}$")) != null)
                 System.out.println(gameController.patrolUnit(matcher));
 //            else if ((matcher = isMatched(command, "^set(((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+))|(?: -s (?<state>((?:standing)|(?:defensive)|(?:offensive)))){0,1}){0,3}$")) != null)
@@ -92,14 +96,6 @@ public class GameMenu extends Menu {
         // Bayad GameController To While LoginController Ejra She
     }
 
-    //Test
-    public static void main(String[] args) {
-        GameMenu gameMenu=new GameMenu();
-        ArrayList<Government> governments=new ArrayList<>();
-        governments.add(new Government(0,0,new User("Erfan","Erfan427166","Akbar")));
-        governments.add(new Government(0,0,new User("Sobhan","Sobhan427166","Asghar")));
-        gameMenu.setGameController(new GameController(new Game(2,new Map(200,200,3),governments,2),governments.get(0)));
-        System.out.println(gameMenu.gameController.getCurrentGame().getMap().getHomes().get(4).getTypeOfFloor());
-        gameMenu.run();
-    }
+
+
 }

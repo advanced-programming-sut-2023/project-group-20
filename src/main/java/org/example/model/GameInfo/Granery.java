@@ -3,7 +3,7 @@ package org.example.model.GameInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Granery extends Building {
+public class Granery extends Stores {
     private Government owner;
     //TODO
     private static final Integer maxCapacity = 100;

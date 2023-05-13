@@ -52,9 +52,12 @@ public class MapController {
     }
 
     private String printHome(Home home) {
-        if (home.getX() < 0 || home.getX() > map.getxSize()) {
-            return "*";
-        } else if (home.getY() < 0 || home.getY() > map.getySize()) {
+//        if (home.getX() < 0 || home.getX() > map.getxSize()) {
+//            return "*";
+//        } else if (home.getY() < 0 || home.getY() > map.getySize()) {
+//            return "*";
+//        }
+        if (home == null) {
             return "*";
         } else if (home.getTroops().size() != 0) {
             return "S";
@@ -71,7 +74,7 @@ public class MapController {
         //TODO
         //  MUST BE DEFINDE BY MATCHER
         //  MUST BE DEFINDE BY MATCHER
-        int movementY = 0;
+        int movementY = 1;
         int movementX = 0;
         return showMap(movementY, movementX);
     }
