@@ -4,8 +4,6 @@ import org.example.model.DataBase;
 import org.example.model.GameInfo.*;
 import org.example.view.MapMenu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 
 public class MapController {

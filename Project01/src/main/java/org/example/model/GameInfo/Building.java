@@ -42,7 +42,6 @@ public class Building {
 
     public void runBuilding() {
     }
-
     public Object getType() {
         return type;
     }

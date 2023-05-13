@@ -19,8 +19,20 @@ public abstract class Menu {
         return scanner;
     }
 
+    protected static void printMassage(String massage) {
+        System.out.println(massage);
+    }
+
     public static void setLogedInUser(User user) {
         logedInUser = user;
     }
 
+    public static boolean checkInt(String string) {
+        try {
+            Integer.parseInt(string);
+        } catch (Exception ex) {
+            return true;
+        }
+        return false;
+    }
 }

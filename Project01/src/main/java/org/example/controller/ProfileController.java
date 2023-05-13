@@ -1,8 +1,7 @@
 package org.example.controller;
 
-import org.example.model.DataBase;
 import org.example.view.LoginMenu;
-
+import org.example.model.DataBase;
 import java.util.regex.Matcher;
 
 public class ProfileController extends CheckController{
@@ -22,7 +21,7 @@ public class ProfileController extends CheckController{
         String passwordError=checkPassword(newPassword);
         if (!passwordError.equals("accepted"))
             return passwordError;
-        String confirm=LoginMenu.changePassword();
+        String confirm= LoginMenu.changePassword();
         while (!confirm.equals(newPassword)){
             if (confirm.equals("regret"))
                 return "Changing password failed";
@@ -39,7 +38,7 @@ public class ProfileController extends CheckController{
     }
     public static String changeUsername(Matcher matcher){
         String username=matcher.group("username");
-        if (username==null)
+        if (isNull(username))
             return "New username is empty";
         if (!checkUsername(username))
             return "New username format is invalid";
@@ -69,25 +68,27 @@ public class ProfileController extends CheckController{
     }
     public static String removeSlogan(){
         logedInuser.setSlogan(null);
-        //TODO
-        return "";
-
+        return "Slogan removed";
     }
     public static String showHighScore(){
-        //TODO
-        return "";
+        return logedInuser.getHighScore().toString();
     }
     public static String showRank(){
-        //TODO
-        return "";
+        return DataBase.rank(logedInuser).toString();
     }
     public static String showSlogan(){
-        //TODO
-        return "";
+        return logedInuser.getSlogan();
     }
     public static String showAll(){
-        //TODO
-        return "";
+        return "Your username:"+logedInuser.getUsername()+
+                "\nyour password:"+logedInuser.getPassword()+
+                "\nyour nickname:" +logedInuser.getNickname()+
+                "\nyour slogan:"+ logedInuser.getSlogan()+
+                "\nyour email:"+ logedInuser.getEmail()+
+                "\nyour securityQuestion:"+logedInuser.getSecurityQuestion()+
+                " and your answer:"+logedInuser.getSecurityQuestionAnswer()+
+                "\nyour highscore"+logedInuser.getHighScore();
+
     }
 
 }
