@@ -81,6 +81,9 @@ public class Government {
     public ArrayList getArmouries() {
         return armouries;
     }
+    public ArrayList<Armoury> getArmouries2() {
+        return armouries;
+    }
 
     public void addArmoury(Armoury armoury) {
         this.armouries.add(armoury);

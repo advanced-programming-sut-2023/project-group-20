@@ -1,9 +1,11 @@
 package model.GameInfo;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cellar extends Building{
     private Double maxCapacity;
+
+    //private static ArrayList<Good> goods = new ArrayList<>();
 
     protected Double space = maxCapacity;
 
@@ -13,18 +15,6 @@ public class Cellar extends Building{
         super(owner, type, maxHitpoint, needWorkers, price, neededStone, neededWood);
         this.maxCapacity = maxCapacity;
     }
-
- /* public double capacity(){
-        return ((double)maxCapacity - entity(elements) );
-    }
-
-    public int entity(HashMap<String, Double> hash) {
-        AtomicInteger i = new AtomicInteger();
-        hash.forEach((key, value) -> {
-            i.addAndGet((int) value);
-        });
-        return i.get();
-    }*/
 
     public void setElements(String elementsKey,Double amount){
         elements.put(elementsKey,amount);
@@ -37,8 +27,21 @@ public class Cellar extends Building{
     public HashMap<String, Double> getElements() {return elements;}
 
 
-    public void changeElements(String elementsKey,Integer change){
+    public Double changeElements(String elementsKey,Double change){
+        Double tmp = 0.0;
         elements.replace(elementsKey, (elements.get(elementsKey))+change );
+        if( elements.get(elementsKey) < 0 ){
+            tmp = elements.get(elementsKey);
+            elements.replace(elementsKey, 0.0 );
+        }
+        space -= change;
+        space += tmp;
+        if(space < 0){
+            tmp = -space;
+            space = 0.0;
+            elements.replace(elementsKey, elements.get(elementsKey)-tmp );
+        }
+        return tmp;
     }
 
     public Double getCapacity() {
@@ -47,6 +50,9 @@ public class Cellar extends Building{
 
     public void setCapacity(Double capacity) {
         space = capacity;
+    }
+    public void changeCapacity(Double capacity) {
+        space -= capacity;
     }
 
 }
