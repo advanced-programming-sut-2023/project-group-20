@@ -34,6 +34,8 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -47,6 +49,7 @@
       <updated>1682485064233</updated>
       <workItem from="1682975235660" duration="58000" />
       <workItem from="1682997186740" duration="3400000" />
+      <workItem from="1683966255168" duration="649000" />
     </task>
     <servers />
   </component>
@@ -64,7 +67,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Menu" />
+                        <option value="origin3/maven" />
                       </list>
                     </value>
                   </entry>
@@ -75,5 +78,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
