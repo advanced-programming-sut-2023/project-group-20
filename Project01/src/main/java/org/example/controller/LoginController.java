@@ -18,13 +18,13 @@ public class LoginController extends CheckController {
 
     public static String startGame(Matcher matcher, User owner) {
         if (!matcher.group("num").matches("\\d+"))
-            return "Please enter a number for player number (-n \\d)\n";
+            return "Please enter a number for player number (\\d)\n";
         if (!matcher.group("turn").matches("\\d+"))
-            return "Please enter a number for number of turns (-t \\d)\n";
+            return "Please enter a number for number of turns (\\d)\n";
         if (!matcher.group("x").matches("\\d+"))
-            return "Please enter a number for xmap (-t \\d)\n";
+            return "Please enter a number for xmap (\\d)\n";
         if (!matcher.group("y").matches("\\d+"))
-            return "Please enter a number for ymap (-t \\d)\n";
+            return "Please enter a number for ymap (\\d)\n";
         String massage = "Enter a new player username";
         Integer playerNumber = Integer.parseInt(matcher.group("num"));
         Map map = new Map(Integer.parseInt(matcher.group("x")), Integer.parseInt(matcher.group("y")), playerNumber);

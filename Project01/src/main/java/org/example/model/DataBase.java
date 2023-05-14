@@ -14,12 +14,16 @@ public class DataBase {
         securityQuestions.add("What is my mother’s last name");
     }
 
+    public static String selectSecurityQuestion(String number) {
+        return securityQuestions.get(Integer.parseInt(number) - 1);
+    }
+
     static {
         slogans.add("I shall have my revenge, in this life or the next.");
         slogans.add("o MAHDI adrekni.");
         slogans.add("It is dutchman.");
         slogans.add("We will walk to Jerusalem with the Muslims together.");
-        slogans.add("If IRAN does not ,it is better for me to die.");
+        slogans.add("Hüseynçilər");
     }
 
     private final static ArrayList<String> typesOfFloor = new ArrayList<>();
@@ -191,13 +195,13 @@ public class DataBase {
 
     public static void addUserToDataBase(User user) {
         users.add(user);
-        emails.add(user.getEmail());
+        if (user.getEmail() != null)
+            emails.add(user.getEmail());
     }
 
     public static User getUserByName(String username) {
         for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getUsername().equals(username))
-                return users.get(i);
+            if (users.get(i).getUsername().equals(username)) return users.get(i);
         }
         return null;
     }
@@ -205,8 +209,8 @@ public class DataBase {
     public static Integer rank(User user) {
         Integer rank = 1;
         for (User value : users) {
-            if (user.getHighScore() < value.getHighScore())
-                rank++;
+            if (user.getHighScore() < value.getHighScore()) rank++;
+            else if (user.hashCode()<value.hashCode()) rank++;
         }
         return rank;
     }

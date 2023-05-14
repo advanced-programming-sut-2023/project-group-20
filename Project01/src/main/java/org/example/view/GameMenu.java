@@ -33,11 +33,17 @@ public class GameMenu extends Menu {
                 else
                     gameController.showMap(matcher);
             } else if ((matcher = isMatched(command, "^show popularity factors$")) != null)
-                System.out.println(gameController.showPopularityFactors());
+                System.out.print(gameController.showPopularityFactors());
             else if ((matcher = isMatched(command, "^show popularity$")) != null)
                 System.out.println(gameController.showPopularity());
+            else if ((matcher = isMatched(command, "^stop patrol$")) != null)
+                System.out.println(gameController.stopPatrolUint());
+            else if ((matcher = isMatched(command, "^change turn$")) != null)
+                System.out.println(gameController.changeTurn());
             else if ((matcher = isMatched(command, "^show food list$")) != null)
                 System.out.println(gameController.showFoodList());
+            else if ((matcher = isMatched(command, "^show food rate$")) != null)
+                System.out.println(gameController.showFoodRate());
             else if ((matcher = isMatched(command, "^food rate((?: -r (?<r>\\S+))){1}$")) != null) {
                 if (matcher.group("r") == null)
                     printMassage("rate is null");
@@ -81,7 +87,7 @@ public class GameMenu extends Menu {
                     System.out.println(gameController.createUnit(matcher));
             } else if ((matcher = isMatched(command, "^repair$")) != null)
                 System.out.println(gameController.repair());
-            else if ((matcher = isMatched(command, "^select unit(((?: -x(?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+            else if ((matcher = isMatched(command, "^select unit(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
@@ -124,14 +130,29 @@ public class GameMenu extends Menu {
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.attackToEnemy(matcher));
-            } else if ((matcher = isMatched(command, "^attack(((?: -x (?<x>\\S+))|(?: -y (?<Y>\\S+))){0,1}){0,2}$")) != null) {
+            } else if ((matcher = isMatched(command, "^attack(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.attack(matcher));
-            } else if ((matcher = isMatched(command, "^pour oil(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\")))){1}$")) != null) {
+            }else if ((matcher = isMatched(command, "^select engine building(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+                if (matcher.group("x") == null || matcher.group("y") == null)
+                    printMassage("-x or -y is null");
+                else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
+                    printMassage("x or y must be Integer");
+                else
+                    System.out.println(gameController.selectEngineBuilding(matcher));
+            }
+            else if ((matcher = isMatched(command, "^engine attack(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+                if (matcher.group("x") == null || matcher.group("y") == null)
+                    printMassage("-x or -y is null");
+                else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
+                    printMassage("x or y must be Integer");
+                else
+                    System.out.println(gameController.engineAttack(matcher));
+            }else if ((matcher = isMatched(command, "^pour oil(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\")))){1}$")) != null) {
                 if (matcher.group("direction") == null)
                     printMassage("direction is null");
                 else if (!(matcher.group("direction").equals("west")
@@ -148,7 +169,22 @@ public class GameMenu extends Menu {
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.digTunnel(matcher));
-            } else if ((matcher = isMatched(command, "^build((?: -q (?<equipmentname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
+            }else if ((matcher = isMatched(command, "^dig Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+                if (matcher.group("x") == null || matcher.group("y") == null)
+                    printMassage("-x or -y is null");
+                else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
+                    printMassage("x or y must be Integer");
+                else
+                    System.out.println(gameController.digDitch(matcher));
+            }else if ((matcher = isMatched(command, "^fill Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+                if (matcher.group("x") == null || matcher.group("y") == null)
+                    printMassage("-x or -y is null");
+                else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
+                    printMassage("x or y must be Integer");
+                else
+                    System.out.println(gameController.fillDitch(matcher));
+            }
+            else if ((matcher = isMatched(command, "^build((?: -q (?<equipmentname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
                 if (matcher.group("equipmentname") == null)
                     printMassage("-q is null");
                 else
@@ -240,17 +276,5 @@ public class GameMenu extends Menu {
         // Bayad GameController To While LoginController Ejra She
 
 
-    }
-
-    //TEST
-    public static void main(String[] args) {
-        GameMenu gameMenu = new GameMenu();
-        Game game = new Game(4, new Map(200, 200, 3), 2);
-        Government government = new Government(new User("Erfan", "Erfan427166", "Edi"));
-        game.addGovernment(government);
-        game.addGovernment(new Government(new User("Ali","QQ","AliAgha")));
-        GameController gameController1 = new GameController(game, government);
-        gameMenu.setGameController(gameController1);
-        gameMenu.run();
     }
 }

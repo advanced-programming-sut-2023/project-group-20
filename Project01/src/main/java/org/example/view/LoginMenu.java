@@ -43,7 +43,7 @@ public class LoginMenu extends Menu{
         }
     }
     public static String changePassword(){
-        System.out.println("Please enter your new password again AND if you regretted please enter regret");
+        System.out.println("Please enter your new password again AND if you regretted please enter <regret>");
         return getScanner().nextLine();
     }
     public static String getPlayers(String massage){
