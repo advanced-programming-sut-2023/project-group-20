@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="" />
+    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/main/java/org/example/model/GameInfo/Government.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/main/java/org/example/model/GameInfo/Government.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/src/test/java/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/src/test/java/ProfileControllerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +19,18 @@
     <option name="BRANCH" value="Game_controlling" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Menu" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2OwwgiHEy5KO49hRfcwTTzjQOHD" />
   <component name="ProjectViewState">
@@ -26,10 +39,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/Downloads/PortableGit/Project",
+    "last_opened_file_path": "F:/programming/JAVA/Project spring2023/MTT",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -47,6 +64,9 @@
       <updated>1682485064233</updated>
       <workItem from="1682975235660" duration="58000" />
       <workItem from="1682997186740" duration="3400000" />
+      <workItem from="1683984072494" duration="895000" />
+      <workItem from="1683991293632" duration="729000" />
+      <workItem from="1683992179747" duration="34000" />
     </task>
     <servers />
   </component>

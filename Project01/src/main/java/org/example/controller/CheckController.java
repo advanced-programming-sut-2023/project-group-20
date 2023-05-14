@@ -10,15 +10,15 @@ public abstract class CheckController {
 
     protected static String checkPassword(String password) {
         if (password.length() < 6)
-            return "Length should be greater than 5\n";
+            return "Password length should be greater than 5.";
         if (!password.matches(".*[A-Z].*"))
-            return "Password should have character from A to Z\n";
+            return "Password should have character from A to Z.";
         if (!password.matches(".*[a-z].*"))
-            return "Password should have character from a to z\n";
+            return "Password should have character from a to z.";
         if (!password.matches(".*[0-9].*"))
-            return "Password should have character from 0 to 9\n";
+            return "Password should have character from 0 to 9.";
         if (!password.matches(".*[^a-z,^A-z,^0-9].*"))
-            return "Password should have character other than (A-Z,a-z,0-9)\n";
+            return "Password should have character other than (A-Z,a-z,0-9).";
         return "accepted";
     }
 
@@ -44,6 +44,13 @@ public abstract class CheckController {
         else if (object.equals(null))
             return true;
         else return false;
+    }
+    protected static String deleteQuotation(String string){
+        if (string==null)
+            return null;
+        if (string.startsWith("\"")&&string.endsWith("\""))
+            return string.substring(1,string.length()-1);
+        return string;
     }
 }
 

@@ -10,11 +10,11 @@ public class SignupMenu extends Menu {
         String command = getScanner().nextLine();
         Matcher matcher;
         while (true) {
-            if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))) (?<confirmPassword>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))))|(?<checkSlogan> -s (?<slogan>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -email (?<email>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,5}$")) != null)
+            if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\")))( (?<confirmPassword>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\")))){0,1})|(?<checkSlogan> -s (?<slogan>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -e (?<email>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,5}$")) != null)
                 System.out.println(SignupController.createUser(matcher));
-            else if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>random))|(?: -e (?<email>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,4}$")) != null)
+            else if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>random))|(?: -e (?<email>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,4}$")) != null)
                 System.out.println(SignupController.createUser(matcher));
-            else if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>random))|(?: -s (?<slogan>random))){0,1}){0,4}$")) != null)
+            else if ((matcher = isMatched(command, "^user create(((?: -u (?<username>(?:\"[^\"]*\")|(?:(?!\")\\S+(?<!\"))))|(?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>random))|(?: -s (?<slogan>random))){0,1}){0,4}$")) != null)
                 System.out.println(SignupController.createUser(matcher));
             else if ((matcher = isMatched(command, "^user login(((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -p (?<password>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?<staylogedin> --stay-logged-in)){0,1}){0,3}$")) != null) {
                 String message = SignupController.login(matcher);
@@ -40,7 +40,7 @@ public class SignupMenu extends Menu {
                     "was my first pet’s name? 3. What is my mother’s last name?");
             System.out.println("If you regret plz enter <regret> else enter security question number");
             command = getScanner().nextLine();
-            if ((matcher = isMatched(command, "^question pick(((?: -q (?<number>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -a (?<answer>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -c (?<answerConfirm>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$\n")) != null)
+            if ((matcher = isMatched(command, "^question pick(((?: -q (?<number>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -a (?<answer>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))|(?: -c (?<answerConfirm>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null)
                 return matcher;
             else if (isMatched(command, "regret") != null) {
                 break;
@@ -67,7 +67,7 @@ public class SignupMenu extends Menu {
 
     public static void reEnterPassword(String randomPassword) {
         String command = "";
-        while (command.equals(randomPassword)) {
+        while (!command.equals(randomPassword)) {
             System.out.println("Your random password is: " + randomPassword + "\nPlease re-enter your password here:");
             command = getScanner().nextLine();
         }

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Government {
     //TODO
     // Clear it never used
-    private Integer xBorder;
-    private Integer yBorder;
+//    private Integer xBorder;
+//    private Integer yBorder;
     private Integer unemployed;
     private User owner;
 //    private String name = owner.getUsername();
@@ -22,9 +22,7 @@ public class Government {
     private ArrayList<Granery> graneries = new ArrayList<>();
     private Integer fearRate = 0;
 
-    public Government(Integer xBorder, Integer yBorder, User owner) {
-        this.xBorder = xBorder;
-        this.yBorder = yBorder;
+    public Government(User owner) {
         this.owner = owner;
     }
 

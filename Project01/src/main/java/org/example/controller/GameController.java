@@ -60,6 +60,7 @@ public class GameController {
                     if (mapController.getHomeByPosition(j, k) == null) {
                         continue;
                     }
+//                    System.out.println(i);
                     mapController.getHomeByPosition(j, k).setOwner(getCurrentGame().getGovernments().get(i));
                 }
             }
@@ -150,8 +151,8 @@ public class GameController {
     //TODO
     public String dropBuilding(Matcher matcher) {
 
-        if (CheckController.checkTheNumberInputTruth(matcher.group("x")) || CheckController.checkTheNumberInputTruth(matcher.group("y")))
-            return "Please enter the valid x and y";
+//        if (CheckController.checkTheNumberInputTruth(matcher.group("x")) || CheckController.checkTheNumberInputTruth(matcher.group("y")))
+//            return "Please enter the valid x and y";
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
         Home home = mapController.getHomeByPosition(x, y);
@@ -218,7 +219,9 @@ public class GameController {
         Integer neededWood = getTheNeededWoodByType(buildingName);
         if (buildingHome.getBuilding() != null)
             return "You can not drop building in this home because a building is exist already";
-        if(!buildingHome.getBuilding().getOwner().equals(getCurrentGovernment()))
+        if (!isItValidBuildName(buildingName))
+            return "Enter Valid Building Name!";
+        if (!buildingHome.getOwner().equals(getCurrentGovernment()))
             return "This home is not for you !";
         //TODO
         // Check The Floor Type
@@ -288,6 +291,14 @@ public class GameController {
         getCurrentGovernment().setCoin(getCurrentGovernment().getCoin() - getThePriceOfBuilding(buildingName));
         isSuccessful[0] = true;
         return "We build a " + buildingName + " for you MyLord";
+    }
+
+    private boolean isItValidBuildName(String buildingName) {
+        for (int i = 0; i < BuildingTypes.values().length; i++) {
+            if (BuildingTypes.values()[i].getType().equals(buildingName))
+                return true;
+        }
+        return false;
     }
 
     private String getTheFoodFarmProductionName(String farmName) {
@@ -767,7 +778,7 @@ public class GameController {
 
     //TODO
     // Make a Command for it
-    public String stopPatrolUint(Matcher matcher) {
+    public String stopPatrolUint() {
         Integer indexOfYourLastPatrolledTroops = getTheLastYourPatrolTroops();
         if (indexOfYourLastPatrolledTroops == null)
             return "You have not have any patrol troops yet";
@@ -1247,7 +1258,7 @@ public class GameController {
         return "";
     }
 
-    public void changeTurn() {
+    public String  changeTurn() {
         //TODO
         //change the user and apply changes like rates , production of mines and farms attack between troops
         ArrayList<Government> allGovernment = getCurrentGame().getGovernments();
@@ -1257,7 +1268,7 @@ public class GameController {
             increaseCurrentTurn();
         }
         applyChanges();
-
+        return null;
     }
 
     private void applyChanges() {
