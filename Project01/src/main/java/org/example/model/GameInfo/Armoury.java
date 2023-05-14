@@ -3,7 +3,6 @@ package org.example.model.GameInfo;
 import java.util.HashMap;
 
 public class Armoury extends Cellar{
-public class Armoury extends Stores {
     private Government owner;
     private static final Integer maxCapacity = 100;
     private Integer capacity = maxCapacity;
@@ -11,7 +10,7 @@ public class Armoury extends Stores {
     HashMap<String, Integer> elements = new HashMap<>();
 
     public Armoury(Government owner) {
-        super(owner, "Armoury", 100, 0, 0, 0, 5);
+        super(100.0,owner, "Armoury", 100, 0, 0, 0, 5);
         this.owner = owner;
         setElements("LeatherArmour", 0);
         setElements("Mace", 0);

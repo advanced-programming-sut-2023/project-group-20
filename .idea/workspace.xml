@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Game_controlling" />
+    <option name="BRANCH" value="TradeComplete" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,7 +29,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/erfan-b/Desktop/ProjectPhas1/Project01",
+    "last_opened_file_path": "F:/Downloads/PortableGit/Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,7 +64,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Menu" />
+                        <option value="Complete_Game" />
                       </list>
                     </value>
                   </entry>

@@ -1,6 +1,6 @@
 package org.example.model.GameInfo;
 
-import model.User;
+import org.example.model.User;
 
 import java.util.ArrayList;
 

@@ -4,8 +4,6 @@ import org.example.model.DataBase;
 import org.example.model.User;
 import org.example.view.Menu;
 import org.example.view.SignupMenu;
-import org.example.model.DataBase;
-
 import java.util.Random;
 import java.util.regex.Matcher;
 

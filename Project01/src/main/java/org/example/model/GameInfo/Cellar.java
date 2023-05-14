@@ -5,8 +5,6 @@ import java.util.HashMap;
 public class Cellar extends Building{
     private Double maxCapacity;
 
-    //private static ArrayList<Good> goods = new ArrayList<>();
-
     protected Double space = maxCapacity;
 
     HashMap<String, Double> elements = new HashMap<>();

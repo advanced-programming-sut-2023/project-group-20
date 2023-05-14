@@ -1,10 +1,7 @@
 package org.example.view;
 
-import org.example.controller.GameController;
-import org.example.controller.ShopController;
 import org.example.controller.TradeController;
 import org.example.model.GameInfo.Government;
-
 import java.util.regex.Matcher;
 
 public class TradeMenu extends Menu {
