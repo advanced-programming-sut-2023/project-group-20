@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.enums.*;
 import org.example.model.DataBase;
 import org.example.model.GameInfo.*;
+import org.example.model.User;
 import org.example.view.GameMenu;
 
 import java.util.ArrayList;
@@ -10,9 +11,8 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.regex.Matcher;
 
-
 public class GameController {
-    //    private User currentUser;
+    private User currentUser;
     private Government currentGovernment;
     private Game currentGame;
     private int currentTurn;
@@ -28,11 +28,8 @@ public class GameController {
         this.currentGovernment = firstPlayer;
     }
 
-    //    public void setCurrentUser(User currentUser) {
-//        this.currentUser = currentUser;
-//    }
-    public void setCurrentGovernment(Government currentGovernment) {
-        this.currentGovernment = currentGovernment;
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     private void setCurrentGame(Game currentGame) {

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static ArrayList<User> users = new ArrayList<>();
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+
     private static ArrayList<String> emails = new ArrayList<>();
     private static ArrayList<String> slogans = new ArrayList<>();
     private final static ArrayList<String> securityQuestions = new ArrayList<>();

@@ -1,7 +1,8 @@
 package org.example.view;
 
 import org.example.controller.GameController;
-import org.example.controller.UnitMotionController;
+import org.example.controller.LoginController;
+import org.example.controller.SignupController;
 import org.example.model.GameInfo.Game;
 import org.example.model.GameInfo.Government;
 import org.example.model.GameInfo.Home;

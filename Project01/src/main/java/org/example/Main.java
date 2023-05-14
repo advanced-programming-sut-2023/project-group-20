@@ -1,5 +1,3 @@
-package org.example;
-
 import org.example.controller.SignupController;
 
 public class Main {

@@ -1,66 +1,96 @@
 package org.example.model.GameInfo;
 
-import org.example.model.User;
+import java.util.ArrayList;
 
 public class Trade {
-    private User receiver;
-    private User sender;
-    private String message;
-    private Troop troop;
-    private Integer coin;
-    private Integer stone;
-    private Integer amount;
 
-    public Trade(User receiver, User sender) {
+    public static ArrayList<Trade> trades = new ArrayList<>();
+    private Government sender=null;
+    private Government receiver=null;
+    private String type;
+    private int id = 0;
+    private Double amount;
+    private Double price;
+    private String message;
+    private boolean flag=false;
+    private String message2;
+
+    public void setReceiver(Government receiver) {
         this.receiver = receiver;
+    }
+    public void setSender(Government sender) {
         this.sender = sender;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setTroop(Troop troop) {
-        this.troop = troop;
-    }
-
-    public void setCoin(Integer coin) {
-        this.coin = coin;
-    }
-
-    public void setStone(Integer stone) {
-        this.stone = stone;
-    }
-
-    public void setAmount(Integer amount) {
+    public Trade(Government user, String type, Double amount, Double price, String message) {
+        if(price==0.0){
+            this.sender = user;
+        } else {this.receiver = user;}
+        this.type = type;
         this.amount = amount;
+        this.price = price;
+        this.message = message;
+        trades.add(this);
+        id = trades.size();
+    }
+
+    public Government getSender() {
+        return sender;
+    }
+
+    public Government getReceiver() {
+        return receiver;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public Troop getTroop() {
-        return troop;
+    public int getId() {
+        return id;
     }
 
-    public Integer getCoin() {
-        return coin;
+    public void setMessage2(String message2) {
+        this.message2 = message2;
     }
 
-    public Integer getStone() {
-        return stone;
+    public Government getReceiverOrSender(){
+        if(sender!=null)return sender;
+        else return receiver;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public static Trade getTradeById(int id){
+        if(trades.size()==0)return null;
+        else{
+            for (Trade trade:trades) {
+                if(trade.getId()==id) return trade;
+            }
+            return null;
+        }
     }
 
-    public User getReceiver() {
-        return receiver;
+    public boolean isFlag() {
+        return flag;
     }
 
-    public User getSender() {
-        return sender;
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
+    public boolean accepted(){
+        if(receiver!=null && sender !=null)return true;
+        else return false;
     }
 }

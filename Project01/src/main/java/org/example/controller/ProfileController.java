@@ -2,7 +2,6 @@ package org.example.controller;
 
 import org.example.view.LoginMenu;
 import org.example.model.DataBase;
-
 import java.util.regex.Matcher;
 
 public class ProfileController extends CheckController {

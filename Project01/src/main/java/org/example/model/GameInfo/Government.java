@@ -1,6 +1,6 @@
 package org.example.model.GameInfo;
 
-import org.example.model.User;
+import model.User;
 
 import java.util.ArrayList;
 
@@ -80,6 +80,9 @@ public class Government {
     }
 
     public ArrayList getArmouries() {
+        return armouries;
+    }
+    public ArrayList<Armoury> getArmouries2() {
         return armouries;
     }
 

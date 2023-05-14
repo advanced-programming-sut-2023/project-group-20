@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.model.DataBase;
 import org.example.model.User;
 import org.example.view.Menu;
 import org.example.view.SignupMenu;

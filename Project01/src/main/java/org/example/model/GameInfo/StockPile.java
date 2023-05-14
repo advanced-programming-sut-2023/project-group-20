@@ -2,6 +2,7 @@ package org.example.model.GameInfo;
 
 import java.util.HashMap;
 
+public class StockPile extends Cellar{
 public class StockPile extends Stores {
     private final Government owner;
     private static final Integer maxCapacity = 100;

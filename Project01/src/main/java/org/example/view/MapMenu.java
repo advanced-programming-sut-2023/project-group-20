@@ -11,43 +11,29 @@ public class MapMenu extends Menu{
         this.mapController = mapController;
     }
 
-    public void run() {
-        System.out.print(mapController.showMap(0, 0));
-        String command = getScanner().nextLine();
+    public void run(){
+        // TODO
+        //  MAKE A MapController
+        System.out.println(mapController.showMap(0,0));
+        String command=getScanner().nextLine();
         Matcher matcher;
-        while (true) {
-            if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+)){0,1}){0,2}$")) != null) {
-                if (matcher.group("x") == null || matcher.group("y") == null)
-                    printMassage("-x or -y is null");
-                else if (checkInt(matcher.group("x"))||checkInt(matcher.group("y")))
-                    printMassage("x or y must be Integer");
-                else
-                    System.out.println(mapController.showMap(0, 0));
-            } else if ((matcher = isMatched(command, "^map(((?: (?<direction>\\S+){1}( (?<x>\\S*)?)?){0,2}))$")) != null) {
-                if (matcher.group("direction") == null)
-                    printMassage("direction is null");
-                else if (checkInt(matcher.group("x"))&&matcher.group("x")!=null)
-                    printMassage("x must be Integer");
-                else if (!(matcher.group("direction").equals("west")
-                        || matcher.group("direction").equals("east")
-                        || matcher.group("direction").equals("north")
-                        || matcher.group("direction").equals("south")))
-                    printMassage("direction should be west or east or north or south");
-                else
-                    System.out.println(mapController.moveMap(matcher));
-            } else if ((matcher = isMatched(command, "^show details((((?: -x (?<x>\\S+)))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
-                if (matcher.group("x") == null || matcher.group("y") == null)
-                    printMassage("-x or -y is null");
-                else if (checkInt(matcher.group("x"))||checkInt(matcher.group("y")))
-                    printMassage("x or y must be Integer");
-                else
-                    System.out.println(mapController.showHomeDetails(matcher));
-            } else if (isMatched(command, "exit") != null) {
+        while (true){
+            if ((matcher = isMatched(command, "^show map((?: -x (?<x>\\d+))|(?: -y (?<y>\\d+)){0,1}){0,2}$")) != null)
+                System.out.println(mapController.showMap(0,0));
+            else if ((matcher = isMatched(command, "^map(((?: (?<direction>\\S+){1}( (?<x>\\d*)?)?){0,2}))$")) != null)
+                System.out.println(mapController.moveMap(matcher));
+//            else if ((matcher = isMatched(command, "^show details(((?: -x (?<x>\\d+)))|(?: -y (?<y>\\d+))){0,1}){0,2}$")) != null)
+//                System.out.println(mapController.showHomeDetails(matcher));
+            else if (isMatched(command,"exit")!=null) {
                 System.out.println("Exited from map .Entered Game");
+//                break;
                 return;
             } else
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
+//        MapController.exit();
+
     }
+    public static void showMap(String map){System.out.println(map);}
 }
