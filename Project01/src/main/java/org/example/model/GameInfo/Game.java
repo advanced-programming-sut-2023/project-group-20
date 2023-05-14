@@ -8,15 +8,16 @@ public class Game {
     private Integer currentTurn = 1;
     private Map map;
     private Home selectedBuildingHome;
+    private Home selectEngineBuildingHome;
     private ArrayList<Troop> selectedTroops;
     private Home selectedTroopsHome;
-    private ArrayList<Government> governments;
+    private ArrayList<Government> governments = new ArrayList<>();
     private int playerNumber;
 
-    public Game(Integer turnNumber, Map map, ArrayList<Government> governments, int playerNumber) {
+    public Game(Integer turnNumber, Map map, int playerNumber) {
         this.turnNumber = turnNumber;
         this.map = map;
-        this.governments = governments;
+//        this.governments = governments;
         this.playerNumber = playerNumber;
     }
 
@@ -82,5 +83,13 @@ public class Game {
 
     public Integer getCurrentTurn() {
         return currentTurn;
+    }
+
+    public Home getSelectEngineBuildingHome() {
+        return selectEngineBuildingHome;
+    }
+
+    public void setSelectEngineBuildingHome(Home selectEngineBuilding) {
+        this.selectEngineBuildingHome = selectEngineBuilding;
     }
 }

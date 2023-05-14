@@ -4,6 +4,9 @@ import org.example.model.DataBase;
 import org.example.model.GameInfo.*;
 import org.example.view.MapMenu;
 
+import java.util.HashMap;
+import java.util.ArrayList;
+
 import java.util.regex.Matcher;
 
 public class MapController {
@@ -41,7 +44,11 @@ public class MapController {
             return "Your position for x and y is not correct";
         for (int i = +1; i >= -1; i--) {
             for (int j = -1; j <= +1; j++) {
+                if (i == 0 && j == 0)
+                    output += "<<";
                 output += printHome(getHomeByPosition(j + xMapPos, i + yMapPos));
+                if (i == 0 && j == 0)
+                    output += ">>";
                 output += " ";
             }
             output += "\n";
@@ -72,8 +79,19 @@ public class MapController {
         //TODO
         //  MUST BE DEFINDE BY MATCHER
         //  MUST BE DEFINDE BY MATCHER
-        int movementY = 1;
+        int movementY = 0;
         int movementX = 0;
+        String direction = matcher.group("direction");
+        if (direction.equals("north")) {
+            movementY++;
+        } else if (direction.equals("south")) {
+            movementY--;
+        } else if (direction.equals("east")) {
+            movementX++;
+        } else if (direction.equals("west")) {
+            movementX--;
+        }
+
         return showMap(movementY, movementX);
     }
 
@@ -125,8 +143,8 @@ public class MapController {
 
     public Home getHomeByPosition(Integer x, Integer y) {
         for (int i = 0; i < map.getHomes().size(); i++) {
-            if (((Home) map.getHomes().get(i)).getX().equals(x) && ((Home) map.getHomes().get(i)).getY().equals(y)) {
-                return ((Home) map.getHomes().get(i));
+            if (map.getHomes().get(i).getX().equals(x) && map.getHomes().get(i).getY().equals(y)) {
+                return map.getHomes().get(i);
             }
         }
         return null;

@@ -45,8 +45,8 @@ public class Map {
     }
 
     private void createHomes() {
-        for (int i = 1; i < this.xSize; i++) {
-            for (int j = 1; j < this.ySize; j++) {
+        for (int i = 1; i <= this.xSize; i++) {
+            for (int j = 1; j <= this.ySize; j++) {
                 homes.add(new Home(i, j, "FlatGround"));
             }
         }

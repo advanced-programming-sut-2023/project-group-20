@@ -4,10 +4,12 @@ import java.util.HashMap;
 
 public class StockPile extends Stores {
     private final Government owner;
+    private static final Integer maxCapacity = 100;
+    private Integer capacity = maxCapacity;
     HashMap<String, Integer> elements = new HashMap<>();
 
     public StockPile(Government owner) {
-        super(owner,"Stockpile",100,0,0,0,0);
+        super(owner, "Stockpile", 100, 0, 0, 0, 0);
         this.owner = owner;
         setElements("stone", 0);
         setElements("wood", 0);
@@ -25,4 +27,11 @@ public class StockPile extends Stores {
         return elements;
     }
 
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
 }

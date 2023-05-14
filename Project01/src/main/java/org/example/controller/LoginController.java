@@ -26,24 +26,24 @@ public class LoginController extends CheckController {
         if (!matcher.group("y").matches("\\d+"))
             return "Please enter a number for ymap (-t \\d)\n";
         String massage = "Enter a new player username";
-        Map map = new Map(Integer.parseInt(matcher.group("x")), Integer.parseInt(matcher.group("y")));
-        Game game = new Game(Integer.parseInt(matcher.group("turn")), map);
-        Government government=new Government(owner);
+        Integer playerNumber = Integer.parseInt(matcher.group("num"));
+        Map map = new Map(Integer.parseInt(matcher.group("x")), Integer.parseInt(matcher.group("y")), playerNumber);
+        Game game = new Game(Integer.parseInt(matcher.group("turn")), map, playerNumber);
+        Government government = new Government(owner);
         game.addGovernment(government);
         String username;
-        for (int i = 0; i < Integer.parseInt(matcher.group("num")); i++) {
-            username=LoginMenu.getPlayers(massage);
+        for (int i = 0; i < playerNumber - 1; i++) {
+            username = LoginMenu.getPlayers(massage);
             if (DataBase.getUserByName(username) == null) {
                 massage = "user not found";
                 i--;
             } else {
                 massage = "Enter a new player username";
-                Government newgovernment=new Government(DataBase.getUserByName(username));
+                Government newgovernment = new Government(DataBase.getUserByName(username));
                 game.addGovernment(newgovernment);
             }
         }
-        GameController gameController = new GameController(game);
-        gameController.setCurrentUser(owner);
+        GameController gameController = new GameController(game, game.getGovernments().get(0));
         gameController.start();
         return "";
     }

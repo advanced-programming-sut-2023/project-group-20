@@ -8,12 +8,12 @@ public class Home {
     private Integer y;
     private boolean isOilExist = false;
     private boolean isTunnelCreated = false;
+    private boolean isDitchCreated = false;
     private String typeOfFloor;
     private Building building;
     private Tree tree;
     private String Rock;
     //TODO Handle enemy Troops in your home
-    public boolean mark;
     private ArrayList<Troop> troops = new ArrayList<>();
     private EngineerBuilding engineerBuilding;
 //    private boolean isTroopsSelected = false;
@@ -135,5 +135,13 @@ public class Home {
 
     public void setEngineerBuilding(EngineerBuilding engineerBuilding) {
         this.engineerBuilding = engineerBuilding;
+    }
+
+    public boolean isDitchCreated() {
+        return isDitchCreated;
+    }
+
+    public void setDitchCreated(boolean ditchCreated) {
+        isDitchCreated = ditchCreated;
     }
 }
