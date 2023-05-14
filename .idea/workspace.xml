@@ -4,7 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="" />
+    <list default="true" id="33d011a1-071c-4ebd-b66d-66b886a3e977" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/CheckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/CheckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/SignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/controller/TradeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/controller/TradeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/BuildingTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/BuildingTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/FoodFarms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/FoodFarms.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/Mines.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/Mines.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/TownBuildings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/TownBuildings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/TroopTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/TroopTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/TypeOfEngineerBuildings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/TypeOfEngineerBuildings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/enums/WarBuildings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/enums/WarBuildings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Armoury.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Armoury.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Building.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Building.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/EngineerBuilding.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/EngineerBuilding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Government.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Government.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Granery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Granery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Home.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Home.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/StockPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/StockPile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Stores.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Trade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/model/GameInfo/Trade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/GameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/GameMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/LoginMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/LoginMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/ShopMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/ShopMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/SignupMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/SignupMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/org/example/view/TradeMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/org/example/view/TradeMenu.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/erfan-b/Desktop/ProjectPhas1/Project01",
+    "last_opened_file_path": "F:/programming/JAVA/Project spring2023/AlkazemiMerge",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,5 +111,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1684085770660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
   </component>
 </project>
