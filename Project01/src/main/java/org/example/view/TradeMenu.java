@@ -4,8 +4,14 @@ import org.example.controller.TradeController;
 import java.util.regex.Matcher;
 
 public class TradeMenu extends Menu {
+    TradeController tradeController;
+
+    public void setTradeController(TradeController tradeController) {
+        this.tradeController = tradeController;
+    }
+
     public void run() {
-        System.out.println(TradeController.showAllPlayers());
+        System.out.println(tradeController.showAllPlayers());
         String command = getScanner().nextLine();
         Matcher matcher;
         while (true) {
@@ -19,20 +25,20 @@ public class TradeMenu extends Menu {
                 else if (matcher.group("type") == null)
                     printMassage("type is null");
                 else
-                    System.out.println(TradeController.trade(matcher));
+                    System.out.println(tradeController.trade(matcher));
             } else if ((matcher = isMatched(command, "^trade list$")) != null)
-                System.out.println(TradeController.tradeList());
+                System.out.println(tradeController.tradeList());
             else if ((matcher = isMatched(command, "^trade accept((?: -i (?<id>\\S+))|(?: -m (?<message>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}")) != null) {
                 if (matcher.group("id") == null)
                     printMassage("id is null");
                 else if (checkInt(matcher.group("id")))
                     printMassage("id must be Integer");
                 else
-                    System.out.println(TradeController.tradeAccept(matcher));
+                    System.out.println(tradeController.tradeAccept(matcher));
             } else if ((matcher = isMatched(command, "^trade history$")) != null)
-                System.out.println(TradeController.tradeHistory());
+                System.out.println(tradeController.tradeHistory());
             else if ((matcher = isMatched(command, "back")) != null) {
-                TradeController.back();
+//                tradeController.back();
                 break;
             } else
                 System.out.println("Invalid command!");

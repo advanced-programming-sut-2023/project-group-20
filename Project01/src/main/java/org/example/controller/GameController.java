@@ -547,7 +547,7 @@ public class GameController {
     }
 
     private void decreaseElementFromStockPlie(String elementType, int amount) {
-        int decreaseAmount = amount;
+        double decreaseAmount = amount;
         for (int i = 0; i < getCurrentGovernment().getStockPiles().size(); i++) {
             StockPile stockPile = getCurrentGovernment().getStockPiles().get(i);
             decreaseAmount = decreaseAmount - stockPile.getElements().get(elementType);
@@ -555,13 +555,13 @@ public class GameController {
                 stockPile.setElements(elementType, stockPile.getElements().get(elementType) - amount);
                 return;
             } else {
-                stockPile.setElements(elementType, 0);
+                stockPile.setElements(elementType, 0.0);
             }
         }
     }
 
     private void decreaseElementFromArmory(String elementType, int amount) {
-        int decreaseAmount = amount;
+        double decreaseAmount = amount;
         for (int i = 0; i < getCurrentGovernment().getArmouries().size(); i++) {
             Armoury armoury = ((Armoury) getCurrentGovernment().getArmouries().get(i));
             decreaseAmount = decreaseAmount - armoury.getElements(elementType);
@@ -569,7 +569,7 @@ public class GameController {
                 armoury.setElements(elementType, armoury.getElements(elementType) - amount);
                 return;
             } else {
-                armoury.setElements(elementType, 0);
+                armoury.setElements(elementType, 0.0);
             }
         }
     }
@@ -1326,13 +1326,21 @@ public class GameController {
         return false;
     }
 
-    public String openTrade(Matcher matcher) {
+    //TODO
+    // Command
+    public String openTrade() {
         //TODO
-        return "";
+        TradeController tradeController = new TradeController(getCurrentGovernment(), getCurrentGame());
+        tradeController.start();
+        return "We exit from trade menu";
     }
 
+    //TODO
     public String openShop() {
         //TODO
+        // Command
+        ShopController shopController = new ShopController(getCurrentGovernment());
+        shopController.start();
         return "";
     }
 
@@ -1363,10 +1371,6 @@ public class GameController {
         updatePatrolTroopsAfterTurn();
         updateEngineBuilding();
     }
-
-
-//    private String checkWaterAreaType(String type) {
-//    }
 
     private boolean checkTreeType(String type) {
         for (int i = 0; i < DataBase.getTypesOfTree().size(); i++) {
@@ -1461,7 +1465,7 @@ public class GameController {
         }
     }
 
-    private void addFoodToGranery(String FoodName, Integer amount) {
+    private void addFoodToGranery(String FoodName, int amount) {
 
         //TODO
         ArrayList<Granery> allGraneries = getCurrentGovernment().getGraneries();
@@ -1476,8 +1480,8 @@ public class GameController {
                     allFoods.put(FoodName, allFoods.get(FoodName) + amount);
                     return;
                 } else {
-                    Integer availableIncrease = amount - allGraneries.get(i).getCapacity();
-                    allGraneries.get(i).setCapacity(0);
+                    Double availableIncrease = amount - allGraneries.get(i).getCapacity();
+                    allGraneries.get(i).setCapacity(0.0);
                     allFoods = allGraneries.get(i).getAllFoods();
                     allFoods.put(FoodName, allFoods.get(FoodName) + availableIncrease);
                     amount -= availableIncrease;
@@ -1568,16 +1572,16 @@ public class GameController {
         return counterOfActiveMine;
     }
 
-    private void increaseElementOfStockPile(String productName, Integer amount) {
+    private void increaseElementOfStockPile(String productName, int amount) {
         ArrayList<StockPile> allStockpiles = getCurrentGovernment().getStockPiles();
         for (int i = 0; i < allStockpiles.size(); i++) {
             if (amount < 0)
                 return;
             if (amount > allStockpiles.get(i).getCapacity()) {
                 allStockpiles.get(i).setElements(productName, allStockpiles.get(i).getCapacity());
-                allStockpiles.get(i).setCapacity(0);
+                allStockpiles.get(i).setCapacity(0.0);
             } else {
-                allStockpiles.get(i).setElements(productName, amount);
+                allStockpiles.get(i).setElements(productName, amount - 0.0);
                 allStockpiles.get(i).setCapacity(allStockpiles.get(i).getCapacity() - amount);
             }
         }

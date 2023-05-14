@@ -9,12 +9,12 @@ public class Government {
     // Clear it never used
 //    private Integer xBorder;
 //    private Integer yBorder;
-    private Integer unemployed=10;
+    private Integer unemployed = 10;
     private User owner;
     //    private String name = owner.getUsername();
     private Integer popularity = 100;
     private Integer foodRate = -2;
-    private double coin = 500;
+    private double coin = 1000;
     private Integer taxRate = 0;
     private ArrayList<Troop> troops = new ArrayList<>();
     private ArrayList<Armoury> armouries = new ArrayList<>();
@@ -79,7 +79,7 @@ public class Government {
         return coin;
     }
 
-    public ArrayList getArmouries() {
+    public ArrayList<Armoury> getArmouries() {
         return armouries;
     }
 
