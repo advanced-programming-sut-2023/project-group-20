@@ -3,12 +3,9 @@ package org.example.model.GameInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Granery extends Stores {
+public class Granery extends Store {
     private Government owner;
     //TODO
-    private static final Integer maxCapacity = 100;
-    private Integer capacity = maxCapacity;
-    private HashMap<String, Double> allFoods = new HashMap<>();
     public static final ArrayList<String> foodNames = new ArrayList<>();
 
     static {
@@ -19,7 +16,7 @@ public class Granery extends Stores {
     }
 
     public Granery(Government owner) {
-        super(owner, "Granery", 350, 0, 100, 0, 0);
+        super(100.0,owner, "Granery", 350, 0, 100, 0, 0);
         this.owner = owner;
         setAllFoods(foodNames.get(0), 0.0);
         setAllFoods(foodNames.get(1), 0.0);
@@ -28,19 +25,19 @@ public class Granery extends Stores {
     }
 
     public void setAllFoods(String elementsKey, Double amount) {
-        allFoods.put(elementsKey, amount);
+        super.setElements(elementsKey, amount);
     }
 
     public HashMap<String, Double> getAllFoods() {
-        return allFoods;
+        return super.getElements();
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public Double getCapacity() {
+        return super.getCapacity();
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+    public void setCapacity(Double capacity) {
+        super.setCapacity(capacity);
     }
 
 }

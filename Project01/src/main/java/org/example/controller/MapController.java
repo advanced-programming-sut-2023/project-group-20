@@ -143,8 +143,8 @@ public class MapController {
 
     public Home getHomeByPosition(Integer x, Integer y) {
         for (int i = 0; i < map.getHomes().size(); i++) {
-            if (((Home) map.getHomes().get(i)).getX().equals(x) && ((Home) map.getHomes().get(i)).getY().equals(y)) {
-                return ((Home) map.getHomes().get(i));
+            if (map.getHomes().get(i).getX().equals(x) && map.getHomes().get(i).getY().equals(y)) {
+                return map.getHomes().get(i);
             }
         }
         return null;

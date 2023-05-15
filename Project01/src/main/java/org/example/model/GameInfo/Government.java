@@ -7,26 +7,27 @@ import java.util.ArrayList;
 public class Government {
     //TODO
     // Clear it never used
-//    private Integer xBorder;
-//    private Integer yBorder;
-    private Integer unemployed;
+    private Integer unemployed = 10;
     private User owner;
-//    private String name = owner.getUsername();
     private Integer popularity = 100;
     private Integer foodRate = -2;
-    private double coin = 500;
+    private double coin = 100000;
     private Integer taxRate = 0;
     private ArrayList<Troop> troops = new ArrayList<>();
     private ArrayList<Armoury> armouries = new ArrayList<>();
     private ArrayList<StockPile> stockPiles = new ArrayList<>();
     private ArrayList<Granery> graneries = new ArrayList<>();
     private Integer fearRate = 0;
+    private Integer usedStone;
+    private Integer usedWood;
+    private Integer usedIron;
 
     public Government(User owner) {
         this.owner = owner;
     }
 
-    private Integer population = 0;
+
+    private Integer population = 10;
 
     public ArrayList<Granery> getGraneries() {
         return graneries;
@@ -76,7 +77,7 @@ public class Government {
         return coin;
     }
 
-    public ArrayList getArmouries() {
+    public ArrayList<Armoury> getArmouries() {
         return armouries;
     }
 
@@ -118,5 +119,37 @@ public class Government {
 
     public void setPopulation(Integer population) {
         this.population = population;
+    }
+
+    public Integer getUnemployed() {
+        return unemployed;
+    }
+
+    public void setUnemployed(Integer unemployed) {
+        this.unemployed = unemployed;
+    }
+
+    public Integer getUsedStone() {
+        return usedStone;
+    }
+
+    public Integer getUsedWood() {
+        return usedWood;
+    }
+
+    public Integer getUsedIron() {
+        return usedIron;
+    }
+
+    public void setUsedStone(Integer usedStone) {
+        this.usedStone = usedStone;
+    }
+
+    public void setUsedWood(Integer usedWood) {
+        this.usedWood = usedWood;
+    }
+
+    public void setUsedIron(Integer usedIron) {
+        this.usedIron = usedIron;
     }
 }

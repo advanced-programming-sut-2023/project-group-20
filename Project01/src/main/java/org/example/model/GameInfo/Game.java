@@ -8,6 +8,7 @@ public class Game {
     private Integer currentTurn = 1;
     private Map map;
     private Home selectedBuildingHome;
+    private Home selectEngineBuildingHome;
     private ArrayList<Troop> selectedTroops;
     private Home selectedTroopsHome;
     private ArrayList<Government> governments = new ArrayList<>();
@@ -82,5 +83,13 @@ public class Game {
 
     public Integer getCurrentTurn() {
         return currentTurn;
+    }
+
+    public Home getSelectEngineBuildingHome() {
+        return selectEngineBuildingHome;
+    }
+
+    public void setSelectEngineBuildingHome(Home selectEngineBuilding) {
+        this.selectEngineBuildingHome = selectEngineBuilding;
     }
 }

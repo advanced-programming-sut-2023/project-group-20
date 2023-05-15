@@ -50,4 +50,7 @@ public class LoginMenu extends Menu{
         System.out.println(massage);
         return getScanner().nextLine();
     }
+    public static void winnerPrint(String string){
+        System.out.println(string);
+    }
 }

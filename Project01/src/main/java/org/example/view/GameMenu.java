@@ -1,16 +1,10 @@
 package org.example.view;
 
 import org.example.controller.GameController;
-import org.example.controller.UnitMotionController;
 import org.example.model.GameInfo.Game;
 import org.example.model.GameInfo.Government;
-import org.example.model.GameInfo.Home;
 import org.example.model.GameInfo.Map;
 import org.example.model.User;
-
-import java.util.ArrayList;
-
-import org.example.controller.LoginController;
 
 import java.util.regex.Matcher;
 
@@ -38,9 +32,13 @@ public class GameMenu extends Menu {
                 System.out.println(gameController.showPopularity());
             else if ((matcher = isMatched(command, "^stop patrol$")) != null)
                 System.out.println(gameController.stopPatrolUint());
-            else if ((matcher = isMatched(command, "^change turn$")) != null)
-                System.out.println(gameController.changeTurn());
-            else if ((matcher = isMatched(command, "^show food list$")) != null)
+            else if ((matcher = isMatched(command, "^change turn$")) != null) {
+                String end = gameController.changeTurn();
+                if (end.equals(""))
+                    break;
+                else
+                    System.out.print(end);
+            } else if ((matcher = isMatched(command, "^show food list$")) != null)
                 System.out.println(gameController.showFoodList());
             else if ((matcher = isMatched(command, "^show food rate$")) != null)
                 System.out.println(gameController.showFoodRate());
@@ -48,7 +46,7 @@ public class GameMenu extends Menu {
                 if (matcher.group("r") == null)
                     printMassage("rate is null");
                 else if (checkInt(matcher.group("r")))
-                    printMassage("r must be Integer");
+                    printMassage("rate must be Integer");
                 else
                     System.out.println(gameController.setFoodRate(matcher));
             } else if ((matcher = isMatched(command, "^tax rate((?: -r (?<r>\\S+))){1}$")) != null) {
@@ -60,6 +58,10 @@ public class GameMenu extends Menu {
                     System.out.println(gameController.setTaxRate(matcher));
             } else if ((matcher = isMatched(command, "^tax rate show$")) != null)
                 System.out.println(gameController.showTaxRate());
+            else if ((matcher = isMatched(command, "^open shop menu$")) != null)
+                System.out.println(gameController.openShop());
+            else if ((matcher = isMatched(command, "^open trade menu$")) != null)
+                System.out.println(gameController.openTrade());
             else if ((matcher = isMatched(command, "^dropbuilding(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))|(?: -type (?<type>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,3}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
@@ -137,22 +139,21 @@ public class GameMenu extends Menu {
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.attack(matcher));
-            }else if ((matcher = isMatched(command, "^select engine building(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+            } else if ((matcher = isMatched(command, "^select engine building(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.selectEngineBuilding(matcher));
-            }
-            else if ((matcher = isMatched(command, "^engine attack(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+            } else if ((matcher = isMatched(command, "^engine attack(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.engineAttack(matcher));
-            }else if ((matcher = isMatched(command, "^pour oil(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\")))){1}$")) != null) {
+            } else if ((matcher = isMatched(command, "^pour oil(?: -d (?<direction>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\")))){1}$")) != null) {
                 if (matcher.group("direction") == null)
                     printMassage("direction is null");
                 else if (!(matcher.group("direction").equals("west")
@@ -169,22 +170,21 @@ public class GameMenu extends Menu {
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.digTunnel(matcher));
-            }else if ((matcher = isMatched(command, "^dig Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+            } else if ((matcher = isMatched(command, "^dig Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.digDitch(matcher));
-            }else if ((matcher = isMatched(command, "^fill Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
+            } else if ((matcher = isMatched(command, "^fill Ditch(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
                 else if (checkInt(matcher.group("x")) || checkInt(matcher.group("y")))
                     printMassage("x or y must be Integer");
                 else
                     System.out.println(gameController.fillDitch(matcher));
-            }
-            else if ((matcher = isMatched(command, "^build((?: -q (?<equipmentname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
+            } else if ((matcher = isMatched(command, "^build((?: -q (?<equipmentname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null) {
                 if (matcher.group("equipmentname") == null)
                     printMassage("-q is null");
                 else
@@ -212,7 +212,7 @@ public class GameMenu extends Menu {
                 else if (matcher.group("type") == null)
                     printMassage("type is null");
                 else
-                    System.out.println(gameController.setTexture(matcher));
+                    System.out.println(gameController.setTextureRectangle(matcher));
             } else if ((matcher = isMatched(command, "^clear(((?: -x (?<x>\\S+))|(?: -y (?<y>\\S+))){0,1}){0,2}$")) != null) {
                 if (matcher.group("x") == null || matcher.group("y") == null)
                     printMassage("-x or -y is null");
@@ -266,15 +266,22 @@ public class GameMenu extends Menu {
             } else if (isMatched(command, "exit") != null) {
                 System.out.println("Game Closed");
                 break;
+            } else if ((matcher = isMatched(command, "^show government info$")) != null) {
+                System.out.println(gameController.showGovernmentInfo());
             } else
                 System.out.println("Invalid command!");
             command = getScanner().nextLine();
         }
-//        LoginController.start();
-        //Bade Game Kodesh Mire Too LoginController
-        //TODO
-        // Bayad GameController To While LoginController Ejra She
+    }
 
-
+    public static void main(String[] args) {
+        Government government = new Government(new User("Erfan", "Easd", "Edi"));
+        Government government2 = new Government(new User("Ali", "Easd", "Ali"));
+        Game game = new Game(4, new Map(200, 200, 2), 2);
+        game.addGovernment(government);
+        game.addGovernment(government2);
+        GameController gameController1 = new GameController(game, government);
+//        System.out.println(game.getGovernments().size());
+        gameController1.start();
     }
 }
