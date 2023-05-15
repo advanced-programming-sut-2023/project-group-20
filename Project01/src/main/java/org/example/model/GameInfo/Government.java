@@ -5,16 +5,11 @@ import org.example.model.User;
 import java.util.ArrayList;
 
 public class Government {
-    //TODO
-    // Clear it never used
-//    private Integer xBorder;
-//    private Integer yBorder;
-    private Integer unemployed=10;
+    private Integer unemployed = 10;
     private User owner;
-    //    private String name = owner.getUsername();
     private Integer popularity = 100;
     private Integer foodRate = -2;
-    private double coin = 500;
+    private double coin = 100000;
     private Integer taxRate = 0;
     private ArrayList<Troop> troops = new ArrayList<>();
     private ArrayList<Armoury> armouries = new ArrayList<>();
@@ -28,6 +23,7 @@ public class Government {
     public Government(User owner) {
         this.owner = owner;
     }
+
 
     private Integer population = 10;
 
@@ -63,9 +59,6 @@ public class Government {
         this.coin = coin;
     }
 
-//    public String getName() {
-//        return name;
-//    }
 
     public Integer getTaxRate() {
         return taxRate;
@@ -79,19 +72,12 @@ public class Government {
         return coin;
     }
 
-    public ArrayList getArmouries() {
-        return armouries;
-    }
-    public ArrayList<Armoury> getArmouries2() {
+    public ArrayList<Armoury> getArmouries() {
         return armouries;
     }
 
     public void addArmoury(Armoury armoury) {
         this.armouries.add(armoury);
-    }
-
-    public void setFearRate(Integer fearRate) {
-        this.fearRate = fearRate;
     }
 
     public void setFoodRate(Integer rate) {
@@ -132,29 +118,5 @@ public class Government {
 
     public void setUnemployed(Integer unemployed) {
         this.unemployed = unemployed;
-    }
-
-    public Integer getUsedStone() {
-        return usedStone;
-    }
-
-    public Integer getUsedWood() {
-        return usedWood;
-    }
-
-    public Integer getUsedIron() {
-        return usedIron;
-    }
-
-    public void setUsedStone(Integer usedStone) {
-        this.usedStone = usedStone;
-    }
-
-    public void setUsedWood(Integer usedWood) {
-        this.usedWood = usedWood;
-    }
-
-    public void setUsedIron(Integer usedIron) {
-        this.usedIron = usedIron;
     }
 }

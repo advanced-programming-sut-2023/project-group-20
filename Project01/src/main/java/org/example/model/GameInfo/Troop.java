@@ -1,7 +1,7 @@
 package org.example.model.GameInfo;
 
 public class Troop extends People {
-    private String state="standing";
+    private String state = "standing";
     private Integer power;
     private Integer hitpoint;
     private Integer speed;
@@ -35,10 +35,6 @@ public class Troop extends People {
 
     public void setHome(Home home) {
         this.home = home;
-    }
-
-    public boolean isInBord() {
-        return isInBord;
     }
 
     public void setInBord(boolean inBord) {

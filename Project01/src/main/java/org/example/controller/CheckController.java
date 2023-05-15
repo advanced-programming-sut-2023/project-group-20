@@ -1,4 +1,5 @@
 package org.example.controller;
+
 import org.example.model.User;
 
 public abstract class CheckController {
@@ -36,8 +37,9 @@ public abstract class CheckController {
         }
         return "accepted";
     }
-    protected static boolean isNull(Object object){
-        if (object==null)
+
+    protected static boolean isNull(Object object) {
+        if (object == null)
             return true;
         else if (object.equals(""))
             return true;
@@ -45,11 +47,12 @@ public abstract class CheckController {
             return true;
         else return false;
     }
-    protected static String deleteQuotation(String string){
-        if (string==null)
+
+    protected static String deleteQuotation(String string) {
+        if (string == null)
             return null;
-        if (string.startsWith("\"")&&string.endsWith("\""))
-            return string.substring(1,string.length()-1);
+        if (string.startsWith("\"") && string.endsWith("\""))
+            return string.substring(1, string.length() - 1);
         return string;
     }
 }

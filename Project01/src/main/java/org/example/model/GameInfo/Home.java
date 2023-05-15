@@ -1,7 +1,6 @@
 package org.example.model.GameInfo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Home {
     private Government owner;
@@ -14,16 +13,8 @@ public class Home {
     private Building building;
     private Tree tree;
     private String Rock;
-    //TODO Handle enemy Troops in your home
     private ArrayList<Troop> troops = new ArrayList<>();
     private EngineerBuilding engineerBuilding;
-//    private boolean isTroopsSelected = false;
-
-//    public boolean isBuildingSelected() {
-//        return isBuildingSelected;
-//    }
-
-//    private boolean isBuildingSelected = false;
 
     public Home(Integer x, Integer y, String typeOfFloor) {
         this.x = x;
@@ -81,23 +72,6 @@ public class Home {
         return tree;
     }
 
-//    public String selectTroop() {
-//        this.isTroopsSelected = true;
-//        return "All troops witch stayed in this home are selected";
-//    }
-
-//    public boolean isTroopsSelected() {
-//        return isTroopsSelected;
-//    }
-
-//    public void setTroopsSelected(boolean troopsSelected) {
-//        isTroopsSelected = troopsSelected;
-//    }
-
-//    public void setBuildingSelected(boolean buildingSelected) {
-//        isBuildingSelected = buildingSelected;
-//    }
-
     public Government getOwner() {
         return owner;
     }
@@ -122,10 +96,6 @@ public class Home {
         isTunnelCreated = tunnelCreated;
     }
 
-    public String getRock() {
-        return Rock;
-    }
-
     public void setRock(String rock) {
         Rock = rock;
     }
@@ -136,10 +106,6 @@ public class Home {
 
     public void setEngineerBuilding(EngineerBuilding engineerBuilding) {
         this.engineerBuilding = engineerBuilding;
-    }
-
-    public boolean isDitchCreated() {
-        return isDitchCreated;
     }
 
     public void setDitchCreated(boolean ditchCreated) {

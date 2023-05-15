@@ -2,36 +2,33 @@ package org.example.model.GameInfo;
 
 import java.util.HashMap;
 
-public class StockPile extends Cellar{
+public class StockPile extends Store {
     private final Government owner;
-    private static final Integer maxCapacity = 100;
-    private Integer capacity = maxCapacity;
-    HashMap<String, Integer> elements = new HashMap<>();
 
     public StockPile(Government owner) {
-        super(100.0,owner, "Stockpile", 100, 0,0, 0,  0);
+        super(100.0, owner, "Stockpile", 100, 0, 0, 0, 0);
         this.owner = owner;
-        setElements("stone", 0);
-        setElements("wood", 0);
-        setElements("iron", 0);
-        setElements("pitch", 0);
-        setElements("wheat", 0);
-        setElements("flour", 0);
+        setElements("stone", 0.0);
+        setElements("wood", 0.0);
+        setElements("iron", 0.0);
+        setElements("pitch", 0.0);
+        setElements("wheat", 0.0);
+        setElements("flour", 0.0);
     }
 
-    public void setElements(String elementsKey, Integer amount) {
-        elements.put(elementsKey, amount);
+    public void setElements(String elementsKey, Double amount) {
+        super.setElements(elementsKey, amount);
     }
 
-    public HashMap<String, Integer> getElements() {
-        return elements;
+    public HashMap<String, Double> getElements() {
+        return super.getElements();
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public Double getCapacity() {
+        return super.getCapacity();
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+    public void setCapacity(Double capacity) {
+        super.setCapacity(capacity);
     }
 }

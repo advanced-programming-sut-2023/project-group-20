@@ -5,5 +5,4 @@ public class Tree {
     public Tree(String name) {
         this.name = name;
     }
-
 }

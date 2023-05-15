@@ -10,7 +10,7 @@ public abstract class Menu {
     protected static User logedInUser;
     private static final Scanner scanner = new Scanner(System.in);
 
-    protected static Matcher isMatched(String command, String regex) {
+    public static Matcher isMatched(String command, String regex) {
         Matcher matcher = Pattern.compile(regex).matcher(command);
         return matcher.matches() ? matcher : null;
     }

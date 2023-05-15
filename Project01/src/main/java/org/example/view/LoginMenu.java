@@ -9,9 +9,6 @@ public class LoginMenu extends Menu{
         String command=getScanner().nextLine();
         Matcher matcher;
         while (true){
-            //TODO
-            // Start Game Command Should Be Created
-            // Make a GameController and start it
             if ((matcher = isMatched(command, "^profile change((?: -u (?<username>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null)
                 System.out.println(ProfileController.changeUsername(matcher));
             else if ((matcher = isMatched(command, "^profile change((?: -n (?<nickname>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){1}$")) != null)
@@ -49,5 +46,8 @@ public class LoginMenu extends Menu{
     public static String getPlayers(String massage){
         System.out.println(massage);
         return getScanner().nextLine();
+    }
+    public static void winnerPrint(String string){
+        System.out.println(string);
     }
 }

@@ -11,16 +11,4 @@ public class WarBuilding extends Building {
         this.fireRange = fireRange;
         this.defendRange = defendRange;
     }
-
-    public Integer getPowerOfDestroying() {
-        return powerOfDestroying;
-    }
-
-    public Integer getFireRange() {
-        return fireRange;
-    }
-
-    public Integer getDefendRange() {
-        return defendRange;
-    }
 }

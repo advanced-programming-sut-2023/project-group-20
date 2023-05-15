@@ -9,8 +9,8 @@ public class PatrolTroops {
     private int racePatrollingCountUntilNow = 0;
     private ArrayList<Home> race;
 
-    public PatrolTroops(ArrayList<Troop> patrolTroops, ArrayList<Home> race,Government government) {
-        this.government=government;
+    public PatrolTroops(ArrayList<Troop> patrolTroops, ArrayList<Home> race, Government government) {
+        this.government = government;
         this.patrolTroops = patrolTroops;
         this.race = race;
         this.currentHome = race.get(0);

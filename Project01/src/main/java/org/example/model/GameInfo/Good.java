@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Good {
     private static ArrayList<Good> goods = new ArrayList<>();
+
     private String name;
     private Double buy;
     private Double sell;
@@ -39,16 +40,16 @@ public class Good {
         return sell;
     }
 
-    public String goodToText(){
+    public String goodToText() {
         return (name + "; buy: " + buy + " Sell: " + sell + " number: " + number + ".\n");
     }
 
-    public Good getGoodByName(String name){
-        if(goods.size()==0){
+    public Good getGoodByName(String name) {
+        if (goods.size() == 0) {
             return null;
-        }else{
-            for (Good good: goods){
-                if(good.getName().equals(name)){
+        } else {
+            for (Good good : goods) {
+                if (good.getName().equals(name)) {
                     return good;
                 }
             }

@@ -11,7 +11,7 @@ public class TestCheckController extends CheckController{
     }
     @Test
     public void checkPasswordTest(){
-        Assertions.assertEquals(CheckController.checkPassword("dsa@o"),"Length should be greater than 5\n");
+        Assertions.assertEquals(CheckController.checkPassword("dsa@o"),"Password length should be greater than 5.");
         Assertions.assertEquals(CheckController.checkPassword("Sobhan@2"),"accepted");
     }
     @Test

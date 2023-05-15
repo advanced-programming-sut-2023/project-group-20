@@ -12,7 +12,7 @@ public enum TroopTypes {
     Knight("Knight", 70, 40, 3, 40, new ArrayList<>()),
     Tunneler("Tunneler", 10, 20, 8, 25, new ArrayList<>()),
     LadderMen("LadderMen", 10, 0, 9, 20, new ArrayList<>()),
-    Engineer("Engineer ", 10, 0, 6, 25, new ArrayList<>()),
+    Engineer("Engineer", 10, 0, 6, 25, new ArrayList<>()),
     BlackMonk("BlackMonk", 30, 15, 3, 20, new ArrayList<>()),
     ArabianBow("ArabianBow", 20, 10, 10, 25, new ArrayList<>()),
     Slaves("Slaves", 7, 4, 10, 10, new ArrayList<>()),

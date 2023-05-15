@@ -1,9 +1,10 @@
 package org.example.controller;
 
-import org.example.model.DataBase;
 import org.example.model.User;
 import org.example.view.Menu;
 import org.example.view.SignupMenu;
+import org.example.model.DataBase;
+
 import java.util.Random;
 import java.util.regex.Matcher;
 
@@ -15,11 +16,6 @@ public class SignupController extends CheckController {
     public static void start() {
         SignupMenu signupMenu = new SignupMenu();
         signupMenu.run();
-//        try {
-//            signupMenu.run();
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     public static String createUser(Matcher matcher) {
@@ -98,8 +94,6 @@ public class SignupController extends CheckController {
         return "User created";
     }
 
-    //    private static void setQuestionAndAnswer(Integer questionNumber, String answer) {
-//    }
     public static String login(Matcher matcher) {
         String username = matcher.group("username");
         username = deleteQuotation(username);
