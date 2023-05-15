@@ -59,6 +59,33 @@ public class DataBase {
 
     }
 
+    private static ArrayList<String> goods = new ArrayList<>();
+
+    static {
+        goods.add("Apple");
+        goods.add("Meat");
+        goods.add("Cheese");
+        goods.add("Bread");
+        goods.add("stone");
+        goods.add("wood");
+        goods.add("iron");
+        goods.add("pitch");
+        goods.add("wheat");
+        goods.add("flour");
+        goods.add("LeatherArmour");
+        goods.add("Mace");
+        goods.add("Sword");
+        goods.add("MetalArmour");
+        goods.add("Bow");
+        goods.add("Crossbow");
+        goods.add("Spear");
+        goods.add("Pike");
+    }
+
+    public static ArrayList<String> getGoods() {
+        return goods;
+    }
+
     private final static ArrayList<String> typesOfTroops = new ArrayList<>();
 
     static {
@@ -132,23 +159,6 @@ public class DataBase {
     private final static ArrayList<String> typeOfWarBuilding = new ArrayList<>();
 
     static {
-//        typeOfWarBuilding.add("Gate");
-//        typeOfWarBuilding.add("ShortWall");
-//        typeOfWarBuilding.add("HighWall");
-//        typeOfWarBuilding.add("Tower");
-//        typeOfWarBuilding.add("LittleTower");
-//        typeOfWarBuilding.add("Step");
-//        typeOfWarBuilding.add("Trap");
-//        typeOfWarBuilding.add("Ditch");
-//        typeOfWarBuilding.add("OilBurning");
-//        typeOfWarBuilding.add("GateCapture");
-//        typeOfWarBuilding.add("Shield");
-//        typeOfWarBuilding.add("BatteringRam");
-//        typeOfWarBuilding.add("MovableTower");
-//        typeOfWarBuilding.add("Catapult");
-//        typeOfWarBuilding.add("FixedCatapult");
-//        typeOfWarBuilding.add("FireCatapult");
-//        .......................................
         typeOfWarBuilding.add("SmallStoneGatehouse");
         typeOfWarBuilding.add("BigStoneGatehouse");
         typeOfWarBuilding.add("Drawbridge");
@@ -210,7 +220,7 @@ public class DataBase {
         Integer rank = 1;
         for (User value : users) {
             if (user.getHighScore() < value.getHighScore()) rank++;
-            else if (user.hashCode()<value.hashCode()) rank++;
+            else if (user.hashCode() < value.hashCode()) rank++;
         }
         return rank;
     }

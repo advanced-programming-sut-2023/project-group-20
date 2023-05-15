@@ -3,10 +3,8 @@ package org.example.controller;
 import org.example.model.GameInfo.*;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class UnitMotionController {
-    //    private ArrayList<ArrayList<Troop>> patrolTroops = new ArrayList<>();
     private static Integer counter = 0;
     private ArrayList<PatrolTroops> patrolTroops = new ArrayList<>();
     private Map map;
@@ -22,71 +20,9 @@ public class UnitMotionController {
         boolean[] end = new boolean[1];
         end[0] = false;
         speed = reduceSpeedIfInWater(speed, mapController.getHomeByPosition(firstX, firstY));
-        return findRace(0, 0, speed, end, homes, firstX, firstY, targetX, targetY);
+        return findRace(speed, homes, firstX, firstY, targetX, targetY);
     }
-
-    //TODO
-    // Maybe Have Some problems
-
-
-    //    private ArrayList<Home> findRace(int fatherX, int fatherY, int speed, boolean[] end, ArrayList<Home> raceHomes, int currentX, int currentY, int targetX, int targetY) {
-//        if (end[0])
-//            return raceHomes;
-//        if (currentX - targetX > speed || currentX - targetX < -speed || currentY - targetY > speed || currentY - targetY < -speed) {
-//            if (raceHomes.size() - 1 < 0)
-//                return raceHomes;
-//            raceHomes.remove(raceHomes.size() - 1);
-//            return raceHomes;
-//        }
-//        raceHomes.add(mapController.getHomeByPosition(currentX, currentY));
-//        //REMOVE//
-//        System.out.println(end[0]);
-//        System.out.println(UnitMotionController.counter += 1);
-//        System.out.println("CX " + currentX + " CY " + currentY + " TX " + targetX + " TY " + targetY);
-//        //REMOVE//
-//        if (currentX == targetX && currentY == targetY) {
-//            end[0] = true;
-//            return raceHomes;
-//        }
-//
-//        if (fatherX != -1) {
-//            System.out.println("S0");
-//
-//            if (currentX - 1 > 0 && currentX < map.getxSize() && isFreeToMove(currentX, currentY)) {
-//                System.out.println("YES");
-//                findRace(1, 0, speed, end, raceHomes, currentX - 1, currentY, targetX, targetY);
-//                UnitMotionController.counter++;
-//            }
-//        }
-//        if (fatherX != 1) {
-//            System.out.println("S1");
-//
-//            if (currentX + 1 > 0 && currentX < map.getxSize() && isFreeToMove(currentX, currentY)) {
-//                findRace(-1, 0, speed, end, raceHomes, currentX + 1, currentY, targetX, targetY);
-//                UnitMotionController.counter++;
-//
-//            }
-//        }
-//        if (fatherY != -1) {
-//            System.out.println("S2");
-//            if (currentY - 1 > 0 && currentY < map.getySize() && isFreeToMove(currentX, currentY)) {
-//                findRace(0, +1, speed, end, raceHomes, currentX, currentY - 1, targetX, targetY);
-//                UnitMotionController.counter++;
-//
-//            }
-//        }
-//        if (fatherY != -1) {
-//            System.out.println("S3");
-//            if (currentY + 1 > 0 && currentY < map.getySize() && isFreeToMove(currentX, currentY)) {
-//                findRace(0, -1, speed, end, raceHomes, currentX, currentY + 1, targetX, targetY);
-//                UnitMotionController.counter++;
-//
-//            }
-//        }
-//
-//        return raceHomes;
-//    }
-    private ArrayList<Home> findRace(int fatherX, int fatherY, int speed, boolean[] end, ArrayList<Home> raceHomes, int currentX, int currentY, int targetX, int targetY) {
+    private ArrayList<Home> findRace(int speed, ArrayList<Home> raceHomes, int currentX, int currentY, int targetX, int targetY) {
         if (currentX - targetX > speed || currentX - targetX < -speed || currentY - targetY > speed || currentY - targetY < -speed) {
             return raceHomes;
         }
@@ -109,29 +45,18 @@ public class UnitMotionController {
                 raceHomes.add(mapController.getHomeByPosition(lastX, i));
             }
         }
+        System.out.println("<<findRace>> " + raceHomes.size());
         return raceHomes;
-    }
-
-    private boolean isFreeToMove(int homeX, int homeY) {
-//        Home home = mapController.getHomeByPosition(homeX, homeY);
-//        if (home.getBuilding() != null)
-//            return false;
-//            //TODO
-//        else if (home.getTypeOfFloor().equals("")) {//|| home.getTypeOfFloor().equals("") || home.getTypeOfFloor().equals("") ||) {
-//            return false;
-//        }
-        return true;
-
     }
 
     public boolean isAnyAvailableDestination(int speed, int firstX, int firstY, int targetX, int targetY) {
         ArrayList<Home> homes = new ArrayList<>();
-        boolean[] end = new boolean[1];
         speed = reduceSpeedIfInWater(speed, mapController.getHomeByPosition(firstX, firstY));
-        end[0] = false;
-        if (findRace(0, 0, speed, end, homes, firstX, firstY, targetX, targetY).size() == 0)
-            return false;
-        return true;
+        ArrayList<Home> race = (findRace(speed, homes, firstX, firstY, targetX, targetY));
+        System.out.println("<<isAnyAvailabe..>> " + race.size());
+        if (race.size() > 0)
+            return true;
+        return false;
     }
 
     public ArrayList<PatrolTroops> getPatrolTroops() {

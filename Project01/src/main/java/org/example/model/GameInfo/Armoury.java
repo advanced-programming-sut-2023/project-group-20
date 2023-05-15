@@ -1,9 +1,8 @@
 package org.example.model.GameInfo;
 
-import java.util.HashMap;
-
 public class Armoury extends Store {
     private Government owner;
+
     public Armoury(Government owner) {
         super(100.0, owner, "Armoury", 100, 0, 0, 0, 5);
         this.owner = owner;

@@ -1,16 +1,14 @@
 package org.example.enums;
 
 public enum TypeOfEngineerBuildings {
-    //TODO
-    Shield("Shield",20,1,150,0),
-    DejKoob("DejKoob",30,4,70,40),
-    BorjeMohasere("BorjeMohasere",40,4,70,40),
-    MovableManjenigh("MovableManjenigh",25,2,50,0),
-    StopManjenigh("StopManjenigh",30,3,65,75),
-    FireStoneDropper("FireStoneDropper",30,2,50,40),
+    Shield("Shield", 20, 1, 150, 0),
+    DejKoob("DejKoob", 30, 4, 70, 40),
+    BorjeMohasere("BorjeMohasere", 40, 4, 70, 40),
+    MovableManjenigh("MovableManjenigh", 25, 2, 50, 0),
+    StopManjenigh("StopManjenigh", 30, 3, 65, 75),
+    FireStoneDropper("FireStoneDropper", 30, 2, 50, 40),
     ;
     private String name;
-//    private String type;
     private Integer price;
     private Integer neededEngineers;
     private Integer maxHitpoint;
@@ -27,10 +25,6 @@ public enum TypeOfEngineerBuildings {
     public String getName() {
         return name;
     }
-
-//    public String getType() {
-//        return type;
-//    }
 
     public Integer getPrice() {
         return price;

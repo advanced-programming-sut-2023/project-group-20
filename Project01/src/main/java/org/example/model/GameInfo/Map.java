@@ -8,32 +8,14 @@ public class Map {
     private Integer ySize;
     private ArrayList<Home> homes = new ArrayList<>();
 
-//    private ArrayList<User>
-
     public Map(Integer xSize, Integer ySize, Integer playerNumber) {
         this.xSize = xSize;
         this.ySize = ySize;
         createHomes();
     }
 
-//    public void addHomeToMap(Home home) {
-//        this.homes.add(home);
-//    }
-
     public ArrayList<Home> getHomes() {
         return homes;
-    }
-
-//    public Home getHomeByPosition(Integer x, Integer y) {
-//        mapController.
-//    }
-
-    public void setSelectedBuilding(Building selectedBuilding) {
-        this.selectedBuilding = selectedBuilding;
-    }
-
-    public Building getSelectedBuilding() {
-        return selectedBuilding;
     }
 
     public Integer getxSize() {

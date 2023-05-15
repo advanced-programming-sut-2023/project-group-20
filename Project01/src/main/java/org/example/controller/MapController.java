@@ -15,10 +15,6 @@ public class MapController {
     private Map map;
     private Game currentGame;
 
-    public Game getCurrentGame() {
-        return currentGame;
-    }
-
     public void setCurrentGame(Game currentGame) {
         this.currentGame = currentGame;
     }
@@ -57,11 +53,6 @@ public class MapController {
     }
 
     private String printHome(Home home) {
-//        if (home.getX() < 0 || home.getX() > map.getxSize()) {
-//            return "*";
-//        } else if (home.getY() < 0 || home.getY() > map.getySize()) {
-//            return "*";
-//        }
         if (home == null) {
             return "*";
         } else if (home.getTroops().size() != 0) {
@@ -76,9 +67,6 @@ public class MapController {
     }
 
     public String moveMap(Matcher matcher) {
-        //TODO
-        //  MUST BE DEFINDE BY MATCHER
-        //  MUST BE DEFINDE BY MATCHER
         int movementY = 0;
         int movementX = 0;
         String direction = matcher.group("direction");
@@ -150,22 +138,5 @@ public class MapController {
         return null;
     }
 
-//    public static void exit() {
-//        GameController.start();
-//    }
-
-    //TODO
-    // Reset All Homes After Turn Changing
-    public void resetAllHomes() {
-        for (int i = 1; i < map.getxSize(); i++) {
-            for (int j = 1; j < map.getySize(); j++) {
-                resetHome(this.getHomeByPosition(i, j));
-            }
-        }
-    }
-
-    private void resetHome(Home home) {
-        //TODO
-    }
 
 }

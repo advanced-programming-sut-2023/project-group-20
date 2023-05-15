@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class Granery extends Store {
     private Government owner;
-    //TODO
     public static final ArrayList<String> foodNames = new ArrayList<>();
 
     static {
@@ -16,7 +15,7 @@ public class Granery extends Store {
     }
 
     public Granery(Government owner) {
-        super(100.0,owner, "Granery", 350, 0, 100, 0, 0);
+        super(100.0, owner, "Granery", 350, 0, 100, 0, 0);
         this.owner = owner;
         setAllFoods(foodNames.get(0), 0.0);
         setAllFoods(foodNames.get(1), 0.0);

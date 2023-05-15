@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Good {
     private static ArrayList<Good> goods = new ArrayList<>();
+
     private String name;
     private Double buy;
     private Double sell;

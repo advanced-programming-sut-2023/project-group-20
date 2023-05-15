@@ -16,6 +16,16 @@ public class LoginController extends CheckController {
         loginMenu.run();
     }
 
+    public static void winner(Game game) {
+        User user = game.getGovernments().get(0).getOwner();
+        for (int i = 0; i < game.getGovernments().size(); i++) {
+            if (game.getGovernments().get(i).getOwner().getHighScore() > user.getHighScore())
+                user = game.getGovernments().get(i).getOwner();
+        }
+        LoginMenu.winnerPrint("Lord " + user.getNickname() + " wins.");
+    }
+
+
     public static String startGame(Matcher matcher, User owner) {
         if (!matcher.group("num").matches("\\d+"))
             return "Please enter a number for player number (\\d)\n";
@@ -30,6 +40,7 @@ public class LoginController extends CheckController {
         Map map = new Map(Integer.parseInt(matcher.group("x")), Integer.parseInt(matcher.group("y")), playerNumber);
         Game game = new Game(Integer.parseInt(matcher.group("turn")), map, playerNumber);
         Government government = new Government(owner);
+        owner.setHighScore(10);
         game.addGovernment(government);
         String username;
         for (int i = 0; i < playerNumber - 1; i++) {
@@ -41,6 +52,7 @@ public class LoginController extends CheckController {
                 massage = "Enter a new player username";
                 Government newgovernment = new Government(DataBase.getUserByName(username));
                 game.addGovernment(newgovernment);
+                DataBase.getUserByName(username).setHighScore(10);
             }
         }
         GameController gameController = new GameController(game, game.getGovernments().get(0));

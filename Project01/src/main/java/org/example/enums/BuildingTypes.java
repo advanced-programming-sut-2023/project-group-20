@@ -1,12 +1,6 @@
 package org.example.enums;
 
 public enum BuildingTypes {
-    //TODO
-    // Add all building from data base here
-    // Do not remove them from dataBase!!!!
-
-    //Mines
-    //TODO
     IronMine(80, "IronMine", 10, "iron", 3, 0, 20, 0, 0, 0, 0, 0),
     StoneMine(120, "StoneMine", 20, "stone", 3, 0, 0, 0, 0, 0, 0, 0),
     WoodCutter(50, "WoodCutter", 35, "wood", 1, 0, 0, 0, 0, 0, 0, 0),
@@ -16,9 +10,8 @@ public enum BuildingTypes {
     blacksmith(50, "blacksmith", 2, "Mace", 1, 0, 20, 100, 0, 0, 0, 0),
     Fletcher(50, "Fletcher", 4, "Bow", 0, 0, 20, 100, 0, 0, 0, 0),
     Poleturner(50, "Poleturner", 3, "Spear", 1, 0, 10, 0, 0, 0, 0, 0),
-    //    //WarBuildings
-    Step(15,"Step",0,"",0,0,0,0,0,0,0,0),
-    Wall(30,"Wall",0,"",0,0,0,0,0,0,0,0),
+    Step(15, "Step", 0, "", 0, 0, 0, 0, 0, 0, 0, 0),
+    Wall(30, "Wall", 0, "", 0, 0, 0, 0, 0, 0, 0, 0),
     SmallStoneGatehouse(200, "SmallStoneGatehouse", 0, "", 0, 0, 0, 0, 0, 0, 0, 0),
     BigStoneGatehouse(200, "BigStoneGatehouse", 0, "", 0, 20, 0, 0, 0, 0, 0, 0),
     Drawbridge(150, "Drawbridge", 0, "", 0, 0, 10, 0, 0, 0, 0, 0),
@@ -90,14 +83,6 @@ public enum BuildingTypes {
         return type;
     }
 
-    public Integer getProductionAmount() {
-        return productionAmount;
-    }
-
-    public String getProductionName() {
-        return productionName;
-    }
-
     public Integer getNeededStone() {
         return neededStone;
     }
@@ -108,22 +93,6 @@ public enum BuildingTypes {
 
     public Integer getPrice() {
         return price;
-    }
-
-    public Integer getFireRange() {
-        return fireRange;
-    }
-
-    public Integer getDefendRange() {
-        return defendRange;
-    }
-
-    public Integer getDamageAmount() {
-        return damageAmount;
-    }
-
-    public Integer getPopularityRate() {
-        return popularityRate;
     }
 
     public Integer getNeededWorkers() {

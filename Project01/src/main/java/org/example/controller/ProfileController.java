@@ -67,7 +67,7 @@ public class ProfileController extends CheckController {
         String Error = checkEmail(email);
         if (!Error.equals("accepted"))
             return Error;
-        if (DataBase.getEmails() != null||DataBase.getEmails().size()==0)
+        if (DataBase.getEmails() != null || DataBase.getEmails().size() == 0)
             for (String email1 : DataBase.getEmails()) {
                 if (email1.equalsIgnoreCase(email))
                     return "Email is exist";

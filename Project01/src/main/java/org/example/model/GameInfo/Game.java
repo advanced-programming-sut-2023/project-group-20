@@ -17,7 +17,6 @@ public class Game {
     public Game(Integer turnNumber, Map map, int playerNumber) {
         this.turnNumber = turnNumber;
         this.map = map;
-//        this.governments = governments;
         this.playerNumber = playerNumber;
     }
 
@@ -27,10 +26,6 @@ public class Game {
 
     public int getPlayerNumber() {
         return playerNumber;
-    }
-
-    private void setTurnNumber(Integer turnNumber) {
-        this.turnNumber = turnNumber;
     }
 
     public Integer getTurnNumber() {
@@ -43,14 +38,6 @@ public class Game {
 
     public ArrayList<Government> getGovernments() {
         return governments;
-    }
-
-    public void addTrade(Trade trade) {
-        this.trades.add(trade);
-    }
-
-    public ArrayList<Trade> getTrades() {
-        return trades;
     }
 
     public void increaseCurrentTurn() {

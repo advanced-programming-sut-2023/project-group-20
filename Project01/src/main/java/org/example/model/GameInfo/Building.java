@@ -1,7 +1,5 @@
 package org.example.model.GameInfo;
 
-//import model.Government;
-
 public class Building {
     private Integer hitpoint;
     private Government owner;
@@ -32,16 +30,6 @@ public class Building {
         return hitpoint;
     }
 
-    public void setActiveWorkers(Integer activeWorkers) {
-        this.activeWorkers = activeWorkers;
-    }
-
-    public Integer getActiveWorkers() {
-        return activeWorkers;
-    }
-
-    public void runBuilding() {
-    }
     public String getType() {
         return type;
     }
@@ -62,15 +50,7 @@ public class Building {
         return price;
     }
 
-    public Integer getNeedWorkers() {
-        return needWorkers;
-    }
-
     public Integer getNeededStone() {
         return neededStone;
-    }
-
-    public Integer getNeededWood() {
-        return neededWood;
     }
 }

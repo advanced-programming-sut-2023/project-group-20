@@ -31,20 +31,8 @@ public class EngineerBuilding {
         this.price = price;
     }
 
-    public Integer getHitpoint() {
-        return hitpoint;
-    }
-
-    public void setHitpoint(Integer hitpoint) {
-        this.hitpoint = hitpoint;
-    }
-
     public Integer getDestroyingPower() {
         return destroyingPower;
-    }
-
-    public void setDestroyingPower(Integer destroyingPower) {
-        this.destroyingPower = destroyingPower;
     }
 
     public Government getOwner() {

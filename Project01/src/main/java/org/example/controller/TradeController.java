@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 
-public class TradeController {
+public class TradeController extends CheckController {
     public void start() {
         TradeMenu tradeMenu = new TradeMenu();
         tradeMenu.setTradeController(this);
@@ -28,34 +28,34 @@ public class TradeController {
 
     public String showAllPlayers() {
         String txt = "";
-        int i = 1;
+        int i = 0;
         ArrayList<Government> allGovernments = currentGame.getGovernments();
-        for (int j = 0; j < allGovernments.size(); j++) {
-            txt += (i + ") " + allGovernments.get(i).getOwner().getNickname() + ".\n");
+        for (; i < allGovernments.size(); i++) {
+            txt += ((i + 1) + ") " + allGovernments.get(i).getOwner().getNickname() + "\n");
         }
         return txt;
     }
 
     public String trade(Matcher matcher) {
-        String granery = "AppleMeatCheeseBread";
-        String stockpile = "stonewoodironpitchwheatflour";
-        String armoury = "LeatherArmourMaceSwordMetalArmourBowCrossbowSpearPike";
-        ShopController shopController = new ShopController(currentGovernment);
         String type = matcher.group("type");
+        if (!DataBase.getGoods().contains(type))
+            return "please enter a valid good name";
         Double amount = Double.parseDouble(matcher.group("amount"));
         Double price = Double.parseDouble(matcher.group("price"));
         String message = matcher.group("message");
-
-        Trade trade = new Trade(currentGovernment, type, amount, price, message);
-
+        if (message != null)
+            message = deleteQuotation(message);
+        new Trade(currentGovernment, type, amount, price, message);
         return "Your request or donation has been created.";
     }
 
     public String tradeList() {
         String txt = "";
         for (Trade trade : Trade.trades) {
-            txt += (trade.getId() + ") sender:" + trade.getReceiverOrSender() + "," + trade.getType() + " :" + trade.getAmount() + ", price: " + trade.getPrice() + "; message:" + trade.getMessage() + ".\n");
+            txt += (trade.getId() + ") sender:" + trade.getReceiverOrSender().getOwner().getNickname() + "," + trade.getType() + " :" + trade.getAmount() + ", price: " + trade.getPrice() + "; message:" + trade.getMessage() + ".\n");
         }
+        if (txt.equals(""))
+            txt = "you haven't any trade\n";
         return txt;
     }
 
@@ -69,14 +69,14 @@ public class TradeController {
         if (Trade.getTradeById(id).getSender() != null) {
             receive = currentGovernment;
             send = Trade.getTradeById(id).getSender();
-        } else {//Receiver!=null
+        } else {
             send = currentGovernment;
             receive = Trade.getTradeById(id).getReceiver();
         }
 
         ShopController shopController = new ShopController(send);
         firstCoin = send.getCoin();
-        send.setCoin(firstCoin + 10000.0);
+        send.setCoin(firstCoin + 1000.0);
         if (!shopController.sell2(Trade.getTradeById(id).getType(), Trade.getTradeById(id).getAmount()).equals("The item was sold")) {
             send.setCoin(firstCoin);
             return "sender: not enough good!";
@@ -102,18 +102,12 @@ public class TradeController {
     public String tradeHistory() {
         String txt = "";
         for (int i = 0; i < Trade.trades.size(); i++) {
-            if (!Trade.trades.get(i).isFlag()) {
+            if (Trade.trades.get(i).isFlag()) {
                 txt += (Trade.trades.get(i).getId() + ") sender:" + Trade.trades.get(i).getReceiverOrSender() + "," + Trade.trades.get(i).getType() + " :" + Trade.trades.get(i).getAmount() + ", price: " + Trade.trades.get(i).getPrice() + "; message:" + Trade.trades.get(i).getMessage() + ".\n");
-                Trade.trades.get(i).setFlag(true);
             }
         }
+        if (txt.equals(""))
+            txt = "you haven't any trade\n";
         return txt;
     }
-
-    public void back() {
-        //TODO
-//         GameController.start();
-    }
-
-
 }

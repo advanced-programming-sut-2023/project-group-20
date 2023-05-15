@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.controller.TradeController;
+
 import java.util.regex.Matcher;
 
 public class TradeMenu extends Menu {
@@ -11,7 +12,7 @@ public class TradeMenu extends Menu {
     }
 
     public void run() {
-        System.out.println(tradeController.showAllPlayers());
+        System.out.print(tradeController.showAllPlayers());
         String command = getScanner().nextLine();
         Matcher matcher;
         while (true) {
@@ -22,13 +23,15 @@ public class TradeMenu extends Menu {
                     printMassage("amount must be Integer");
                 else if (matcher.group("price") == null)
                     printMassage("price is null");
+                else if (checkInt(matcher.group("price")))
+                    printMassage("price must be Integer");
                 else if (matcher.group("type") == null)
                     printMassage("type is null");
                 else
                     System.out.println(tradeController.trade(matcher));
             } else if ((matcher = isMatched(command, "^trade list$")) != null)
-                System.out.println(tradeController.tradeList());
-            else if ((matcher = isMatched(command, "^trade accept((?: -i (?<id>\\S+))|(?: -m (?<message>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}")) != null) {
+                System.out.print(tradeController.tradeList());
+            else if ((matcher = isMatched(command, "^trade accept(((?: -i (?<id>\\S+))|(?: -m (?<message>(?:\"[^\"]+\")|(?:(?!\")\\S+(?<!\"))))){0,1}){0,2}")) != null) {
                 if (matcher.group("id") == null)
                     printMassage("id is null");
                 else if (checkInt(matcher.group("id")))
@@ -36,9 +39,8 @@ public class TradeMenu extends Menu {
                 else
                     System.out.println(tradeController.tradeAccept(matcher));
             } else if ((matcher = isMatched(command, "^trade history$")) != null)
-                System.out.println(tradeController.tradeHistory());
+                System.out.print(tradeController.tradeHistory());
             else if ((matcher = isMatched(command, "back")) != null) {
-//                tradeController.back();
                 break;
             } else
                 System.out.println("Invalid command!");
