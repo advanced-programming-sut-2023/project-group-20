@@ -1,0 +1,7 @@
+‫\‬‫‪template‬‬ ‫‪add‬‬ ‫‪remote‬‬ ‫‪git‬‬
+‫‪https://github.com/advanced-programming-sut-2023/project-template‬‬
+‫‪template‬‬‫‪pull‬‬ ‫‪git‬‬
+‫\‬‫‪--‬‬ ‫‪template/main‬‬ ‫‪checkout‬‬ ‫‪git‬‬
+‫‪.github/ISSUE_TEMPLATE/phase2.md‬‬
+‫"‪template‬‬‫‪phase2‬‬ ‫‪"Add‬‬ ‫‪-m‬‬ ‫‪commit‬‬ ‫‪git‬‬
+‫‪push‬‬‫‪git‬‬
