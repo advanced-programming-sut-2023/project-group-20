@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.view.SignupMenuController"
+            prefHeight="700.0" prefWidth="1500.0">
+<Pane>
+    <TextField promptText="username" layoutY="100" layoutX="750" fx:id="username" onKeyTyped="#usernameKey"/>
+    <Label text="" layoutY="150" layoutX="750" fx:id="usernameError" />
+
+    <PasswordField promptText="password" layoutY="200" layoutX="750" fx:id="password" onKeyTyped="#passwordKey"/>
+    <Label text="" layoutY="250" layoutX="750" fx:id="passwordError" />
+    <Button text="random pass" onMouseClicked="#randomPass" layoutY="200" layoutX="900"/>
+
+    <TextField promptText="rewritePassword" layoutY="300" layoutX="750" fx:id="confirmPassword" onKeyTyped="#confirmKey"/>
+    <Label text="" layoutY="150" layoutX="750" fx:id="confirmError" />
+    <TextField promptText="nickname" layoutY="400" layoutX="750" fx:id="nickname"/>
+    <Label text="" layoutY="150" layoutX="750" fx:id="nicknameError" />
+    <TextField promptText="email" layoutY="500" layoutX="750" fx:id="email"/>
+    <Button text="OK" onMouseClicked="#OK" layoutY="600" layoutX="750"/>
+    <Label text="" layoutY="50" layoutX="750" fx:id="createError"/>
+    <Button text="back" onMouseClicked="#back" layoutY="650" layoutX="1450"/>
+</Pane>
+</BorderPane>
