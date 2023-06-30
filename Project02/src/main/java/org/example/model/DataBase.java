@@ -11,6 +11,41 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static ArrayList<User> users = new ArrayList<>();
+    static {
+        users.add(new User("1","sd","ad","Ad"));
+        users.add(new User("2","sd","ad","Ad"));
+        users.add(new User("3","sd","ad","Ad"));
+        users.add(new User("4","sd","ad","Ad"));
+        users.add(new User("5","sd","ad","Ad"));
+        users.add(new User("6","sd","ad","Ad"));
+        users.add(new User("7","sd","ad","Ad"));
+        users.add(new User("8","sd","ad","Ad"));
+        users.add(new User("9","sd","ad","Ad"));
+        users.add(new User("10","sd","ad","Ad"));
+        users.add(new User("11","sd","ad","Ad"));
+        users.add(new User("12","sd","ad","Ad"));
+
+    }
+    private static ArrayList<String> emails = new ArrayList<>();
+    private static ArrayList<String> slogans = new ArrayList<>();
+    private static ArrayList<String> captcha=new ArrayList<>();
+    private final static ArrayList<String> securityQuestions = new ArrayList<>();
+
+    public static ArrayList<User> getUsers() {
+        ArrayList<User> temp=new ArrayList<>(users.size());
+        for (int i = 0; i < users.size(); i++) {
+            for (int j = 0; j < users.size(); j++) {
+                if (rank(users.get(j))==i+1){
+                    temp.add(users.get(j));
+                break;}
+            }
+        }
+        return temp;
+    }
+
+    public static ArrayList<String> getCaptcha() {
+        return captcha;
+    }
     private static ArrayList<String> emails = new ArrayList<>();
     private static ArrayList<String> slogans = new ArrayList<>();
     private final static ArrayList<String> securityQuestions = new ArrayList<>();
@@ -25,14 +60,23 @@ public class DataBase {
         securityQuestions.add("What was my first pet’s name?");
         securityQuestions.add("What is my mother’s last name");
     }
-
-    public static String selectSecurityQuestion(String number) {
-        return securityQuestions.get(Integer.parseInt(number) - 1);
+    static {
+        captcha.add("1181");
+        captcha.add("1381");
+        captcha.add("1491");
+        captcha.add("1722");
+        captcha.add("1959");
+        captcha.add("2163");
+        captcha.add("2177");
+        captcha.add("4487");
+        captcha.add("8692");
+        captcha.add("9633");
+        captcha.add("4310");
     }
 
     static {
         slogans.add("I shall have my revenge, in this life or the next.");
-        slogans.add("o MAHDI adrekni.");
+        slogans.add("O MAHDI adrekni.");
         slogans.add("It is dutchman.");
         slogans.add("We will walk to Jerusalem with the Muslims together.");
         slogans.add("Hüseynçilər");

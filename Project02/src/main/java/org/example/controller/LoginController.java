@@ -8,12 +8,16 @@ import org.example.model.User;
 import org.example.view.LoginMenu;
 import org.example.view.Menu;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class LoginController extends CheckController {
     public static void start() {
         LoginMenu loginMenu = new LoginMenu();
         loginMenu.run();
+    }
+    public static User getLogedInuser() {
+        return logedInuser;
     }
 
     public static void winner(Game game) {
@@ -24,39 +28,38 @@ public class LoginController extends CheckController {
         }
         LoginMenu.winnerPrint("Lord " + user.getNickname() + " wins.");
     }
+public static GameController gameController;
 
+    public static String startGame(int turns,int x,int y, User owner,String string) {
+        String[] temp=string.split("\n");
+        ArrayList<String>users=new ArrayList<>();
+        for (int i = 0; i < temp.length; i++) {
+            users.add(temp[i]);
+        }
+        for (int i = 0; i < users.size(); i++) {
+            if (DataBase.getUserByName(users.get(i))==null)
+                return users.get(i)+" is not available";
+            if (users.get(i).equals(owner.getUsername()))
+                users.remove(i);
+        }
 
-    public static String startGame(Matcher matcher, User owner) {
-        if (!matcher.group("num").matches("\\d+"))
-            return "Please enter a number for player number (\\d)\n";
-        if (!matcher.group("turn").matches("\\d+"))
-            return "Please enter a number for number of turns (\\d)\n";
-        if (!matcher.group("x").matches("\\d+"))
-            return "Please enter a number for xmap (\\d)\n";
-        if (!matcher.group("y").matches("\\d+"))
-            return "Please enter a number for ymap (\\d)\n";
-        String massage = "Enter a new player username";
-        Integer playerNumber = Integer.parseInt(matcher.group("num"));
-        Map map = new Map(Integer.parseInt(matcher.group("x")), Integer.parseInt(matcher.group("y")), playerNumber);
-        Game game = new Game(Integer.parseInt(matcher.group("turn")), map, playerNumber);
+        int playerNumber=users.size()+1;
+        Map map = new Map(x,y, playerNumber);
+        Game game = new Game(turns, map, playerNumber);
         Government government = new Government(owner);
         owner.setHighScore(10);
         game.addGovernment(government);
         String username;
-        for (int i = 0; i < playerNumber - 1; i++) {
-            username = LoginMenu.getPlayers(massage);
-            if (DataBase.getUserByName(username) == null) {
-                massage = "user not found";
-                i--;
-            } else {
-                massage = "Enter a new player username";
+        for (int i = 0; i < users.size(); i++) {
+            username = users.get(i);
+            {
                 Government newgovernment = new Government(DataBase.getUserByName(username));
                 game.addGovernment(newgovernment);
                 DataBase.getUserByName(username).setHighScore(10);
             }
         }
-        GameController gameController = new GameController(game, game.getGovernments().get(0));
-        gameController.start();
+        GameController gameController1 = new GameController(game, game.getGovernments().get(0));
+        gameController=gameController1;
         return "";
     }
 
