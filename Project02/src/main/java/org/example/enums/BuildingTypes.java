@@ -1,8 +1,7 @@
 package org.example.enums;
 
 public enum BuildingTypes {
-    //TODO (IronMine) 0 --> 20
-    IronMine(80, "IronMine", 10, "iron", 3, 0, 0, 0, 0, 0, 0, 0),
+    IronMine(80, "IronMine", 10, "iron", 3, 0, 20, 0, 0, 0, 0, 0),
     StoneMine(120, "StoneMine", 20, "stone", 3, 0, 0, 0, 0, 0, 0, 0),
     WoodCutter(50, "WoodCutter", 35, "wood", 1, 0, 0, 0, 0, 0, 0, 0),
     OxTether(20, "OxTether", 0, "", 1, 0, 5, 0, 0, 0, 0, 0),

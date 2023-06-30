@@ -90,13 +90,13 @@ public class GameController {
         return output.toString();
     }
 
-    public Government getCurrentGovernment() {
+    private Government getCurrentGovernment() {
         return currentGovernment;
     }
 
     public String showPopularityFactors() {
         String output = "";
-        output += "The popularity factors are : \n";
+        output += "The popularity factors are:";
         output += "Food --> " + getCurrentGovernment().getFoodRate() + "\n";
         output += "Tax --> " + getCurrentGovernment().getTaxRate() + "\n";
         output += "Religious" + "\n";
@@ -131,22 +131,16 @@ public class GameController {
     public String selectBuilding(Matcher matcher) {
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
-        return tryToSelectBuilding(x, y, new boolean[1]);
-    }
-
-    public String tryToSelectBuilding(int x, int y, boolean[] check) {
-        check[0] = false;
         Home home = mapController.getHomeByPosition(x, y);
         if (!isYourHome(home))
             return "Please select a home in your home";
         if (home.getBuilding() == null)
             return "Not any buildings";
         getCurrentGame().setSelectedBuildingHome(home);
-        check[0] = true;
         return "We select a building in Home --> x:<< " + x + " >>" + " and y:<< " + y + " >>";
     }
 
-    public boolean isYourHome(Home home) {
+    private boolean isYourHome(Home home) {
         if (home.getOwner().equals(getCurrentGovernment()))
             return true;
         return false;
@@ -643,18 +637,13 @@ public class GameController {
     public String selectUnit(Matcher matcher) {
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
-        return tryToSelectUnit(x, y, new boolean[1]);
-    }
-
-    public String tryToSelectUnit(int x, int y, boolean[] check) {
-        check[0] = false;
         Home home = mapController.getHomeByPosition(x, y);
         ArrayList<Troop> selectedTroops = returnYourTroopsFromAll(home.getTroops());
+
         if (selectedTroops.size() == 0)
             return "You do not have any troop here";
         getCurrentGame().setSelectedTroops(selectedTroops);
         getCurrentGame().setSelectedTroopsHome(home);
-        check[0] = true;
         return "We select all of your troops that are in this home.";
     }
 
@@ -673,7 +662,7 @@ public class GameController {
         return out;
     }
 
-    public String tryMoveUnit(Home firstHome, int currentPosX, int currentPosY, int targetX, int targetY, boolean[] isSuccessful) {
+    private String tryMoveUnit(Home firstHome, int currentPosX, int currentPosY, int targetX, int targetY, boolean[] isSuccessful) {
         isSuccessful[0] = false;
         ArrayList<Troop> selectedTroops = getCurrentGame().getSelectedTroops();
         int speed = getTheMinimumSpeedOfTroops(selectedTroops);
@@ -722,7 +711,7 @@ public class GameController {
     }
 
 
-    public int getTheMinimumSpeedOfTroops(ArrayList<Troop> troops) {
+    private int getTheMinimumSpeedOfTroops(ArrayList<Troop> troops) {
         int minimumSpeed = troops.get(0).getSpeed();
         for (int i = 0; i < troops.size(); i++) {
             if (minimumSpeed > troops.get(i).getSpeed())
@@ -768,7 +757,7 @@ public class GameController {
             return firstMove;
     }
 
-    public void resetSelectedTroopsFromGame() {
+    private void resetSelectedTroopsFromGame() {
         getCurrentGame().setSelectedTroopsHome(null);
         getCurrentGame().setSelectedTroops(null);
     }
@@ -811,11 +800,6 @@ public class GameController {
             return "You do not have any troop here";
         Integer enemyX = Integer.parseInt(matcher.group("x"));
         Integer enemyY = Integer.parseInt(matcher.group("y"));
-        return tryToAttack(enemyX, enemyY, yourTroops, new boolean[1]);
-    }
-
-    public String tryToAttack(int enemyX, int enemyY, ArrayList<Troop> yourTroops, boolean[] check) {
-        check[0] = false;
         Home enemyHome = mapController.getHomeByPosition(enemyX, enemyY);
         ArrayList<Troop> allTroops = enemyHome.getTroops();
         ArrayList<Troop> enemyTroops = returnEnemyTroopsFromAll(allTroops);
@@ -833,7 +817,6 @@ public class GameController {
         setAttackBetweenEnemyAndYours(yourTroops, enemyTroops);
         if (enemyTroops.size() == 0)
             attackToBuilding(yourTroops, enemyHome);
-        check[0] = true;
         return "Attacked run successfully MyLord";
     }
 
@@ -1185,11 +1168,6 @@ public class GameController {
         int x = Integer.parseInt(matcher.group("x"));
         int y = Integer.parseInt(matcher.group("y"));
         String newTypeOfFloor = matcher.group("type");
-        return tryToSetTexture(x, y, newTypeOfFloor, new boolean[1]);
-    }
-
-    public String tryToSetTexture(int x, int y, String newTypeOfFloor, boolean[] check) {
-        check[0] = false;
         if (!checkFloorType(newTypeOfFloor))
             return "UnValid type of floor entered!!";
         Home home = mapController.getHomeByPosition(x, y);
@@ -1201,7 +1179,6 @@ public class GameController {
             return "There is a building in << x:" + x + " y:" + y + " >> so you can not change this floor type";
         }
         home.setTypeOfFloor(newTypeOfFloor);
-        check[0] = true;
         return "We change the home type successfully";
     }
 
@@ -1257,15 +1234,9 @@ public class GameController {
         int xPos = Integer.parseInt(matcher.group("x"));
         int yPos = Integer.parseInt(matcher.group("y"));
         Home home = mapController.getHomeByPosition(xPos, yPos);
-        return tryClear(new boolean[1], home);
-    }
-
-    public String tryClear(boolean[] check, Home home) {
-        check[0] = false;
         if (home == null)
             return "Out of border home!";
         refreshHomeAsFirstCreated(home);
-        check[0] = true;
         return "We clear home and refresh it to it's first";
     }
 

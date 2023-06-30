@@ -9,6 +9,8 @@ public abstract class CheckController {
 
     protected static User logedInuser;
 
+
+
     protected static String checkPassword(String password) {
         if (password.length() < 6)
             return "Password length should be greater than 5.";
@@ -19,13 +21,15 @@ public abstract class CheckController {
         if (!password.matches(".*[0-9].*"))
             return "Password should have character from 0 to 9.";
         if (!password.matches(".*[^a-z,^A-z,^0-9].*"))
-            return "Password should have character other than (A-Z,a-z,0-9).";
+            return "Should have character other than (A-Z,a-z,0-9).";
         return "accepted";
     }
 
     protected static String checkEmail(String email) {
         if (!email.contains("@"))
             return "Email hasn't @";
+        if (email.endsWith("@"))
+            email+=" ";
         String[] emailSplitByAt = email.split("@");
         if (emailSplitByAt.length > 2)
             return "Email can't have more than one @";

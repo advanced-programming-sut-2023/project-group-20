@@ -1,8 +1,5 @@
 package org.example.model.GameInfo;
 
-import org.example.enums.FloorType;
-import org.example.model.GameObjects.Floor;
-
 import java.util.ArrayList;
 
 public class Home {
@@ -16,7 +13,6 @@ public class Home {
     private Building building;
     private Tree tree;
     private String Rock;
-    private Floor floor;
     private ArrayList<Troop> troops = new ArrayList<>();
     private EngineerBuilding engineerBuilding;
 
@@ -114,13 +110,5 @@ public class Home {
 
     public void setDitchCreated(boolean ditchCreated) {
         isDitchCreated = ditchCreated;
-    }
-
-    public Floor getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Floor floor) {
-        this.floor = floor;
     }
 }

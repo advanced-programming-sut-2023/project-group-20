@@ -6,49 +6,43 @@ import org.example.model.DataBase;
 import java.util.regex.Matcher;
 
 public class ProfileController extends CheckController {
-    public static String changePassword(Matcher matcher) {
-        String newPassword = matcher.group("newpassword");
-        newPassword = deleteQuotation(newPassword);
-        String oldPassword = matcher.group("oldpassword");
-        oldPassword = deleteQuotation(oldPassword);
+    public static String changePassword(String newPassword) {
         if (newPassword == null)
             return "New password is empty";
-        if (oldPassword == null)
-            return "Old password is empty";
-        if (!oldPassword.equals(logedInuser.getPassword()))
-            return "Current password is incorrect!";
-        if (oldPassword.equals(newPassword))
-            return "Please enter a new password!";
-        boolean randomBoll = !newPassword.equals("random");
-        if (newPassword.equals("random"))
-            newPassword = SignupController.makeRandomPassword();
         String passwordError = checkPassword(newPassword);
         if (!passwordError.equals("accepted"))
             return passwordError;
-        if (randomBoll) {
-            String confirm = LoginMenu.changePassword();
-            while (!confirm.equals(newPassword)) {
-                if (confirm.equals("regret"))
-                    return "Changing password failed";
-                confirm = LoginMenu.changePassword();
-            }
-        }
         logedInuser.setPassword(newPassword);
         return "Password changed";
     }
 
-    public static String changeNickName(Matcher matcher) {
-        String nickname = matcher.group("nickname");
-        nickname = deleteQuotation(nickname);
+    public static String checkBeforePassword(String newPassword) {
+        if (newPassword == null)
+            return "New password is empty";
+        String passwordError = checkPassword(newPassword);
+        if (!passwordError.equals("accepted"))
+            return passwordError;
+        return "Password is ok!";
+    }
+
+    public static String changeNickName(String nickname) {
         if (nickname == null)
             return "New nickname is empty";
         logedInuser.setNickname(nickname);
         return "Nickname changed";
     }
 
-    public static String changeUsername(Matcher matcher) {
-        String username = matcher.group("username");
-        username = deleteQuotation(username);
+    public static String checkBeforeUsername(String username) {
+        if (isNull(username))
+            return "New username is empty";
+        if (!checkUsername(username))
+            return "New username format is invalid";
+        if (DataBase.getUserByName(username) != null)
+            return "New username exist";
+        return "Username is ok";
+    }
+
+    public static String changeUsername(String username) {
         if (isNull(username))
             return "New username is empty";
         if (!checkUsername(username))
@@ -59,9 +53,21 @@ public class ProfileController extends CheckController {
         return "Username changed";
     }
 
-    public static String changeEmail(Matcher matcher) {
-        String email = matcher.group("email");
-        email = deleteQuotation(email);
+    public static String checkBeforeEmail(String email) {
+        if (email == null)
+            return "New email is empty";
+        String Error = checkEmail(email);
+        if (!Error.equals("accepted"))
+            return Error;
+        if (DataBase.getEmails() != null || DataBase.getEmails().size() == 0)
+            for (String email1 : DataBase.getEmails()) {
+                if (email1.equalsIgnoreCase(email))
+                    return "Email is exist";
+            }
+        return "Email is ok";
+    }
+
+    public static String changeEmail(String email) {
         if (email == null)
             return "New email is empty";
         String Error = checkEmail(email);
@@ -79,11 +85,9 @@ public class ProfileController extends CheckController {
         return "Email changed";
     }
 
-    public static String changeSlogan(Matcher matcher) {
-        String slogan = matcher.group("slogan");
-        slogan = deleteQuotation(slogan);
+    public static String changeSlogan(String slogan) {
         if (slogan == null)
-            return "New password is empty";
+            return "New slogan is empty";
         if (slogan.equals("random"))
             slogan = SignupController.makeRandomSlogan();
         logedInuser.setSlogan(slogan);
@@ -104,18 +108,26 @@ public class ProfileController extends CheckController {
     }
 
     public static String showSlogan() {
-        return logedInuser.getSlogan();
+        String slogan = logedInuser.getSlogan();
+        if (logedInuser.getSlogan() == null)
+            slogan = "slogan is empty!";
+        else if (logedInuser.getSlogan().equals(""))
+            slogan = "slogan is empty!";
+        return slogan;
     }
 
     public static String showAll() {
-        return "Your username:" + logedInuser.getUsername() +
-                "\nyour password:" + logedInuser.getPassword() +
-                "\nyour nickname:" + logedInuser.getNickname() +
-                "\nyour slogan:" + logedInuser.getSlogan() +
-                "\nyour email:" + logedInuser.getEmail() +
-                "\nyour securityQuestion:" + DataBase.selectSecurityQuestion(logedInuser.getSecurityQuestion()) +
-                " and your answer:" + logedInuser.getSecurityQuestionAnswer() +
-                "\nyour highscore:" + logedInuser.getHighScore();
+        String slogan = logedInuser.getSlogan();
+        if (logedInuser.getSlogan() == null)
+            slogan = "slogan is empty!";
+        else if (logedInuser.getSlogan().equals(""))
+            slogan = "slogan is empty!";
+        return "username: " + logedInuser.getUsername() +
+                "\npassword: " + logedInuser.getPassword() +
+                "\nnickname: " + logedInuser.getNickname() +
+                "\nslogan: " + slogan +
+                "\nemail: " + logedInuser.getEmail() +
+                "\nhighscore: " + logedInuser.getHighScore();
 
     }
 

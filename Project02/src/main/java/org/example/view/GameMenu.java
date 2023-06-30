@@ -1,50 +1,17 @@
 package org.example.view;
 
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.example.controller.GameController;
-import org.example.model.GameInfo.*;
-import org.example.model.GameObjects.Floor;
-import org.example.model.GameObjects.Star;
+import org.example.model.GameInfo.Game;
+import org.example.model.GameInfo.Government;
+import org.example.model.GameInfo.Map;
 import org.example.model.User;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 public class GameMenu extends Menu {
     private GameController gameController;
-    public static Pane pane;
-
-    static {
-        try {
-            pane = FXMLLoader.load(GameMenu.class.getResource("/FXML/testGame.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static ScrollPane scrollPane;
-
-    static {
-        try {
-            scrollPane = FXMLLoader.load(GameMenu.class.getResource("/FXML/Game.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public void setGameController(GameController gameController) {
         this.gameController = gameController;
@@ -319,54 +286,6 @@ public class GameMenu extends Menu {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        System.out.println("1");
-        testMakeGameController();
-        System.out.println("aESGHDT");
-        scrollPane.setContent(pane);
-        Scene scene = new Scene(scrollPane);
-        primaryStage.setScene(scene);
-        setTheFirstFloors();
 
-        System.out.println("2");
-        System.out.println("aESRDTFU");
-
-        FloorController.gameMenu = this;
-        primaryStage.show();
-
-        Home home = gameController.getCurrentGame().getMap().getHomes().get(0);
-        home.addTroop(new Troop("FireThrowers", "MercenaryPost", gameController.getCurrentGovernment(), 5, 10, 15));
-        System.out.println("Done !");
     }
-
-
-    private void testMakeGameController() {
-        ArrayList<Government> allGovernment = new ArrayList<>();
-        allGovernment.add(new Government(new User("E1", "", "", "E1")));
-        allGovernment.add(new Government(new User("E2", "", "", "E2")));
-        allGovernment.add(new Government(new User("E3", "", "", "E3")));
-        Game game = new Game(10, new Map(20, 5, 3), 3);
-        game.getGovernments().addAll(allGovernment);
-        this.gameController = new GameController(game, allGovernment.get(0));
-    }
-
-    public static void addFloorToPane(Floor floor) {
-        if (floor == null)
-            return;
-        pane.getChildren().add(floor);
-    }
-
-    private void setTheFirstFloors() {
-        ArrayList<Home> allHomes = gameController.getCurrentGame().getMap().getHomes();
-        for (int i = 0; i < allHomes.size(); i++) {
-            Floor floor = GameMenuController.makeAFloor(allHomes.get(i));
-            allHomes.get(i).setFloor(floor);
-            addFloorToPane(floor);
-        }
-        FloorController.randomSickness();
-    }
-
-    public GameController getGameController() {
-        return gameController;
-    }
-
 }
