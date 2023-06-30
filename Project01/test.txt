@@ -1,0 +1,65 @@
+dropbuilding -x 1 -y 1 -type StockPile
+open shop menu
+buy -a 50 -i stone
+back
+open shop menu
+buy -a 50 -i wood
+back
+show government info
+dropbuilding -x 99 -y 1 -type Barrack
+dropbuilding -x 2 -y 1 -type Armoury
+dropbuilding -x 98 -y 1 -type EngineerGuild
+open shop menu
+buy -a 50 -i Bow
+back
+select building -x 99 -y 1
+createunit -t Archer -c 2
+show government info
+select unit -x 99 -y 1
+move unit -x 102 -y 1
+select building -x 99 -y 1
+createunit -t Archer -c 2
+// set -x 99 -y 1 -s offensive
+show home info -x 99 -y 1
+select building -x 98 -y 1
+createunit -t Engineer -c 5
+select unit -x 98 -y 1
+build -q DejKoob
+change turn
+
+dropbuilding -x 101 -y 1 -type StockPile
+open shop menu
+buy -a 50 -i stone
+back
+open shop menu
+buy -a 50 -i wood
+back
+dropbuilding -x 102 -y 1 -type Barrack
+dropbuilding -x 103 -y 1 -type Armoury
+select building -x 102 -y 1
+open shop menu
+buy -a 50 -i Bow
+back
+select building -x 102 -y 1
+createunit -t Archer -c 5
+change turn
+
+
+select engine building -x 98 -y 1
+engine attack -x 101 -y 1
+select unit -x 99 -y 1
+attack -e 101 1
+/////
+select building -x 99 -y 1
+createunit -t Tunneler -c 5
+select unit -x 99 -y 1
+dig tunnel -x 101 -y 1
+/////
+change turn
+show home info -x 101 -y 1
+show home info -x 102 -y 1
+
+settexture -x 2 -y 1 -type StoneGround
+dropbuilding -x 2 -y 1 -type StoneMine
+show government info
+

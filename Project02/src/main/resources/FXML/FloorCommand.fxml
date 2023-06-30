@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.view.FloorController"
+      prefHeight="600.0" prefWidth="800.0" onKeyPressed="#close">
+    <Button text="move" onMouseClicked="#move" layoutY="45"/>
+    <Button text="attack" onMouseClicked="#attack" layoutY="90"/>
+    <Button text="selectFloors" onMouseClicked="#selectFloors" layoutY="135"/>
+
+</Pane>
