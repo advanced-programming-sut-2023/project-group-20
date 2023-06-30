@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.view.FloorController"
+      prefHeight="400.0" prefWidth="600.0" onKeyPressed="#close">
+    <Button text="changeFloorType" onMouseClicked="#changeFloorType"/>
+    <TextField promptText="enter floor type" layoutX="150" fx:id="floorType"/>
+    <Button text="selectBuilding" onMouseClicked="#selectBuilding" layoutY="45"/>
+    <Button text="createUnit" onMouseClicked="#createUnit" layoutY="90"/>
+    <TextField promptText="enter the number of troops" layoutY="90" layoutX="150" fx:id="count"/>
+    <TextField promptText="enter the type of troops" layoutY="90" layoutX="350" fx:id="troopType"/>
+    <Button text="selectTroops" onMouseClicked="#selectTroops" layoutY="135"/>
+    <Button text="selectTroops" onMouseClicked="#selectEngineBuilding" layoutY="180"/>
+    <ScrollPane layoutY="300" prefHeight="40" prefWidth="500" onDragDetected="#Salam" onDragDone="#By">
+        <Pane>
+            <Label text="Buildings : " onMouseClicked="#buildingScroll" layoutY="10"/>
+            <Label text="Troops : " onMouseClicked="#troopScroll" layoutX="100" layoutY="10"/>
+            <Label text="EngineBuildings : " onMouseClicked="#engineBuildingScroll" layoutX="200" layoutY="10"/>
+            <Label text="clear : " onMouseClicked="#clear" layoutX="350" layoutY="10"/>
+            <Label text="popularity : " onMouseClicked="#popularity" layoutX="450" layoutY="10"/>
+        </Pane>
+    </ScrollPane>
+</Pane>
