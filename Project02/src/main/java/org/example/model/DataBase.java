@@ -46,9 +46,6 @@ public class DataBase {
     public static ArrayList<String> getCaptcha() {
         return captcha;
     }
-    private static ArrayList<String> emails = new ArrayList<>();
-    private static ArrayList<String> slogans = new ArrayList<>();
-    private final static ArrayList<String> securityQuestions = new ArrayList<>();
     public static FloorController floorController;
     public static ArrayList<Floor> copiedFloors = new ArrayList<>();
     public static Timeline sickness;

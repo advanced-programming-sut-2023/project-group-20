@@ -31,7 +31,7 @@ public class GameMenu extends Menu {
     static {
         try {
             pane = FXMLLoader.load(GameMenu.class.getResource("/FXML/testGame.fxml"));
-        } catch (IOException e) {
+         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
