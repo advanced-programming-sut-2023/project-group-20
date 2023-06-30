@@ -343,7 +343,11 @@ public class LoginMenuController {
                     alert.setContentText(msg);
                     alert.showAndWait();
                 }else {
-                    LoginController.gameController.start();
+                    try {
+                        LoginController.gameController.start();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });

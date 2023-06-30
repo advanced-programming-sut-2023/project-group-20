@@ -4,6 +4,8 @@ import org.example.enums.*;
 import org.example.model.DataBase;
 import org.example.model.GameInfo.*;
 import org.example.view.GameMenu;
+import org.example.view.Main;
+import org.example.view.Menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,10 +41,10 @@ public class GameController {
         return currentGame;
     }
 
-    public void start() {
+    public void start() throws Exception {
         GameMenu gameMenu = new GameMenu();
         gameMenu.setGameController(this);
-        gameMenu.run();
+        gameMenu.start(Main.getStage());
     }
 
     private void divideTheMap() {

@@ -16,20 +16,6 @@ import java.net.URL;
 import java.util.regex.Matcher;
 
 public class LoginMenu extends Menu{
-    public void run(){
-        String command=getScanner().nextLine();
-        Matcher matcher;
-        while (true){
-             if ((matcher = isMatched(command, "^profile display rank$")) != null)
-                System.out.println(ProfileController.showRank());
-            else if (isMatched(command,"user logout")!=null) {
-                System.out.println(LoginController.logout());
-                break;
-            } else
-                System.out.println("Invalid command!");
-            command = getScanner().nextLine();
-        }
-    }
 
     public static void winnerPrint(String string){
         System.out.println(string);
