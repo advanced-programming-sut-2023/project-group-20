@@ -1,9 +1,11 @@
 package org.example.controller;
 
+import javafx.scene.control.Label;
 import org.example.enums.*;
 import org.example.model.DataBase;
 import org.example.model.GameInfo.*;
 import org.example.view.GameMenu;
+import org.example.view.Main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,7 +44,14 @@ public class GameController {
     public void start() {
         GameMenu gameMenu = new GameMenu();
         gameMenu.setGameController(this);
-        gameMenu.run();
+        (new Thread(() -> {
+            gameMenu.run();
+        })).start();
+        try {
+            gameMenu.start(Main.getStage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void divideTheMap() {
@@ -253,6 +262,7 @@ public class GameController {
 
     private boolean isItValidBuildName(String buildingName) {
         for (int i = 0; i < BuildingTypes.values().length; i++) {
+            System.out.println(buildingName + "--" + BuildingTypes.values()[i]+"\n");
             if (BuildingTypes.values()[i].getType().equals(buildingName))
                 return true;
         }
@@ -1369,19 +1379,23 @@ public class GameController {
     }
 
     public String changeTurn() {
-        ArrayList<Government> allGovernment = getCurrentGame().getGovernments();
-        for (int i = 0; i < allGovernment.size(); i++) {
-            allGovernment.get(i).getOwner().setHighScore(allGovernment.get(i).getOwner().getHighScore() + 12);
-            allGovernment.get(i).getOwner().setHighScore(allGovernment.get(i).getOwner().getHighScore() + (int) allGovernment.get(i).getCoin() / 120);
+        try {
+            ArrayList<Government> allGovernment = getCurrentGame().getGovernments();
+            for (int i = 0; i < allGovernment.size(); i++) {
+                allGovernment.get(i).getOwner().setHighScore(allGovernment.get(i).getOwner().getHighScore() + 12);
+                allGovernment.get(i).getOwner().setHighScore(allGovernment.get(i).getOwner().getHighScore() + (int) allGovernment.get(i).getCoin() / 120);
+            }
+            if (getCurrentGovernment().equals(allGovernment.get(allGovernment.size() - 1)) && currentTurn == getCurrentGame().getTurnNumber()) {
+                LoginController.winner(currentGame);
+                return "";
+            } else if (getCurrentGovernment().equals(allGovernment.get(allGovernment.size() - 1))) {
+                increaseCurrentTurn();
+            }
+            applyChanges();
+            return "We change turn and the turn number is " + getCurrentGame().getCurrentTurn() + " and the player is : " + getCurrentGovernment().getOwner().getNickname() + "\n";
+        } catch (Exception e) {
+            return "Some problems was in updating ";
         }
-        if (getCurrentGovernment().equals(allGovernment.get(allGovernment.size() - 1)) && currentTurn == getCurrentGame().getTurnNumber()) {
-            LoginController.winner(currentGame);
-            return "";
-        } else if (getCurrentGovernment().equals(allGovernment.get(allGovernment.size() - 1))) {
-            increaseCurrentTurn();
-        }
-        applyChanges();
-        return "We change turn and the turn number is " + getCurrentGame().getCurrentTurn() + " and the player is : " + getCurrentGovernment().getOwner().getNickname() + "\n";
     }
 
     private void applyChanges() {

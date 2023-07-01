@@ -17,6 +17,7 @@ public class Floor extends Rectangle {
     public static int floorSize = 75;
     private ImageView building;
     private Fire fire;
+    private ImageView troop;
 
     public Floor(int x, int y, Home home) {
         super(x, y, floorSize, floorSize);
@@ -25,7 +26,6 @@ public class Floor extends Rectangle {
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                ImageView imageView = new ImageView(imagePattern.getImage());
                 if (event.getClickCount() == 2) {
                     isFloorSelected = !isFloorSelected;
                     if (isFloorSelected)
@@ -83,5 +83,13 @@ public class Floor extends Rectangle {
 
     public void setFire(Fire fire) {
         this.fire = fire;
+    }
+
+    public ImageView getTroop() {
+        return troop;
+    }
+
+    public void setTroop(ImageView troop) {
+        this.troop = troop;
     }
 }

@@ -20,8 +20,8 @@
     <TextField promptText="enter the number of troops" layoutY="90" layoutX="150" fx:id="count"/>
     <TextField promptText="enter the type of troops" layoutY="90" layoutX="350" fx:id="troopType"/>
     <Button text="selectTroops" onMouseClicked="#selectTroops" layoutY="135"/>
-    <Button text="selectTroops" onMouseClicked="#selectEngineBuilding" layoutY="180"/>
-    <ScrollPane layoutY="300" prefHeight="40" prefWidth="500" onDragDetected="#Salam" onDragDone="#By">
+    <Button text="changeTurn" onMouseClicked="#changeTurn" layoutY="180"/>
+    <ScrollPane layoutY="300" prefHeight="60" prefWidth="500" onDragDetected="#Salam" onDragDone="#By">
         <Pane>
             <Label text="Buildings : " onMouseClicked="#buildingScroll" layoutY="10"/>
             <Label text="Troops : " onMouseClicked="#troopScroll" layoutX="100" layoutY="10"/>

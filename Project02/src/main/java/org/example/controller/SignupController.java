@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import javafx.scene.paint.Color;
 import org.example.model.User;
 import org.example.view.Menu;
 import org.example.view.SignupMenu;
@@ -14,14 +15,20 @@ public class SignupController extends CheckController {
     private static String invalidUsername = "";
     private static User creatingUser;
 
-    public static void start() {
-        SignupMenu signupMenu = new SignupMenu();
-        signupMenu.run();
-    }
-
-    public static String createUser(String username, String password, String nickname, String email) {
+    public static String createUser(String username, String password, String nickname, String email,String slogan,String confirm) {
         if (isNull(username))
             return "Username is empty";
+        if (!SignupController.usernameCheck(username).equals("username is OK!"))
+            return SignupController.usernameCheck(username);
+        if (!SignupController.passCheck(password).equals("pass is OK!"))
+            return SignupController.passCheck(password);
+        if (!password.equals(confirm))
+            return "password confirm isn't correct!";
+        if (!checkMail(email).equals("email performed"))
+            return checkMail(email);
+        if (nickname.equals("")) {
+            return ("Please enter a nickname!");
+        }
         if (isNull(password))
             return "Password is empty";
         if (isNull(nickname))
@@ -29,31 +36,16 @@ public class SignupController extends CheckController {
         if (isNull(email))
             return "Email is empty";
         String emailError = checkMail(email);
-        if (emailError.equals("email performed"))
+        if (! emailError.equals("email performed"))
             return emailError;
         User user = new User(username, password, nickname, email);
-        creatingUser=user;
-        //TODO: security ques
-//        Matcher matcher1 = SignupMenu.pickSecurityQuestion("");
-//        String number;
-//        while (true) {
-//            if (matcher1 == null)
-//                return "Creating user regretted";
-//            else
-//                number = matcher1.group("number");
-//            if (!(number.equals("1") || number.equals("2") || number.equals("3")))
-//                matcher1 = SignupMenu.pickSecurityQuestion("Invalid number for Pick\n");
-//            else if (matcher1.group("answer").equals(matcher1.group("answerConfirm")))
-//                break;
-//            else
-//                matcher1 = SignupMenu.pickSecurityQuestion("Answer confirm is wrong\n");
-//        }
-//        user.setSecurityQuestion(number);
-//        user.setSecurityQuestionAnswer(matcher1.group("answer"));
+        if (!slogan.equals(""))
+            user.setSlogan(slogan);
+        creatingUser = user;
         return "Good";
     }
 
-    private static String checkMail(String string) {
+    public static String checkMail(String string) {
         for (String email : DataBase.getEmails()) {
             if (email.equalsIgnoreCase(string))
                 return "Email is exist";
@@ -64,11 +56,7 @@ public class SignupController extends CheckController {
         return "email performed";
     }
 
-    public static String login(Matcher matcher) {
-        String username = matcher.group("username");
-        username = deleteQuotation(username);
-        String password = matcher.group("password");
-        password = deleteQuotation(password);
+    public static String login(String username, String password) {
         if (isNull(username))
             return "Username is empty";
         if (DataBase.getUserByName(username) == null)
@@ -84,7 +72,7 @@ public class SignupController extends CheckController {
                 logedInuser = DataBase.getUserByName(username);
                 return "user logged in successfully!";
             }
-        if (matcher.group("password") != null && !DataBase.getUserByName(username).getPassword().equals(password)) {
+        if (password != null && !DataBase.getUserByName(username).getPassword().equals(password)) {
             if (username.equals(invalidUsername)) {
                 skipTime();
                 invalidLogin++;
@@ -97,8 +85,6 @@ public class SignupController extends CheckController {
         }
         if (!password.equals(DataBase.getUserByName(username).getPassword()))
             return "password is incorrect";
-        if (matcher.group("staylogedin") != null)
-            stayLoggedIn = DataBase.getUserByName(username);
         invalidLogin = 0;
         invalidUsername = "";
         Menu.setLogedInUser(DataBase.getUserByName(username));
@@ -108,34 +94,8 @@ public class SignupController extends CheckController {
 
     public static String makeRandomSlogan() {
         Random random = new Random();
-        int randomInt = random.nextInt(4);
+        int randomInt = random.nextInt(5);
         return DataBase.getSlogans().get(randomInt);
-    }
-
-    public static String forgetPassword(Matcher matcher) {
-        String username = matcher.group("username");
-        username = deleteQuotation(username);
-        if (matcher.group("username") == null)
-            return "Please enter a available username";
-        User user = DataBase.getUserByName(username);
-        while (true) {
-            if (SignupMenu.enterAnswerForSet(DataBase.selectSecurityQuestion(user.getSecurityQuestion())).equals(user.getSecurityQuestionAnswer()))
-                break;
-        }
-        String passwordError = "";
-        String password;
-        do {
-            password = SignupMenu.enterNewPassword(passwordError);
-            if (password.equals("random"))
-                password = makeRandomPassword();
-            passwordError = checkPassword(password);
-        } while (!passwordError.equals("accepted"));
-        user.setPassword(password);
-        if (invalidUsername.equals(username)) {
-            invalidUsername = "";
-            invalidLogin = 0;
-        }
-        return "Forgot password :password changed";
     }
 
     public static String makeRandomPassword() {

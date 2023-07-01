@@ -14,6 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -25,6 +27,7 @@ import org.example.controller.UnitMotionController;
 import org.example.enums.BuildingsImages;
 import org.example.enums.TroopImages;
 import org.example.model.DataBase;
+import org.example.model.GameInfo.Building;
 import org.example.model.GameInfo.Home;
 import org.example.model.GameInfo.Troop;
 import org.example.model.GameObjects.Fire;
@@ -35,6 +38,7 @@ import org.example.model.GameObjects.Star;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class FloorController {
@@ -73,7 +77,6 @@ public class FloorController {
         star.setImagePattern(imagePattern);
         GameMenu.pane.getChildren().add(star);
         floor.setStar(star);
-
     }
 
     private static void makeACommandStage(String path) {
@@ -111,22 +114,34 @@ public class FloorController {
         Home home = floor.getHome();
         Text text = new Text();
         text.setLayoutY(20);
+        String details = aHomeDet(home);
+        text.setText(details);
+        pane.getChildren().add(text);
+        stage.setScene(new Scene(pane));
+        stage.show();
+    }
+
+    private static String aHomeDet(Home home) {
         String details = "";
         details += "Name : " + home.getTypeOfFloor() + " \n";
-        if (home.getBuilding() != null)
-            details += "Building : " + home.getBuilding().getType() + " \n";
+        details += "Owner : " + home.getOwner().getOwner().getNickname() + " \n";
+        if (home.getBuilding() != null) {
+            details += "Building : \n" + "Type : " + home.getBuilding().getType() + " \n";
+            details += "Hitpoint : " + home.getBuilding().getHitpoint() + " \n";
+        }
         details += "Troops : \n";
         if (home.getTroops() != null) {
             for (int i = 0; i < home.getTroops().size(); i++) {
                 details += "Type : " + home.getTroops().get(i).getType() + " \n";
                 details += "State : " + home.getTroops().get(i).getState() + " \n";
                 details += "Power : " + home.getTroops().get(i).getPower() + " \n";
+                details += "Speed : " + home.getTroops().get(i).getSpeed() + " \n";
+                details += "___________________________ \n";
             }
+            if (home.getTroops().size() > 0)
+                details += "The total speed : " + gameMenu.getGameController().getTheMinimumSpeedOfTroops(home.getTroops()) + "\n";
         }
-        text.setText(details);
-        pane.getChildren().add(text);
-        stage.setScene(new Scene(pane));
-        stage.show();
+        return details;
     }
 
     public static void reset() {
@@ -151,6 +166,10 @@ public class FloorController {
             String out = gameMenu.getGameController().tryMoveUnit(first, first.getX(), first.getY(), tar.getX(), tar.getY(), check);
             if (check[0]) {
                 moveAnimation(first.getX(), first.getY(), tar.getX(), tar.getY());
+                first.getFloor().getTroop().setX(tar.getFloor().getX());
+                first.getFloor().getTroop().setY(tar.getFloor().getY());
+                tar.getFloor().setTroop(first.getFloor().getTroop());
+                first.getFloor().setTroop(null);
                 gameMenu.getGameController().resetSelectedTroopsFromGame();
             } else
                 DataBase.showAlert(out);
@@ -209,6 +228,9 @@ public class FloorController {
                 attackBaner();
                 if (isAnyFireThrower(gameMenu.getGameController().getCurrentGame().getSelectedTroops()))
                     FireAnimation(tar);
+                if (tar.getFloor().getBuilding() != null && tar.getBuilding() == null) {
+                    removeImage(tar.getFloor().getBuilding());
+                }
             } else {
                 DataBase.showAlert(out);
             }
@@ -284,8 +306,55 @@ public class FloorController {
     }
 
     public void selectFloors(MouseEvent mouseEvent) {
-        DataBase.showAlert("These are your selected floors info");
+        try {
+            Home first = selectedFloors.get(0).getHome();
+            Home tar = selectedFloors.get(1).getHome();
+            setSelectedFloors(first, tar);
+            DataBase.showAlert("These are your selected floors info");
+        } catch (Exception e) {
+
+        }
         reset();
+    }
+
+    private void setSelectedFloors(Home first, Home tar) {
+        selectedFloors.get(1).getStar().setRadius(0);
+        int minX = first.getX();
+        int minY = first.getY();
+        int maxX = tar.getX();
+        int maxY = tar.getY();
+        if (minX > maxX) {
+            int temp = maxX;
+            maxX = minX;
+            minX = temp;
+        }
+        if (minY > maxY) {
+            int temp = maxY;
+            maxY = minY;
+            minY = temp;
+        }
+        MapController mapController = new MapController(gameMenu.getGameController().getCurrentGame().getMap(), gameMenu.getGameController().getCurrentGame());
+        StringBuilder det = new StringBuilder();
+        try {
+            for (int i = minX; i <= maxX; i++) {
+                for (int j = minY; j <= maxY; j++) {
+                    addStar(mapController.getHomeByPosition(i, j).getFloor());
+                    selectedFloors.add(mapController.getHomeByPosition(i, j).getFloor());
+                    det.append(aHomeDet(mapController.getHomeByPosition(i, j)));
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+        ScrollPane scrollPane = new ScrollPane();
+        Label info = new Label();
+        System.out.println("det : " + det);
+        info.setTextFill(Color.BLUE);
+        info.setText(det.toString());
+        scrollPane.setContent(info);
+        stage.setScene(new Scene(scrollPane));
+        stage.show();
     }
 
     public void changeFloorType() {
@@ -362,10 +431,20 @@ public class FloorController {
         reset();
     }
 
-    public static void dropUnit(String name) {
+    public static void dropUnit(String name, Image image) {
         boolean[] check = new boolean[1];
         String output = gameMenu.getGameController().tryToCreateUnit(gameMenu.getGameController().getCurrentGame().getSelectedBuildingHome(), name, check);
         DataBase.showAlert(output);
+        if (check[0]) {
+            Home home = gameMenu.getGameController().getCurrentGame().getSelectedBuildingHome();
+            ImageView imageView = new ImageView(image);
+            imageView.setY(home.getFloor().getY());
+            imageView.setX(home.getFloor().getX());
+            imageView.setFitWidth(image.getWidth() / 2);
+            imageView.setFitHeight(image.getHeight() / 2);
+            home.getFloor().setTroop(imageView);
+            GameMenu.pane.getChildren().add(imageView);
+        }
         reset();
     }
 
@@ -403,7 +482,13 @@ public class FloorController {
 
     private void setTheImagesToTheScroll(ArrayList<Image> allImages, ArrayList<String> allNames, Pane pane, String type) {
         for (int i = 0; i < allImages.size(); i++) {
-            pane.getChildren().add(new ScrollImage(i * 60, 40, allImages.get(i), type, allNames.get(i)));
+            pane.getChildren().add(new ScrollImage(i * 100, 40, allImages.get(i), type, allNames.get(i)));
+            Label label = new Label();
+            label.setTextFill(Color.BLUE);
+            label.setLayoutX(i * 100);
+            label.setLayoutY(100);
+            label.setText(allNames.get(i));
+            pane.getChildren().add(label);
         }
     }
 
@@ -419,7 +504,7 @@ public class FloorController {
         Pane pane1 = new Pane();
         scrollPane.setContent(pane1);
         scrollPane.setLayoutY(300);
-        scrollPane.setPrefHeight(60);
+        scrollPane.setPrefHeight(100);
         scrollPane.setPrefWidth(500);
         Label back = new Label("back");
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -458,6 +543,7 @@ public class FloorController {
     }
 
     public static void dropBuilding(String buildingName, Image buildingImage) {
+        System.out.println(buildingName);
         boolean[] check = new boolean[1];
         String out = gameMenu.getGameController().tryToMakeBuilding(selectedFloors.get(0).getHome(), buildingName, check);
         if (check[0]) {
@@ -502,7 +588,55 @@ public class FloorController {
             showClipBoard();
         } else if (key.equals("Z")) {
             showMiniMap();
+        } else if (key.equals("H")) {
+            showHelp();
+        } else if (key.equals("T")) {
+            showTradeMenu();
+        } else if (key.equals("B")) {
+            showShopMenu();
         }
+    }
+
+    private void showShopMenu() {
+        if (!isAnyShop()) {
+            DataBase.showAlert("No Shop Building for you");
+            return;
+        }
+        //TODO
+        // Make a shop menu
+    }
+
+    private boolean isAnyShop() {
+        ArrayList<Home> allHomes = gameMenu.getGameController().getCurrentGame().getMap().getHomes();
+        for (int i = 0; i < allHomes.size(); i++) {
+            if (!allHomes.get(i).getOwner().equals(gameMenu.getGameController().getCurrentGovernment()))
+                continue;
+            if (allHomes.get(i).getBuilding() != null) {
+                if (allHomes.get(i).getBuilding().getType().equals("Shop"))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private void showTradeMenu() {
+        if (!isAnyShop()) {
+            DataBase.showAlert("No Shop Building for you");
+            return;
+        }
+        //TODO
+        // Make a Trade Menu
+    }
+
+    private void showHelp() {
+        Pane pane = new Pane();
+        Label label = new Label();
+        label.setTextFill(Color.BLUE);
+        label.setText("C : Copy\nM : Move\nA : Attack\nV : Paste\nQ : clipboard\nZ : MiniMap\n+ : zoomIn\n- : zoomOut\nT : tradeMenu\nB : ShopMenu");
+        pane.getChildren().add(label);
+        Stage stage1 = new Stage();
+        stage1.setScene(new Scene(pane));
+        stage1.show();
     }
 
     private void showMiniMap() {
@@ -573,6 +707,7 @@ public class FloorController {
             return;
         }
         this.changeFloorType(DataBase.copiedFloors.get(DataBase.copiedFloors.size() - 1).getHome().getTypeOfFloor());
+        System.out.println(DataBase.copiedFloors.get(DataBase.copiedFloors.size() - 1).getHome().getBuilding().getType());
         dropBuilding(DataBase.copiedFloors.get(DataBase.copiedFloors.size() - 1).getHome().getBuilding().getType(), DataBase.copiedFloors.get(DataBase.copiedFloors.size() - 1).getBuilding().getImage());
         reset();
     }
@@ -625,9 +760,25 @@ public class FloorController {
         String out = gameMenu.getGameController().tryClear(check, selectedFloors.get(0).getHome());
         if (check[0]) {
             changeFloorType("FlatGround");
+            if (selectedFloors.get(0).getBuilding() != null) {
+                removeImage(selectedFloors.get(0).getBuilding());
+            }
+            if (selectedFloors.get(0).getTroop() != null) {
+                removeImage(selectedFloors.get(0).getTroop());
+            }
         }
         DataBase.showAlert(out);
         reset();
+    }
+
+    public static void removeImage(ImageView imageView) {
+        try {
+            imageView.setX(-100);
+            imageView.setY(-100);
+        } catch (Exception e) {
+
+        }
+
     }
 
     public void popularity(MouseEvent mouseEvent) {
@@ -690,10 +841,30 @@ public class FloorController {
         Pane pane = setTheScrollBar();
         Label details = new Label();
         String det = gameMenu.getGameController().showPopularityFactors();
+        det += "Popularity Buildings : \n";
+        det += showPopularityBuildings();
         details.setLayoutY(30);
         details.setText(det);
-        details.setTextFill(Color.BURLYWOOD);
+        details.setTextFill(Color.BLUE);
         pane.getChildren().add(details);
+    }
+
+    private HashMap<String, Integer> showPopularityBuildings() {
+        ArrayList<Home> allHomes = gameMenu.getGameController().getCurrentGame().getMap().getHomes();
+        HashMap<String, Integer> allPopularityBuildings = new HashMap<>();
+        allPopularityBuildings.put("Cathedral", 0);
+        allPopularityBuildings.put("Inn", 0);
+        allPopularityBuildings.put("Church", 0);
+        for (int i = 0; i < allHomes.size(); i++) {
+            if (!allHomes.get(i).getOwner().equals(gameMenu.getGameController().getCurrentGovernment()))
+                continue;
+            if (allHomes.get(i).getBuilding() == null)
+                continue;
+            String buildingType = allHomes.get(i).getBuilding().getType();
+            if (buildingType.equals("Cathedral") || buildingType.equals("Inn") || buildingType.equals("Church"))
+                allPopularityBuildings.put(buildingType, allPopularityBuildings.get(buildingType) + 1);
+        }
+        return allPopularityBuildings;
     }
 
     public void close(KeyEvent keyEvent) {
@@ -725,5 +896,10 @@ public class FloorController {
             DataBase.sick = fire;
             home.getOwner().setPopularity(home.getOwner().getPopularity() - 2);
         }
+    }
+
+    public void changeTurn(MouseEvent mouseEvent) {
+        String out = gameMenu.getGameController().changeTurn();
+        DataBase.showAlert(out);
     }
 }

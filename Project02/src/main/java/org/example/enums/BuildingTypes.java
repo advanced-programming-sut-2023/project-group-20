@@ -1,7 +1,10 @@
 package org.example.enums;
 
 public enum BuildingTypes {
-    //TODO (IronMine) 0 --> 20
+    //TODO (IronMine) 0 --> 20 : Stone
+    //TODO (Barrack) 0 --> 15 : Stone
+    //TODO (MercenaryPost) 0 --> 10 : Wood
+    //TODO (Inn) 0 --> 10 : Wood
     IronMine(80, "IronMine", 10, "iron", 3, 0, 0, 0, 0, 0, 0, 0),
     StoneMine(120, "StoneMine", 20, "stone", 3, 0, 0, 0, 0, 0, 0, 0),
     WoodCutter(50, "WoodCutter", 35, "wood", 1, 0, 0, 0, 0, 0, 0, 0),
@@ -22,8 +25,8 @@ public enum BuildingTypes {
     SquareTower(80, "SquareTower", 0, "", 0, 35, 0, 0, 10, 10, 0, 0),
     CircleTower(75, "CircleTower", 0, "", 0, 40, 0, 0, 0, 0, 0, 0),
     Armoury(0, "Armoury", 0, "", 0, 0, 5, 0, 0, 0, 0, 0),
-    Barrack(100, "Barrack", 0, "", 0, 15, 0, 50, 0, 0, 0, 0),
-    MercenaryPost(100, "MercenaryPost", 0, "", 0, 0, 10, 30, 0, 0, 0, 0),
+    Barrack(100, "Barrack", 0, "", 0, 0, 0, 50, 0, 0, 0, 0),
+    MercenaryPost(100, "MercenaryPost", 0, "", 0, 0, 0, 30, 0, 0, 0, 0),
     EngineerGuild(100, "EngineerGuild", 0, "", 0, 0, 10, 100, 0, 0, 0, 0),
     KillingPit(40, "KillingPit", 0, "", 0, 0, 6, 0, 0, 0, 5, 0),
     OilSmelter(150, "OilSmelter", 0, "", 1, 0, 0, 100, 0, 0, 0, 0),
@@ -42,7 +45,8 @@ public enum BuildingTypes {
     Hunt(50, "Hunt", 5, "Meat", 1, 0, 5, 0, 0, 0, 0, 0),
     WheatField(30, "WheatField", 8, "wheat", 1, 0, 15, 0, 0, 0, 0, 0),
     //    //TownBuilding
-    Inn(40, "Inn", 0, "", 1, 0, 20, 100, 0, 0, 0, 0),
+    Inn(40, "Inn", 0, "", 1, 0, 0, 100, 0, 0, 0, 0),
+    Shop(40, "Shop", 0, "", 1, 0, 0, 300, 0, 0, 0, 0),
     Hovel(40, "Hovel", 0, "", 0, 6, 0, 0, 0, 0, 0, 0),
     Church(100, "Church", 0, "", 0, 0, 0, 250, 0, 0, 0, 2),
     Cathedral(200, "Cathedral", 0, "", 0, 0, 0, 1000, 0, 0, 0, 2),

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d3017c46-f2cd-4c21-9f30-90235c246827" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Project02/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/CheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/CheckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/enums/BuildingTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/enums/BuildingTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/enums/BuildingsImages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/enums/FloorType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/enums/TroopImages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameInfo/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameInfo/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameObjects/Fire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameObjects/Floor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameObjects/ScrollImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/GameObjects/Star.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/FloorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/GameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/LoginMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/LoginMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/ShopMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/SignupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/SignupMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/SignupMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/java/org/example/view/SignupMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/FloorCommand.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Question.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Question.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Project02/src/main/resources/FXML/Signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/onClickCommand.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/FXML/testGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/AppleGarden.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/ArabianBow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Archer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Armoury.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Assassins.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Barrack.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Beach.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/BigStoneGatehouse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/CagedWarDogs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Cathedral.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Church.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/CrossbowMen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/DairyProducts.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Drawbridge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Engineer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/EngineerGuild.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Fire0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Fire1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Fire2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Fire3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/FireThrowers.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/FlatGround.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Fletcher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Granery.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Grass.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/GreenPop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/HorseArcher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Hovel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Hunt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/IronGround.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/IronMine.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/KillingPit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Knight.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/LookoutTower.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/MaceMen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/MercenaryPost.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/OxTether.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/PikeMen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Poleturner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/RedPop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Rock.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Sea.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Slaves.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/SmallStoneGatehouse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/SpearMen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/StockPile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/StoneGround.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/StoneMine.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Tank.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Tunneler.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/Wall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/WoodCutter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/YellowPop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/armourer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/blacksmith.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/coin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/population.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/selectedBuilding.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/selectedTroops.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/sickness.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project02/src/main/resources/Image/star.jpg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Rvt8bqzvLlJSUe1YSecGPjqnJq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/erfan-b/Desktop/ProjectPhas1/Project02",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3017c46-f2cd-4c21-9f30-90235c246827" name="Changes" comment="" />
+      <created>1688142223244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688142223244</updated>
+    </task>
+    <servers />
+  </component>
+</project>

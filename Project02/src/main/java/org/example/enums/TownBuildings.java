@@ -2,6 +2,7 @@ package org.example.enums;
 
 public enum TownBuildings {
     Inn("Inn", 0, 0),
+    Shop("Shop", 0, 0),
     Hovel("Hovel", 8, 0),
     Church("Church", 0, 2),
     Cathedral("Cathedral", 0, 2),

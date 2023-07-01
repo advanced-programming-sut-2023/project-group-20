@@ -6,6 +6,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import org.example.controller.GameController;
 import org.example.view.FloorController;
 
 public class ScrollImage extends Rectangle {
@@ -27,7 +28,7 @@ public class ScrollImage extends Rectangle {
                 if (type.equals("Building")) {
                     FloorController.dropBuilding(name, image);
                 } else if (type.equals("Troop")) {
-                    FloorController.dropUnit(name);
+                    FloorController.dropUnit(name,image);
                 } else if (type.equals("EngineBuilding")) {
 
                 }

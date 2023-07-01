@@ -44,7 +44,8 @@ public enum BuildingsImages {
     Hunt(new Image(BuildingsImages.class.getResource("/Image/" + "Hunt" + ".jpg").toExternalForm())),
 //    WheatField(new Image(BuildingsImages.class.getResource("/Image/" + "WheatField" + ".jpg").toExternalForm())),
 //    //    //TownBuilding
-//    Inn(new Image(BuildingsImages.class.getResource("/Image/" + "Inn" + ".jpg").toExternalForm())),
+    Inn(new Image(BuildingsImages.class.getResource("/Image/" + "Inn" + ".jpg").toExternalForm())),
+    Shop(new Image(BuildingsImages.class.getResource("/Image/" + "Shop" + ".jpg").toExternalForm())),
     Hovel(new Image(BuildingsImages.class.getResource("/Image/" + "Hovel" + ".jpg").toExternalForm())),
     Church(new Image(BuildingsImages.class.getResource("/Image/" + "Church" + ".jpg").toExternalForm())),
     Cathedral(new Image(BuildingsImages.class.getResource("/Image/" + "Cathedral" + ".jpg").toExternalForm())),

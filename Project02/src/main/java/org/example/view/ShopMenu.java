@@ -47,6 +47,6 @@ public class ShopMenu extends Menu {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+    
     }
 }
