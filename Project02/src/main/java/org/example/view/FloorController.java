@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.controller.MapController;
+import org.example.controller.TradeController;
 import org.example.controller.UnitMotionController;
 import org.example.enums.BuildingsImages;
 import org.example.enums.TroopImages;
@@ -560,7 +561,7 @@ public class FloorController {
         reset();
     }
 
-    public void shortCuts(KeyEvent keyEvent) {
+    public void shortCuts(KeyEvent keyEvent) throws IOException {
         String key = keyEvent.getCode().getName();
         System.out.println(key);
         double firstSize = Floor.floorSize;
@@ -597,13 +598,13 @@ public class FloorController {
         }
     }
 
-    private void showShopMenu() {
+    private void showShopMenu() throws IOException {
         if (!isAnyShop()) {
             DataBase.showAlert("No Shop Building for you");
             return;
         }
-        //TODO
-        // Make a shop menu
+        ShopMenuController shopMenuController=new ShopMenuController();
+        shopMenuController.shopping(new Stage());
     }
 
     private boolean isAnyShop() {
@@ -619,13 +620,13 @@ public class FloorController {
         return false;
     }
 
-    private void showTradeMenu() {
+    private void showTradeMenu() throws IOException {
         if (!isAnyShop()) {
             DataBase.showAlert("No Shop Building for you");
             return;
         }
-        //TODO
-        // Make a Trade Menu
+        TradeMenuController tradeMenuController=new TradeMenuController();
+        tradeMenuController.trading(new Stage());
     }
 
     private void showHelp() {
